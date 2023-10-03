@@ -1,0 +1,32 @@
+\beamer@sectionintoc {1}{A 欢迎光临}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{简明题解}{2}{0}{1}
+\beamer@sectionintoc {2}{B 反应原理}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{简明题解}{8}{0}{2}
+\beamer@sectionintoc {3}{C 暮光闪闪}{12}{0}{3}
+\beamer@sectionintoc {4}{D 中考报名}{13}{0}{4}
+\beamer@sectionintoc {5}{E 填数游戏}{14}{0}{5}
+\beamer@sectionintoc {6}{F 初生几何}{15}{0}{6}
+\beamer@subsectionintoc {6}{1}{题意}{15}{0}{6}
+\beamer@subsectionintoc {6}{2}{简易题解}{16}{0}{6}
+\beamer@subsectionintoc {6}{3}{证明}{19}{0}{6}
+\beamer@sectionintoc {7}{G 排序算法}{22}{0}{7}
+\beamer@subsectionintoc {7}{1}{题意}{22}{0}{7}
+\beamer@subsectionintoc {7}{2}{算法 0}{23}{0}{7}
+\beamer@subsectionintoc {7}{3}{算法 1}{28}{0}{7}
+\beamer@sectionintoc {8}{H 购买车券}{35}{0}{8}
+\beamer@subsectionintoc {8}{1}{题意}{35}{0}{8}
+\beamer@subsectionintoc {8}{2}{算法 0}{36}{0}{8}
+\beamer@subsectionintoc {8}{3}{算法 1}{41}{0}{8}
+\beamer@subsectionintoc {8}{4}{算法 2}{45}{0}{8}
+\beamer@subsectionintoc {8}{5}{算法 3}{50}{0}{8}
+\beamer@subsectionintoc {8}{6}{算法 4}{57}{0}{8}
+\beamer@sectionintoc {9}{I 花腔星云}{64}{0}{9}
+\beamer@subsectionintoc {9}{1}{题意}{64}{0}{9}
+\beamer@subsectionintoc {9}{2}{算法 -1}{65}{0}{9}
+\beamer@subsectionintoc {9}{3}{算法 0}{69}{0}{9}
+\beamer@subsectionintoc {9}{4}{算法 1}{73}{0}{9}
+\beamer@subsectionintoc {9}{5}{算法 2}{78}{0}{9}
+\beamer@subsectionintoc {9}{6}{算法 3}{85}{0}{9}
+\beamer@sectionintoc {10}{J 妄想感伤}{95}{0}{10}
+\beamer@subsectionintoc {10}{1}{题意}{95}{0}{10}
+\beamer@subsectionintoc {10}{2}{算法 0}{96}{0}{10}
