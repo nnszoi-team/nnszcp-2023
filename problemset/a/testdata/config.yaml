@@ -1,0 +1,39 @@
+type: default
+time: 1000ms
+memory: 128MB
+subtasks:
+  - score: 45
+    if: []
+    id: 1
+    type: min
+    cases:
+      - input: 1_0_less_than_three.in
+        output: 1_0_less_than_three.ans
+      - input: 2_0_less_than_three.in
+        output: 2_0_less_than_three.ans
+      - input: 3_0_less_than_three.in
+        output: 3_0_less_than_three.ans
+  - score: 5
+    if: []
+    id: 2
+    type: min
+    cases:
+      - input: 4_1_equal_four.in
+        output: 4_1_equal_four.ans
+      - input: 5_1_equal_four.in
+        output: 5_1_equal_four.ans
+  - score: 50
+    if: []
+    id: 3
+    type: min
+    cases:
+      - input: 6_2_random.in
+        output: 6_2_random.ans
+      - input: 7_2_random.in
+        output: 7_2_random.ans
+      - input: 8_2_random.in
+        output: 8_2_random.ans
+      - input: 9_2_random.in
+        output: 9_2_random.ans
+      - input: 10_2_random.in
+        output: 10_2_random.ans

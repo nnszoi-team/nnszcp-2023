@@ -1,0 +1,20 @@
+type: default
+time: 2000ms
+memory: 128MB
+checker_type: testlib
+checker: checker.cpp
+subtasks:
+  - score: 20
+    if: []
+    id: 1
+    type: sum
+    cases:
+      - input: 01_0_spec_b_01.in
+        output: 01_0_spec_b_01.ans
+  - score: 80
+    if: []
+    id: 2
+    type: min
+    cases:
+      - input: 02_1_random_01.in
+        output: 02_1_random_01.ans

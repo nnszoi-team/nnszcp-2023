@@ -1,0 +1,48 @@
+type: default
+time: 2000ms
+subtasks:
+  - score: 20
+    if: []
+    id: 1
+    type: sum
+    cases:
+      - input: 01_0_small_01.in
+        output: 01_0_small_01.ans
+      - input: 02_0_small_02.in
+        output: 02_0_small_02.ans
+      - input: 03_0_small_03.in
+        output: 03_0_small_03.ans
+      - input: 04_0_small_04.in
+        output: 04_0_small_04.ans
+  - score: 30
+    id: 2
+    type: min
+    cases:
+      - input: 05_1_spec_01.in
+        output: 05_1_spec_01.ans
+      - input: 06_1_spec_02.in
+        output: 06_1_spec_02.ans
+      - input: 07_1_spec_03.in
+        output: 07_1_spec_03.ans
+      - input: 08_1_spec_04.in
+        output: 08_1_spec_04.ans
+  - score: 50
+    id: 3
+    type: min
+    cases:
+      - input: 09_2_random_02.in
+        output: 09_2_random_02.ans
+      - input: 10_2_random_03.in
+        output: 10_2_random_03.ans
+      - input: 11_2_random_04.in
+        output: 11_2_random_04.ans
+      - input: 12_2_random_05.in
+        output: 12_2_random_05.ans
+      - input: 13_2_random_06.in
+        output: 13_2_random_06.ans
+      - input: 14_2_random_07.in
+        output: 14_2_random_07.ans
+      - input: 15_2_random_08.in
+        output: 15_2_random_08.ans
+      - input: 16_2_random_09.in
+        output: 16_2_random_09.ans

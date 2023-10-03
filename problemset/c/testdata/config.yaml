@@ -1,0 +1,34 @@
+type: default
+time: 2000ms
+subtasks:
+  - score: 20
+    if: []
+    id: 1
+    type: sum
+    cases:
+      - input: 01_0_small_01.in
+        output: 01_0_small_01.ans
+      - input: 02_0_small_02.in
+        output: 02_0_small_02.ans
+  - score: 10
+    if: []
+    id: 2
+    type: min
+    cases:
+      - input: 03_1_spec_01.in
+        output: 03_1_spec_01.ans
+      - input: 04_1_spec_02.in
+        output: 04_1_spec_02.ans
+  - score: 70
+    if: []
+    id: 3
+    type: min
+    cases:
+      - input: 05_2_small_01.in
+        output: 05_2_small_01.ans
+      - input: 06_2_small_02.in
+        output: 06_2_small_02.ans
+      - input: 07_2_small_03.in
+        output: 07_2_small_03.ans
+      - input: 08_2_small_04.in
+        output: 08_2_small_04.ans
