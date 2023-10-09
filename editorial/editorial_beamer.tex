@@ -78,12 +78,37 @@ print(max(b))
 \end{frame}
 
 \section{C 暮光闪闪}
+\subsection{题意}
 \begin{frame}
   \begin{block}{题意}
+  	$ n $ 栋建筑物，每一栋建筑物的高度为 $ h_i $。\\
+  	$ m $ 匹天马中，对于第 $ i $ 匹天马，其飞行的高度为 $ s_i $。\\
+  	对两座建筑 $i, j$，第 $k$ 匹天马能够在这两座建筑之间飞行，当且仅当 $\mid h_i - h_j \mid \le s_k$。\\
+  	对于每一匹天马，求其最多能够在多少对建筑之间穿梭？\\
+  	保证 $ 1 \le m \le 10^5$，$1 \le n \le 2 \times 10^3 $。
   \end{block}
 \end{frame}
 
+\subsection{简要题意}
+
+\begin{frame}
+\pause
+对于 Subtask 0：对于每匹天马，枚举每一对建筑，并判断它是否能在该对建筑之间穿梭。时间复杂度为 $ \mathcal{O} \left(n^2m\right) $。\\
+\pause
+对于 Subtask 1：由 $ s_i > 0 $ 可知，每一匹天马均可在建筑中任意穿梭，故答案为 $ \frac{n(n - 1)}{2} $。\\
+\pause
+对于 Subtask 2：\\
+\pause
+预处理每对建筑之间的高度差，并将其升序排序。对于每匹天马，在高度差数组中通过二分查找得到答案。\\
+\pause
+预处理高度差并排序的时间复杂度为 $ \mathcal{O} \left(n^2 \log{n^2} \right) $，进行 $ m $ 次二分查找的时间复杂度为 $ \mathcal{O} \left(m \log{n^2} \right) $，故总时间复杂度为 $ \mathcal{O} \left(\left(n^2 + m\right) \log{n^2} \right) $，可以通过。\\
+\pause
+有更优的做法，但这是 C。
+\end{frame}
+
 \section{D 中考报名}
+
+\subsection{题意}
 \begin{frame}
   \begin{block}{题意}
     按照一定规则对进行考生进行排名。\\
@@ -91,10 +116,52 @@ print(max(b))
   \end{block}
 \end{frame}
 
+\subsection{简要题解}
+\begin{frame}
+	\pause
+	本题是模拟题。减小编码难度、减少码量从而快速解决本题，才能拥有更多的时间解决后面的题目。\\
+	\pause
+	本题 \texttt{C++} 标程仅约 700 Byte，\texttt{Python} 标程仅约 400 Byte，它z们都用到了以下优化技巧来减小码量。\\
+	\pause
+	\begin{itemize}
+		\item 使用 \texttt{tuple} 而非 \texttt{struct} 或 \texttt{class} 表示考生。
+		\pause
+		\item 运用位运算技巧，仅用一个整数即可表示考生各科 $ \texttt{A+} $ 情况。
+		\pause
+	\end{itemize}
+	运用位运算技巧将考生各科 $ \texttt{A+} $ 情况压缩成一个整数，即可以方便地在 \texttt{tuple} 中存储考生的数据，又可以通过直接比较整数的大小来分出成绩的优劣。\\
+	\pause
+	而且，\texttt{tuple} 自带关键字比较功能，我们无需重载运算符或手写 \texttt{cmp()} 函数，进一步减小了码量。\\
+\end{frame}
+
 \section{E 填数游戏}
+\subsection{题意}
 \begin{frame}
   \begin{block}{题意}
+  	构造一个 $n \times n$ 的矩阵，每个元素都 $\in \left[0, k\right]$，使得任意选择不在同行或同列的数直到无法选择后，将它们求和得到 $k$，或判断无解。\\
+  	多组数据，$1 \le T \le 10$，$1 \le n \le 500$，$1 \le k \le {10}^9$。\\
   \end{block}
+\end{frame}
+
+\subsection{简要题解}
+\begin{frame}
+	\pause
+	可以先考虑无解的情况，构造一个从 $0$ 开始一直加到 $n^2-1$ 的矩阵，这显然是最小的合法矩阵。\\
+	\pause
+	对其按题意的操作求和后的值为 $s=\frac{(n+1)n(n-1)}{2}$ ，如果所给的 $k < s$，就是无解的情况，因为我们无法构造出比这个还小的矩阵，否则就会出现重复的元素。\\
+	\pause
+	如果你只输出 -1 ，是一分也没有的。\\
+\end{frame}
+
+\begin{frame}
+	\pause
+	那么要怎么构造呢？\\
+	\pause
+	我们现在已经有一个最小的合法矩阵了，其实只要在这个基础上加一加就好了。\\
+	\pause
+	具体的，只要把最大那行 $l$（从 $n^2-1-n$ 到 $n^2-1$）都加上 $(k-s)$ 就好了，因为每行只会选出一个元素， $l$ 中元素也一定会被选到一个，就会使得 $s\leftarrow s+(k-s)$，在最大一行加是为了避免元素重复，于是就做完了。\\
+	\pause
+	当然其实不只这一种构造方法，但只要构造出的矩阵相邻两列中每一行元素的差都相等，就可以使得任意选出来的结果都一样，然后再使得结果与 $k$ 相等即可。\\
 \end{frame}
 
 \section{F 初生几何}
