@@ -1,0 +1,203 @@
+@font-face {
+    font-family: new-font-family-sc;
+    src: url(./ioiproblem/simsun.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: new-font-family-sc;
+    src: url(./ioiproblem/simhei.ttf);
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: new-font-family-sc;
+    src: url(./ioiproblem/simkai.ttf);
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: new-font-family-en;
+    src: url(./ioiproblem/cmunrm.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: new-font-family-en;
+    src: url(./ioiproblem/cmunbx.ttf);
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: new-font-family-en;
+    src: url(./ioiproblem/cmunti.ttf);
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: new-font-famity-mono;
+    src: url(./ioiproblem/consola.ttf);
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+	max-width: 1200px;
+    }
+}
+
+html {
+    color: black;
+    background-color: white;
+    font-family: new-font-family-en, new-font-family-sc;
+    font-style: normal;
+    font-weight: normal;
+}
+
+p {
+    color: black;
+    text-align: left;
+    position: relative;
+    font-family: new-font-family-en, new-font-family-sc;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+p.title {
+    color: black;
+    margin: auto;
+    position: relative;
+    font-family: new-font-family-en, new-font-family-sc;
+    font-weight: bold;
+    font-size: 1.75em;
+}
+
+ul {
+    font-family: new-font-family-en, new-font-family-sc;
+}
+
+ol {
+    font-family: new-font-family-en, new-font-family-sc;
+}
+
+pre {
+    padding: 1px;
+    border: 1px solid blue;
+}
+
+code {
+    font-family: new-font-family-mono, "Consolas", monospace;
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: new-font-family-en, new-font-family-sc;
+    position: relative;
+    font-weight: bold;
+    cursor: text;
+}
+
+h1 {
+    font-size: 1.75em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.25em;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1.1em;
+}
+h6 {
+    font-size: 1em;
+}
+
+img {
+    margin: 100px;
+}
+
+table {
+    border: 2px solid black;
+    width: 30%;
+}
+table, th, td {
+    margin: 0 auto;
+    padding: 1pt;
+    text-align: center;
+}
+
+@media print, screen {
+    html {
+	    font-size: 12pt;
+    }
+    table, p, div, pre {
+	    page-break-inside: avoid;
+    }
+    p.title {
+        color: black;
+        text-align: center;
+        margin: auto;
+        position: relative;
+        font-family: new-font-family-en, new-font-family-sc;
+        font-weight: bold;
+        font-size: 1.8em;
+        padding: 4pt;
+    }
+    p.semititle {
+        color: black;
+        text-align: center;
+        margin: auto;
+        position: relative;
+        font-family: new-font-family-mono, "Consolas", monospace;
+        font-weight: normal;
+        font-size: 2em;
+        padding: 4pt;
+    }
+    p.problem {
+        color: black;
+        text-align: center;
+        margin: auto;
+        position: relative;
+        font-family: new-font-family-en, new-font-family-sc;
+        font-weight: bold;
+        font-size: 1.1em;
+        padding: 4pt;
+    }
+    p.time {
+        color: black;
+        text-align: center;
+        margin: auto;
+        position: relative;
+        font-family: new-font-family-en, new-font-family-sc;
+        font-weight: normal;
+        font-size: 1.25em;
+        padding: 4pt;
+    }
+    h1 {
+	    page-break-before: always;
+	    page-break-after: avoid;
+    }
+    h2, h3, h4, h5, h6 {
+	    page-break-before: auto;
+	    page-break-after: avoid;
+    }
+    pre {
+	    word-wrap: break-word;
+    }
+}
