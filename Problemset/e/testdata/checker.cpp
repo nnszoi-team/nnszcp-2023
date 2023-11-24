@@ -1,72 +1,57 @@
-#include <bits/stdc++.h>
-
 #include "testlib.h"
+#include <unordered_set>
+#include <vector>
 
-using namespace std;
-int n, s, sum, k;
-int a[505][505];
-bool bj[505];
-bool f;
-unordered_map<int, int> mp;
+int main(int argc, char *argv[]) {
+	registerTestlibCmd(argc, argv);
 
-bool check() {
-  int tmp;
-  mp.clear();
-  memset(bj, 0, sizeof bj);
-  sum = 0;
-  f = 1;
-  for (int i = 1; i <= n; i++) {
-    sum += a[i][1];
-    for (int j = 1; j <= n; j++) {
-      if (a[i][j] > k or a[i][j] < 0) {
-        f = 0;
-      }
-      if (mp.find(a[i][j]) != mp.end()) {
-        f = 0;
-      }
-      mp.insert({a[i][j], 0});
-    }
-  }
-  if (!f) return 0;
-  for (int j = 1; j < n; j++) {
-    int cha = abs(a[1][1] - a[1][j + 1]);
-    sum += cha;
-    for (int i = 2; i <= n; i++) {
-      if (abs(a[i][1] - a[i][j + 1]) != cha) return 0;
-    }
-  }
+	int T = inf.readInt();
+	while (T--) {
+		int n = inf.readInt(), k = inf.readInt();
+		if (k < (n - 1) * n * (n + 1) / 2) {
+			int tmp = ouf.readInt();
+			if (tmp == -1)
+				continue;
+			else {
+				quitf(_wa, "Answer matrix found when there is no solution.");
+				break;
+			}
+		}
 
-  if (sum != k) return 0;
-  return 1;
-}
+		std::vector<std::vector<int>> a(n, std::vector<int>(n));
+		std::unordered_set<int> set;
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				a[i][j] = ouf.readInt();
 
-int main(int argc, char* argv[]) {
-  registerTestlibCmd(argc, argv);
-  int T = inf.readInt();
+				if (a[i][j] < 0 || k < a[i][j])
+					quitf(_wa, "Element in the answer matrix out of range.");
 
-  int cnt = 0;
-  while (T--) {
-    n = inf.readInt(), k = inf.readInt();
-    if (k < ((n - 1) * n * (n + 1) >> 1)) {
-      int tmp = ouf.readInt();
-      if (tmp == -1)
-        continue;
-      else {
-        quitf(_wa, "The answer is wrong.");
-        break;
-      }
-    }
+				if (set.count(a[i][j]))
+					quitf(_wa, "Repeated element found in the answer matrix.");
+				set.insert(a[i][j]);
+			}
+		}
+		set.clear();
 
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= n; j++) {
-        a[i][j] = ouf.readInt();
-      }
-    }
-    if (!check()) {
-      quitf(_wa, "The answer is wrong.");
-      break;
-    }
-  }
-  quitf(_ok, "The answer is correct.");
-  return 0;
+		long long sum = 0;
+		for (int i = 0; i < n; ++i)
+			sum += a[i][0];
+
+		for (int j = 0; j < n - 1; ++j) {
+			long long diff = a[0][j + 1] - a[0][j];
+			sum += (n - j - 1) * diff;
+			for (int i = 1; i < n; ++i) {
+				if (a[i][j + 1] - a[i][j] != diff)
+					quitf(_wa, "There is a way to choose elements from the answer matrix "
+							   "such that the sum of the elements does not equal to k.");
+			}
+		}
+		if (sum != k)
+			quitf(_wa, "There is a way to choose elements from the answer matrix such "
+					   "that the sum of the elements does not equal to k.");
+	}
+	quitf(_ok, "The answer is correct.");
+
+	return 0;
 }
