@@ -1,0 +1,125 @@
+type: default
+time: 2000ms
+checker_type: testlib
+checker: checker.cpp
+subtasks:
+  - score: 5
+    if: []
+    id: 1
+    type: min
+    cases:
+      - input: 001_000.in
+        output: 001_000.ans
+      - input: 002_000.in
+        output: 002_000.ans
+      - input: 003_000.in
+        output: 003_000.ans
+  - score: 12
+    if: []
+    id: 2
+    type: min
+    cases:
+      - input: 004_001.in
+        output: 004_001.ans
+      - input: 005_001.in
+        output: 005_001.ans
+      - input: 006_001.in
+        output: 006_001.ans
+      - input: 007_001.in
+        output: 007_001.ans
+      - input: 008_001.in
+        output: 008_001.ans
+  - score: 13
+    if: []
+    id: 3
+    type: min
+    cases:
+      - input: 009_002.in
+        output: 009_002.ans
+      - input: 010_002.in
+        output: 010_002.ans
+      - input: 011_002.in
+        output: 011_002.ans
+      - input: 012_002.in
+        output: 012_002.ans
+      - input: 013_002.in
+        output: 013_002.ans
+  - score: 22
+    if: []
+    id: 4
+    type: min
+    cases:
+      - input: 014_003.in
+        output: 014_003.ans
+      - input: 015_003.in
+        output: 015_003.ans
+      - input: 016_003.in
+        output: 016_003.ans
+      - input: 017_003.in
+        output: 017_003.ans
+      - input: 018_003.in
+        output: 018_003.ans
+      - input: 019_003.in
+        output: 019_003.ans
+  - score: 23
+    if: []
+    id: 5
+    type: min
+    cases:
+      - input: 020_004.in
+        output: 020_004.ans
+      - input: 021_004.in
+        output: 021_004.ans
+      - input: 022_004.in
+        output: 022_004.ans
+      - input: 023_004.in
+        output: 023_004.ans
+      - input: 024_004.in
+        output: 024_004.ans
+      - input: 025_004.in
+        output: 025_004.ans
+      - input: 026_004.in
+        output: 026_004.ans
+      - input: 027_004.in
+        output: 027_004.ans
+      - input: 028_004.in
+        output: 028_004.ans
+      - input: 029_004.in
+        output: 029_004.ans
+  - score: 25
+    if: []
+    id: 6
+    type: min
+    cases:
+      - input: 030_005.in
+        output: 030_005.ans
+      - input: 031_005.in
+        output: 031_005.ans
+      - input: 032_005.in
+        output: 032_005.ans
+      - input: 033_005.in
+        output: 033_005.ans
+      - input: 034_005.in
+        output: 034_005.ans
+      - input: 035_005.in
+        output: 035_005.ans
+      - input: 036_005.in
+        output: 036_005.ans
+      - input: 037_005.in
+        output: 037_005.ans
+      - input: 038_005.in
+        output: 038_005.ans
+      - input: 039_005.in
+        output: 039_005.ans
+      - input: 040_005.in
+        output: 040_005.ans
+      - input: 041_005.in
+        output: 041_005.ans
+      - input: 042_005.in
+        output: 042_005.ans
+      - input: 043_005.in
+        output: 043_005.ans
+      - input: 044_005.in
+        output: 044_005.ans
+      - input: 045_005.in
+        output: 045_005.ans
