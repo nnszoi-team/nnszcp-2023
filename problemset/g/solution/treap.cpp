@@ -1,138 +1,112 @@
 #include <cstdlib>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-const int inf = 1 << 30;
-const int max_n = 2e5 + 10;
+class Treap {
+  private:
+	struct Node {
+		Node *lc, *rc;
+		int value, key;
+		int size;
 
-struct Node {
-  int lc, rc;
-  int value, dat;
-  int size;
+		Node(const int value = 0)
+			: lc(nullptr), rc(nullptr), value(value), key(rand()), size(1) {}
+
+		void upd_size() {
+			this->size = 1;
+			if (this->lc) this->size += this->lc->size;
+			if (this->rc) this->size += this->rc->size;
+		}
+	};
+
+	Node *root;
+
+	void zig(Node *&cur) {
+		Node *prev_lc = cur->lc;
+		cur->lc = prev_lc->rc;
+		prev_lc->rc = cur;
+
+		cur = prev_lc;
+
+		cur->rc->upd_size();
+		cur->upd_size();
+	}
+
+	void zag(Node *&cur) {
+		Node *prev_rc = cur->rc;
+		cur->rc = prev_rc->lc;
+		prev_rc->lc = cur;
+
+		cur = prev_rc;
+
+		cur->lc->upd_size();
+		cur->upd_size();
+	}
+
+	void insert(Node *&cur, const int value) {
+		if (!cur) {
+			cur = new Node(value);
+			return;
+		}
+		if (cur->value == value) return;
+
+		if (cur->value > value) {
+			insert(cur->lc, value);
+			if (cur->key < cur->lc->key) zig(cur);
+		} else {
+			insert(cur->rc, value);
+			if (cur->key < cur->rc->key) zag(cur);
+		}
+		cur->upd_size();
+	}
+
+	int query(const Node *cur, const int value) const {
+		if (!cur) return 0;
+		if (cur->value < value) return query(cur->rc, value);
+		if (cur->value == value) return cur->rc ? cur->rc->size : 0;
+		return query(cur->lc, value) + 1 + (cur->rc ? cur->rc->size : 0);
+	}
+
+	void del(Node *&cur) {
+		if (!cur) return;
+		del(cur->lc), del(cur->rc);
+		delete cur;
+		cur = nullptr;
+	}
+
+  public:
+	Treap() : root(nullptr) {}
+	~Treap() { del(root); }
+	void insert(const int value) { insert(root, value); }
+	int query(const int value) const { return query(root, value); }
 };
-
-struct Treap {
-  int root;
-  int cnt_node = 0;
-  Node node[max_n];
-
-  void new_node(const int value);
-  void update(const int idx);
-  void build();
-
-  void zig(int& father);
-  void zag(int& father);
-  void insert(const int value, int& cur);
-
-  int query(const int value, const int cur);
-};
-
-int a[max_n];
-Treap treap;
 
 int main() {
-  freopen("sort.in", "r", stdin);
-  freopen("sort.out", "w", stdout);
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
 
-  int n;
-  scanf("%d", &n);
-  for (int i = 1; i <= n; ++i) {
-    scanf("%d", &a[i]);
-  }
+	int n;
+	std::cin >> n;
+	std::vector<int> a(n);
+	for (int &i : a)
+		std::cin >> i;
 
-  long long ans = 0;
-  for (int i = 2; i <= n; ++i) {
-    if (a[i] <= a[1]) {
-      continue;
-    }
-    ++ans;
-    swap(a[i], a[1]);
-  }
+	long long ans = 0;
+	for (int i = 1; i < n; ++i) {
+		if (a[i] <= a[0]) continue;
 
-  treap.build();
-  treap.insert(a[1], treap.root);
-  for (int i = 2; i <= n; ++i) {
-    treap.insert(a[i], treap.root);
-    ans += treap.query(a[i], treap.root) - 3;
-  }
+		std::swap(a[0], a[i]);
+		++ans;
+	}
 
-  printf("YES\n%lld\n", ans);
+	Treap treap;
+	treap.insert(a[0]);
+	for (int i = 1; i < n; ++i) {
+		ans += treap.query(a[i]);
+		treap.insert(a[i]);
+	}
 
-  return 0;
-}
+	std::cout << "YES\n" << ans << '\n';
 
-void Treap::new_node(const int value) {
-  node[++cnt_node].value = value;
-  node[cnt_node].dat = rand();
-  node[cnt_node].size = 1;
-}
-
-void Treap::update(const int idx) {
-  node[idx].size = node[node[idx].lc].size + node[node[idx].rc].size + 1;
-}
-
-void Treap::build() {
-  new_node(inf);
-  new_node(-inf);
-  root = 1;
-  node[root].rc = 2;
-  update(root);
-}
-
-void Treap::zig(int& father) {
-  int child = node[father].lc;
-
-  node[father].lc = node[child].rc;
-  node[child].rc = father;
-
-  father = child;
-
-  update(node[father].rc);
-  update(father);
-}
-
-void Treap::zag(int& father) {
-  int child = node[father].rc;
-
-  node[father].rc = node[child].lc;
-  node[child].lc = father;
-
-  father = child;
-
-  update(node[father].lc);
-  update(father);
-}
-
-void Treap::insert(const int value, int& cur) {
-  if (!cur) {
-    new_node(value);
-    cur = cnt_node;
-    return;
-  }
-  if (value == node[cur].value) {
-    return;
-  }
-
-  if (value < node[cur].value) {
-    insert(value, node[cur].lc);
-    if (node[cur].dat < node[node[cur].lc].dat) {
-      zig(cur);
-    }
-  } else {
-    insert(value, node[cur].rc);
-    if (node[cur].dat < node[node[cur].rc].dat) {
-      zag(cur);
-    }
-  }
-  update(cur);
-}
-
-int Treap::query(const int value, const int cur) {
-  if (value > node[cur].value) {
-    return query(value, node[cur].rc);
-  }
-  if (value == node[cur].value) {
-    return node[node[cur].rc].size + 1;
-  }
-  return query(value, node[cur].lc) + node[node[cur].rc].size + 1;
+	return 0;
 }

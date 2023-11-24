@@ -1,66 +1,68 @@
-#include <iostream>
 #include <algorithm>
-using namespace std;
+#include <iostream>
+#include <vector>
 
-const int max_n = 2e5 + 10;
+class Bit {
+  private:
+	int n;
+	std::vector<int> bit;
 
-int n, m;
-int a[max_n], b[max_n];
-bool added[max_n];
-int bit[max_n];
+	int query(const int idx) {
+		int res = 0;
+		for (int i = idx; i; i -= i & -i)
+			res += bit[i];
+		return res;
+	}
 
-void add(const int idx);
-int query(const int idx);
+  public:
+	Bit(const int n = 0) : n(n), bit(std::vector<int>(n + 1)) {}
+
+	void add(const int idx) {
+		for (int i = idx; i <= n; i += i & -i)
+			++bit[i];
+	}
+
+	int query(const int l, const int r) { return query(r) - query(l - 1); }
+};
 
 int main() {
-	
-	freopen("sort.in", "r", stdin);
-	freopen("sort.out", "w", stdout);
-	
-	scanf("%d", &n);
-	for (int i = 1; i <= n; ++i) {
-		scanf("%d", &a[i]);
-		b[i] = a[i];
-	}
-	sort(b + 1, b + n + 1);
-	m = unique(b + 1, b + n + 1) - (b + 1);
-	
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+
+	int n;
+	std::cin >> n;
+	std::vector<int> a(n);
+	for (int &i : a)
+		std::cin >> i;
+
 	long long ans = 0;
-	for (int i = 2; i <= n; ++i) {
-		if (a[i] <= a[1]) {
-			continue;
-		}
+	for (int i = 1; i < n; ++i) {
+		if (a[i] <= a[0]) continue;
+
+		std::swap(a[0], a[i]);
 		++ans;
-		swap(a[i], a[1]);
 	}
-	
+
+	std::vector<int> b = a;
+	std::sort(b.begin(), b.end());
+	b.erase(std::unique(b.begin(), b.end()), b.end());
+
+	int m = b.size();
+	std::vector<bool> added(m + 1);
+	Bit bit(m);
+
+	bit.add(m);
 	added[m] = true;
-	add(m);
-	for (int i = 2; i <= n; ++i) {
-		int idx = lower_bound(b + 1, b + m + 1, a[i]) - b;
+	for (int i = 1; i < n; ++i) {
+		int idx = std::lower_bound(b.begin(), b.end(), a[i]) - b.begin() + 1;
 		if (!added[idx]) {
-			add(idx);
+			bit.add(idx);
 			added[idx] = true;
 		}
-		ans += query(m) - query(idx);
+		ans += bit.query(idx + 1, m);
 	}
-	
-	printf("YES\n%lld\n", ans);
-	
+
+	std::cout << "YES\n" << ans << '\n';
+
 	return 0;
 }
-
-void add(const int idx) {
-	for (int i = idx; i <= m; i += i & -i) {
-		++bit[i];
-	}
-}
-
-int query(const int idx) {
-	int res = 0;
-	for (int i = idx; i; i -= i & -i) {
-		res += bit[i];
-	}
-	return res;
-}
-

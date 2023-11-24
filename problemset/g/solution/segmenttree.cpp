@@ -1,102 +1,103 @@
-#include <iostream>
 #include <algorithm>
-using namespace std;
+#include <iostream>
+#include <vector>
 
-const int max_n = 2e5 + 10;
+class SegmentTree {
+  private:
+	struct Node {
+		Node *lc, *rc;
+		int l, r;
+		int sum;
 
-struct Node {
-	int l, r;
-	int sum;
+		Node(const int l = 0, const int r = 0)
+			: lc(nullptr), rc(nullptr), l(l), r(r), sum(0) {}
+
+		void push_up() {
+			this->sum = 0;
+			if (this->lc) this->sum += this->lc->sum;
+			if (this->rc) this->sum += this->rc->sum;
+		}
+	};
+
+	Node *root;
+
+	void build(Node *&cur, const int l, const int r) {
+		cur = new Node(l, r);
+		if (l == r) return;
+
+		int mid = (l + r) >> 1;
+		build(cur->lc, l, mid);
+		build(cur->rc, mid + 1, r);
+	}
+
+	void modify(Node *cur, const int idx) {
+		if (cur->l == cur->r) {
+			cur->sum = 1;
+			return;
+		}
+
+		int mid = (cur->l + cur->r) >> 1;
+		modify(idx <= mid ? cur->lc : cur->rc, idx);
+		cur->push_up();
+	}
+
+	int query(Node *cur, const int l, const int r) const {
+		if (l <= cur->l && cur->r <= r) return cur->sum;
+
+		int mid = (cur->l + cur->r) >> 1;
+		int res = 0;
+		if (l <= mid) res += query(cur->lc, l, r);
+		if (r > mid) res += query(cur->rc, l, r);
+		return res;
+	}
+
+	void del(Node *&cur) {
+		if (!cur) return;
+		del(cur->lc), del(cur->rc);
+		delete cur;
+		cur = nullptr;
+	}
+
+  public:
+	SegmentTree() : root(nullptr) {}
+	SegmentTree(const int n) : root(nullptr) { build(root, 1, n); }
+	~SegmentTree() { del(root); }
+	void modify(const int idx) { modify(root, idx); }
+	int query(const int l, const int r) const { return query(root, l, r); }
 };
-
-struct SegmentTree {
-	
-	Node node[max_n << 2];
-	
-	void build(const int l, const int r, const int cur = 1);
-	void update(const int idx, const int cur = 1);
-	int query(const int l, const int r, const int cur = 1);
-};
-
-int n, m;
-int a[max_n], b[max_n];
-SegmentTree segment_tree;
 
 int main() {
-	
-	freopen("sort.in", "r", stdin);
-	freopen("sort.out", "w", stdout);
-	
-	scanf("%d", &n);
-	for (int i = 1; i <= n; ++i) {
-		scanf("%d", &a[i]);
-		b[i] = a[i];
-	}
-	sort(b + 1, b + n + 1);
-	m = unique(b + 1, b + n + 1) - (b + 1);
-	
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+
+	int n;
+	std::cin >> n;
+	std::vector<int> a(n);
+	for (int &i : a)
+		std::cin >> i;
+
 	long long ans = 0;
-	for (int i = 2; i <= n; ++i) {
-		if (a[i] <= a[1]) {
-			continue;
-		}
+	for (int i = 1; i < n; ++i) {
+		if (a[i] <= a[0]) continue;
+
+		std::swap(a[0], a[i]);
 		++ans;
-		swap(a[i], a[1]);
 	}
-	
-	segment_tree.build(1, n);
-	segment_tree.update(m);
-	for (int i = 2; i <= n; ++i) {
-		ans += segment_tree.query(upper_bound(b + 1, b + m + 1, a[i]) - b, m);
-		segment_tree.update(lower_bound(b + 1, b + m + 1, a[i]) - b);
+
+	std::vector<int> b = a;
+	std::sort(b.begin(), b.end());
+	b.erase(std::unique(b.begin(), b.end()), b.end());
+
+	int m = b.size();
+	SegmentTree segment_tree(m);
+	segment_tree.modify(m);
+	for (int i = 1; i < n; ++i) {
+		int idx = std::lower_bound(b.begin(), b.end(), a[i]) - b.begin() + 1;
+		segment_tree.modify(idx);
+		ans += segment_tree.query(idx + 1, m);
 	}
-	
-	printf("YES\n%lld\n", ans);
-	
+
+	std::cout << "YES\n" << ans << '\n';
+
 	return 0;
 }
-
-void SegmentTree::build(const int l, const int r, const int cur) {
-	node[cur].l = l;
-	node[cur].r = r;
-	if (l == r) {
-		return;
-	}
-	
-	int mid = l + r >> 1;
-	build(l, mid, cur << 1);
-	build(mid + 1, r, cur << 1 | 1);
-}
-
-void SegmentTree::update(const int idx, const int cur) {
-	if (node[cur].l == node[cur].r) {
-		node[cur].sum = 1;
-		return;
-	}
-	
-	int mid = node[cur].l + node[cur].r >> 1;
-	if (idx <= mid) {
-		update(idx, cur << 1);
-	}
-	else {
-		update(idx, cur << 1 | 1);
-	}
-	node[cur].sum = node[cur << 1].sum + node[cur << 1 | 1].sum;
-}
-
-int SegmentTree::query(const int l, const int r, const int cur) {
-	if (l <= node[cur].l && node[cur].r <= r) {
-		return node[cur].sum;
-	}
-	
-	int mid = node[cur].l + node[cur].r >> 1;
-	int res = 0;
-	if (l <= mid) {
-		res += query(l, r, cur << 1);
-	}
-	if (r > mid) {
-		res += query(l, r, cur << 1 | 1);
-	}
-	return res;
-}
-
