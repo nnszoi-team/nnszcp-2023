@@ -2,18 +2,17 @@ type: default
 time: 2000ms
 subtasks:
   - score: 20
-    if: []
     id: 1
-    type: sum
+    type: min
     cases:
       - input: 01_0_small_01.in
         output: 01_0_small_01.ans
       - input: 02_0_small_02.in
         output: 02_0_small_02.ans
-      - input: 03_0_small_03.in
-        output: 03_0_small_03.ans
-      - input: 04_0_small_04.in
-        output: 04_0_small_04.ans
+      - input: 03_0_increasing_distinct_small_03.in
+        output: 03_0_increasing_distinct_small_03.ans
+      - input: 04_0_decreasing_distinct_small_04.in
+        output: 04_0_decreasing_distinct_small_04.ans
   - score: 30
     id: 2
     type: min
@@ -26,23 +25,71 @@ subtasks:
         output: 07_1_spec_03.ans
       - input: 08_1_spec_04.in
         output: 08_1_spec_04.ans
+      - input: 09_1_increasing_distinct_spec_05.in
+        output: 09_1_increasing_distinct_spec_05.ans
+      - input: 10_1_increasing_distinct_spec_06.in
+        output: 10_1_increasing_distinct_spec_06.ans
+      - input: 11_1_increasing_distinct_spec_07.in
+        output: 11_1_increasing_distinct_spec_07.ans
+      - input: 12_1_decreasing_distinct_spec_08.in
+        output: 12_1_decreasing_distinct_spec_08.ans
+      - input: 13_1_decreasing_distinct_spec_09.in
+        output: 13_1_decreasing_distinct_spec_09.ans
   - score: 50
     id: 3
     type: min
     cases:
-      - input: 09_2_random_02.in
-        output: 09_2_random_02.ans
-      - input: 10_2_random_03.in
-        output: 10_2_random_03.ans
-      - input: 11_2_random_04.in
-        output: 11_2_random_04.ans
-      - input: 12_2_random_05.in
-        output: 12_2_random_05.ans
-      - input: 13_2_random_06.in
-        output: 13_2_random_06.ans
-      - input: 14_2_random_07.in
-        output: 14_2_random_07.ans
-      - input: 15_2_random_08.in
-        output: 15_2_random_08.ans
-      - input: 16_2_random_09.in
-        output: 16_2_random_09.ans
+      - input: 14_2_random_01.in
+        output: 14_2_random_01.ans
+      - input: 15_2_random_02.in
+        output: 15_2_random_02.ans
+      - input: 16_2_random_03.in
+        output: 16_2_random_03.ans
+      - input: 17_2_random_04.in
+        output: 17_2_random_04.ans
+      - input: 18_2_random_05.in
+        output: 18_2_random_05.ans
+      - input: 19_2_random_06.in
+        output: 19_2_random_06.ans
+      - input: 20_2_random_07.in
+        output: 20_2_random_07.ans
+      - input: 21_2_increasing_08.in
+        output: 21_2_increasing_08.ans
+      - input: 22_2_increasing_09.in
+        output: 22_2_increasing_09.ans
+      - input: 23_2_increasing_10.in
+        output: 23_2_increasing_10.ans
+      - input: 24_2_increasing_11.in
+        output: 24_2_increasing_11.ans
+      - input: 25_2_increasing_12.in
+        output: 25_2_increasing_12.ans
+      - input: 26_2_decreasing_18.in
+        output: 26_2_decreasing_18.ans
+      - input: 27_2_decreasing_19.in
+        output: 27_2_decreasing_19.ans
+      - input: 28_2_decreasing_20.in
+        output: 28_2_decreasing_20.ans
+      - input: 29_2_decreasing_21.in
+        output: 29_2_decreasing_21.ans
+      - input: 30_2_decreasing_22.in
+        output: 30_2_decreasing_22.ans
+      - input: 31_2_decreasing_distinct_18.in
+        output: 31_2_decreasing_distinct_18.ans
+      - input: 32_2_decreasing_distinct_19.in
+        output: 32_2_decreasing_distinct_19.ans
+      - input: 33_2_decreasing_distinct_20.in
+        output: 33_2_decreasing_distinct_20.ans
+      - input: 34_2_decreasing_distinct_21.in
+        output: 34_2_decreasing_distinct_21.ans
+      - input: 35_2_decreasing_distinct_22.in
+        output: 35_2_decreasing_distinct_22.ans
+      - input: 36_2_increasing_distinct_23.in
+        output: 36_2_increasing_distinct_23.ans
+      - input: 37_2_increasing_distinct_24.in
+        output: 37_2_increasing_distinct_24.ans
+      - input: 38_2_increasing_distinct_25.in
+        output: 38_2_increasing_distinct_25.ans
+      - input: 39_2_increasing_distinct_26.in
+        output: 39_2_increasing_distinct_26.ans
+      - input: 40_2_increasing_distinct_27.in
+        output: 40_2_increasing_distinct_27.ans

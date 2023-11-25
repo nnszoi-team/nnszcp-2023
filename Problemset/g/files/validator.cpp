@@ -14,17 +14,6 @@ void valid(const std::vector<int> &a, const int n) {
 
 }  // namespace distinct
 
-namespace indistinct {
-
-void valid(const std::vector<int> &a, const int n) {
-  std::unordered_set<int> set;
-  for (int i = 0; i < n; ++i) set.insert(a[i]);
-
-  if (set.size() == n) quitf(_fail, "Elements in a are distinct.");
-}
-
-}  // namespace indistinct
-
 int main(int argc, char *argv[]) {
   registerValidation(argc, argv);
 
@@ -35,17 +24,16 @@ int main(int argc, char *argv[]) {
   inf.readEoln();
 
   std::vector<int> a(n);
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i + 1 < n; ++i) {
     a[i] = inf.readInt(l, r, "a[i]");
     inf.readSpace();
   }
+  a[n - 1] = inf.readInt(l, r, "a[i]");
   inf.readEoln();
   inf.readEof();
 
   if (is_distinct)
     distinct::valid(a, n);
-  else
-    indistinct::valid(a, n);
 
   return 0;
 }

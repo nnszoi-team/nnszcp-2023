@@ -6,7 +6,7 @@ while len(a) < n:
     a.append(a[p])
 
 print(n)
-for i in range(n):
+for i in range(n - 1):
     print(a[i], end = ' ')
 
-print()
+print(a[n - 1])
