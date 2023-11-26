@@ -1,10 +1,11 @@
+#include "testlib.h"
+
 #include <algorithm>
 #include <climits>
 #include <cmath>
 #include <cstring>
 #include <iostream>
 #include <random>
-#include <string>
 #include <tuple>
 #include <vector>
 
@@ -721,4 +722,185 @@ std::ostream &operator<<(std::ostream &out, const BigInt &num) {
 	if (num.sign == '-') out << num.sign;
 	out << num.value;
 	return out;
+}
+
+class Fraction {
+	using T = BigInt;
+
+  protected:
+	void simplify() {
+		if (this->up * this->down < 0) {
+			this->sign = -1;
+		} else if (this->up == 0 || this->down == 0) {
+			this->sign = 0;
+		} else {
+			this->sign = 1;
+		}
+
+		if (this->up < 0) {
+			this->up = -this->up;
+		}
+		if (this->down < 0) {
+			this->down = -this->down;
+		}
+
+		T g = gcd(this->up, this->down);
+		this->up /= g, this->down /= g;
+	}
+
+  public:
+	int sign;
+	T up, down;
+	Fraction() : up(0), down(1) { simplify(); }
+	Fraction(const T up, const T down) : up(up), down(down) { simplify(); }
+	Fraction(const int up, const int down) : up(up), down(down) { simplify(); }
+
+	std::string data() const {
+		return (sign == -1 ? "-" : "") + up.to_string() + "/" + down.to_string();
+	}
+
+	friend std::ostream &operator<<(std::ostream &os, Fraction f) {
+		os << f.data();
+		return os;
+	}
+
+	friend bool operator<(Fraction a, Fraction b) {
+		return a.sign * a.up * b.down < b.sign * b.up * a.down;
+	}
+	friend bool operator>(Fraction a, Fraction b) {
+		return a.up * b.down > b.up * a.down;
+	}
+	friend bool operator==(Fraction a, Fraction b) { return !(a < b || a > b); }
+	friend bool operator<=(Fraction a, Fraction b) { return a < b || a == b; }
+	friend bool operator>=(Fraction a, Fraction b) { return a > b || a == b; }
+	friend bool operator!=(Fraction a, Fraction b) { return !(a == b); }
+	friend Fraction operator+(const Fraction &a, const Fraction &b) {
+		T l = lcm(a.down, b.down);
+		Fraction res(a.up * (l / a.down) * a.sign + b.up * (l / b.down) * b.sign, l);
+		return res;
+	}
+	Fraction &operator+=(const Fraction &other) {
+		*this = *this + other;
+		return *this;
+	}
+	friend Fraction operator-(const Fraction &a, const Fraction &b) {
+		T l = lcm(a.down, b.down);
+		Fraction res(a.up * (l / a.down) * a.sign - b.up * (l / b.down) * b.sign, l);
+		return res;
+	}
+	Fraction &operator-=(const Fraction &other) {
+		*this = *this - other;
+		return *this;
+	}
+	friend Fraction operator*(const Fraction &a, const Fraction &b) {
+		return Fraction(a.up * b.up * a.sign * b.sign, a.down * b.down);
+	}
+	Fraction &operator*=(const Fraction &other) {
+		*this = (*this) * other;
+		return *this;
+	}
+	Fraction inv() const { return Fraction(this->down * this->sign, this->up); }
+	friend Fraction inv(const Fraction &f) { return f.inv(); }
+	friend Fraction operator/(const Fraction &a, const Fraction &b) {
+		return a * b.inv();
+	}
+	Fraction &operator/=(const Fraction &other) {
+		*this = (*this) / other;
+		return *this;
+	}
+};
+
+class Point {
+  public:
+	Fraction x, y;
+	Point(Fraction x, Fraction y) : x(x), y(y) {}
+	std::string data() const {
+		std::string res;
+		res = "(";
+		res += x.data();
+		res += ", ";
+		res += y.data();
+		res += ")";
+		return res;
+	}
+	friend std::ostream &operator<<(std::ostream &os, Point f) {
+		os << f.data();
+		return os;
+	}
+};
+bool operator==(Point A, Point B) { return A.x == B.x && A.y == B.y; }
+class Line {
+  public:
+	Fraction a, b, c;
+	Line(Point A, Point B) : a(A.y - B.y), b(B.x - A.x), c(B.y * A.x - B.x * A.y) {}
+};
+
+Point operator^(Line s, Line t) {
+	ouf.quitif(
+		s.a * t.b - s.b * t.a == Fraction(0, 1), _wa,
+		"the two lines %sx + %sy + %s = 0 and %sx + %sy + %s = 0 are parallel or equal",
+		s.a.data().c_str(), s.b.data().c_str(), s.c.data().c_str(), t.a.data().c_str(),
+		t.b.data().c_str(), t.c.data().c_str());
+	Point cur(Fraction((s.b * t.c - s.c * t.b) / (s.a * t.b - s.b * t.a)),
+			  Fraction((s.a * t.c - s.c * t.a) / (s.b * t.a - s.a * t.b)));
+	return cur;
+}
+
+using i64 = long long;
+using F = Fraction;
+using P = Point;
+using L = Line;
+const i64 Inf = 1'000'000'000;
+
+int main(int argc, char *argv[]) {
+	registerTestlibCmd(argc, argv);
+	i64 p, a, b, c, d;
+	p = inf.readInt(2, Inf, "p");
+	a = inf.readInt(0, Inf, "a");
+	b = inf.readInt(1, Inf, "b");
+	c = inf.readInt(0, Inf, "c");
+	d = inf.readInt(1, Inf, "d");
+
+	int n;
+	n = ouf.readInt(1, 1'500, "n");
+	std::vector<P> draw;
+	for (int i = 0; i < n; ++i) {
+		int op;
+		op = ouf.readInt(1, 2, "op");
+		if (op == 1) {
+			i64 x, y;
+			x = ouf.readInt(0, p, "x");
+			y = ouf.readInt(0, p, "y");
+			draw.emplace_back(F(x, 1), F(y, 1));
+		} else {
+			int s, t, u, v;
+			s = ouf.readInt(1, i, "s") - 1;
+			t = ouf.readInt(1, i, "t") - 1;
+			u = ouf.readInt(1, i, "u") - 1;
+			v = ouf.readInt(1, i, "v") - 1;
+			L f(draw[s], draw[t]);
+			L g(draw[u], draw[v]);
+			draw.emplace_back(f ^ g);
+			ouf.quitif(!(draw.back().x >= F(0, 1) && draw.back().x <= F(p, 1) &&
+						 draw.back().y >= F(0, 1) && draw.back().y <= F(p, 1)),
+					   _wa,
+					   "the %d-th point %s, is "
+					   "not in the square area, which is from (0, 0) to "
+					   "(%lld, %lld)",
+					   i + 1, draw.back().data().c_str(), p, p);
+		}
+	}
+
+	P final_point(F(a, b), F(c, d));
+	if (std::find(draw.begin(), draw.end(), final_point) != draw.end()) {
+		quitf(_ok, "the %d-th point is %s, which is equal to the target point",
+			  (int)(std::find(draw.begin(), draw.end(), final_point) - draw.begin() + 1),
+			  final_point.data().c_str());
+	} else {
+		quitf(_wa, "the %d-th point is %s, which is not equal to the target point %s", n,
+			  draw.back().data().c_str(), final_point.data().c_str());
+	}
+
+	quitf(_fail, "checker error");
+	return 0;
 }
