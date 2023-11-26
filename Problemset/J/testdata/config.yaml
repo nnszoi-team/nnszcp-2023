@@ -1,125 +1,151 @@
 type: default
 time: 2000ms
+memory: 256MB
 checker_type: testlib
 checker: checker.cpp
 subtasks:
-  - score: 5
+  - score: 10
     if: []
     id: 1
     type: min
     cases:
-      - input: 001_000.in
-        output: 001_000.ans
-      - input: 002_000.in
-        output: 002_000.ans
-      - input: 003_000.in
-        output: 003_000.ans
-  - score: 12
+      - input: 001_000_p_max_random.in
+        output: 001_000_p_max_random.ans
+      - input: 002_000_p_max_random.in
+        output: 002_000_p_max_random.ans
+  - score: 13
     if: []
     id: 2
     type: min
     cases:
-      - input: 004_001.in
-        output: 004_001.ans
-      - input: 005_001.in
-        output: 005_001.ans
-      - input: 006_001.in
-        output: 006_001.ans
-      - input: 007_001.in
-        output: 007_001.ans
-      - input: 008_001.in
-        output: 008_001.ans
-  - score: 13
+      - input: 003_001_p_t_prime.in
+        output: 003_001_p_t_prime.ans
+      - input: 004_001_p_t_prime.in
+        output: 004_001_p_t_prime.ans
+      - input: 005_001_p_t_prime.in
+        output: 005_001_p_t_prime.ans
+      - input: 006_001_p_t_prime.in
+        output: 006_001_p_t_prime.ans
+      - input: 007_001_p_t_prime.in
+        output: 007_001_p_t_prime.ans
+      - input: 008_001_p_t_prime.in
+        output: 008_001_p_t_prime.ans
+      - input: 009_001_p_t_random.in
+        output: 009_001_p_t_random.ans
+      - input: 010_001_p_t_random.in
+        output: 010_001_p_t_random.ans
+      - input: 011_001_p_t_random.in
+        output: 011_001_p_t_random.ans
+      - input: 012_001_p_t_random.in
+        output: 012_001_p_t_random.ans
+      - input: 013_001_p_t_random.in
+        output: 013_001_p_t_random.ans
+  - score: 21
     if: []
     id: 3
     type: min
     cases:
-      - input: 009_002.in
-        output: 009_002.ans
-      - input: 010_002.in
-        output: 010_002.ans
-      - input: 011_002.in
-        output: 011_002.ans
-      - input: 012_002.in
-        output: 012_002.ans
-      - input: 013_002.in
-        output: 013_002.ans
-  - score: 22
+      - input: 014_002_p_half_t_prime.in
+        output: 014_002_p_half_t_prime.ans
+      - input: 015_002_p_half_t_prime.in
+        output: 015_002_p_half_t_prime.ans
+      - input: 016_002_p_half_t_prime.in
+        output: 016_002_p_half_t_prime.ans
+      - input: 017_002_p_half_t_prime.in
+        output: 017_002_p_half_t_prime.ans
+      - input: 018_002_p_half_t_prime.in
+        output: 018_002_p_half_t_prime.ans
+      - input: 019_002_p_half_t_random.in
+        output: 019_002_p_half_t_random.ans
+      - input: 020_002_p_half_t_random.in
+        output: 020_002_p_half_t_random.ans
+      - input: 021_002_p_half_t_random.in
+        output: 021_002_p_half_t_random.ans
+      - input: 022_002_p_half_t_random.in
+        output: 022_002_p_half_t_random.ans
+      - input: 023_002_p_half_t_random.in
+        output: 023_002_p_half_t_random.ans
+      - input: 024_002_p_half_t_random.in
+        output: 024_002_p_half_t_random.ans
+  - score: 25
     if: []
     id: 4
     type: min
     cases:
-      - input: 014_003.in
-        output: 014_003.ans
-      - input: 015_003.in
-        output: 015_003.ans
-      - input: 016_003.in
-        output: 016_003.ans
-      - input: 017_003.in
-        output: 017_003.ans
-      - input: 018_003.in
-        output: 018_003.ans
-      - input: 019_003.in
-        output: 019_003.ans
-  - score: 23
+      - input: 025_003_p_sqrt_t_prime.in
+        output: 025_003_p_sqrt_t_prime.ans
+      - input: 026_003_p_sqrt_t_prime.in
+        output: 026_003_p_sqrt_t_prime.ans
+      - input: 027_003_p_sqrt_t_prime.in
+        output: 027_003_p_sqrt_t_prime.ans
+      - input: 028_003_p_sqrt_t_prime.in
+        output: 028_003_p_sqrt_t_prime.ans
+      - input: 029_003_p_sqrt_t_prime.in
+        output: 029_003_p_sqrt_t_prime.ans
+      - input: 030_003_p_sqrt_t_prime.in
+        output: 030_003_p_sqrt_t_prime.ans
+      - input: 031_003_p_sqrt_t_prime.in
+        output: 031_003_p_sqrt_t_prime.ans
+      - input: 032_003_p_sqrt_t_random.in
+        output: 032_003_p_sqrt_t_random.ans
+      - input: 033_003_p_sqrt_t_random.in
+        output: 033_003_p_sqrt_t_random.ans
+      - input: 034_003_p_sqrt_t_random.in
+        output: 034_003_p_sqrt_t_random.ans
+      - input: 035_003_p_sqrt_t_random.in
+        output: 035_003_p_sqrt_t_random.ans
+      - input: 036_003_p_sqrt_t_random.in
+        output: 036_003_p_sqrt_t_random.ans
+      - input: 037_003_p_sqrt_t_random.in
+        output: 037_003_p_sqrt_t_random.ans
+      - input: 038_003_p_sqrt_t_random.in
+        output: 038_003_p_sqrt_t_random.ans
+      - input: 039_003_p_sqrt_t_random.in
+        output: 039_003_p_sqrt_t_random.ans
+  - score: 31
     if: []
     id: 5
     type: min
     cases:
-      - input: 020_004.in
-        output: 020_004.ans
-      - input: 021_004.in
-        output: 021_004.ans
-      - input: 022_004.in
-        output: 022_004.ans
-      - input: 023_004.in
-        output: 023_004.ans
-      - input: 024_004.in
-        output: 024_004.ans
-      - input: 025_004.in
-        output: 025_004.ans
-      - input: 026_004.in
-        output: 026_004.ans
-      - input: 027_004.in
-        output: 027_004.ans
-      - input: 028_004.in
-        output: 028_004.ans
-      - input: 029_004.in
-        output: 029_004.ans
-  - score: 25
-    if: []
-    id: 6
-    type: min
-    cases:
-      - input: 030_005.in
-        output: 030_005.ans
-      - input: 031_005.in
-        output: 031_005.ans
-      - input: 032_005.in
-        output: 032_005.ans
-      - input: 033_005.in
-        output: 033_005.ans
-      - input: 034_005.in
-        output: 034_005.ans
-      - input: 035_005.in
-        output: 035_005.ans
-      - input: 036_005.in
-        output: 036_005.ans
-      - input: 037_005.in
-        output: 037_005.ans
-      - input: 038_005.in
-        output: 038_005.ans
-      - input: 039_005.in
-        output: 039_005.ans
-      - input: 040_005.in
-        output: 040_005.ans
-      - input: 041_005.in
-        output: 041_005.ans
-      - input: 042_005.in
-        output: 042_005.ans
-      - input: 043_005.in
-        output: 043_005.ans
-      - input: 044_005.in
-        output: 044_005.ans
-      - input: 045_005.in
-        output: 045_005.ans
+      - input: 040_004_p_two_random.in
+        output: 040_004_p_two_random.ans
+      - input: 041_004_p_two_random.in
+        output: 041_004_p_two_random.ans
+      - input: 042_004_p_two_random.in
+        output: 042_004_p_two_random.ans
+      - input: 043_004_p_two_random.in
+        output: 043_004_p_two_random.ans
+      - input: 044_004_p_two_random.in
+        output: 044_004_p_two_random.ans
+      - input: 045_004_p_two_prime.in
+        output: 045_004_p_two_prime.ans
+      - input: 046_004_p_two_prime.in
+        output: 046_004_p_two_prime.ans
+      - input: 047_004_p_two_prime.in
+        output: 047_004_p_two_prime.ans
+      - input: 048_004_p_two_prime.in
+        output: 048_004_p_two_prime.ans
+      - input: 049_004_p_two_prime.in
+        output: 049_004_p_two_prime.ans
+      - input: 050_004_p_two_prime.in
+        output: 050_004_p_two_prime.ans
+      - input: 051_004_p_two_prime.in
+        output: 051_004_p_two_prime.ans
+      - input: 052_004_p_two_prime.in
+        output: 052_004_p_two_prime.ans
+      - input: 053_004_p_two_prime.in
+        output: 053_004_p_two_prime.ans
+      - input: 054_004_p_two_pow.in
+        output: 054_004_p_two_pow.ans
+      - input: 055_004_p_two_pow.in
+        output: 055_004_p_two_pow.ans
+      - input: 056_004_p_two_pow.in
+        output: 056_004_p_two_pow.ans
+      - input: 057_004_p_two_pow.in
+        output: 057_004_p_two_pow.ans
+      - input: 058_004_p_two_big.in
+        output: 058_004_p_two_big.ans
+      - input: 059_004_p_two_big.in
+        output: 059_004_p_two_big.ans
+      - input: 060_004_p_two_big.in
+        output: 060_004_p_two_big.ans

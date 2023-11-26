@@ -13,9 +13,7 @@ template <typename T> std::string to_string(T data) {
 	return cur;
 }
 
-template <typename T> T gcd(const T a, const T b) {
-	return b ? gcd(b, a % b) : a;
-}
+template <typename T> T gcd(const T a, const T b) { return b ? gcd(b, a % b) : a; }
 template <typename T> T lcm(const T a, const T b) { return a / gcd(a, b) * b; }
 template <typename T> class Fraction {
   protected:
@@ -45,8 +43,7 @@ template <typename T> class Fraction {
 	T up, down;
 	double real;
 	Fraction() : up(0), down(1), real(0) { simplify(); }
-	Fraction(const T up, const T down)
-		: up(up), down(down), real((double)up / down) {
+	Fraction(const T up, const T down) : up(up), down(down), real((double)up / down) {
 		simplify();
 	}
 
@@ -83,8 +80,7 @@ template <typename T> class Fraction {
 	friend bool operator!=(Fraction a, Fraction b) { return !(a == b); }
 	friend Fraction operator+(const Fraction &a, const Fraction &b) {
 		T l = lcm(a.down, b.down);
-		Fraction res(
-			a.up * (l / a.down) * a.sign + b.up * (l / b.down) * b.sign, l);
+		Fraction res(a.up * (l / a.down) * a.sign + b.up * (l / b.down) * b.sign, l);
 		return res;
 	}
 	Fraction &operator+=(const Fraction &other) {
@@ -93,8 +89,7 @@ template <typename T> class Fraction {
 	}
 	friend Fraction operator-(const Fraction &a, const Fraction &b) {
 		T l = lcm(a.down, b.down);
-		Fraction res(
-			a.up * (l / a.down) * a.sign - b.up * (l / b.down) * b.sign, l);
+		Fraction res(a.up * (l / a.down) * a.sign - b.up * (l / b.down) * b.sign, l);
 		return res;
 	}
 	Fraction &operator-=(const Fraction &other) {
@@ -130,8 +125,7 @@ template <typename T> bool operator==(Point<T> A, Point<T> B) {
 template <typename T> class Line {
   public:
 	Fraction<T> a, b, c;
-	Line(Point<T> A, Point<T> B)
-		: a(A.y - B.y), b(B.x - A.x), c(B.y * A.x - B.x * A.y) {}
+	Line(Point<T> A, Point<T> B) : a(A.y - B.y), b(B.x - A.x), c(B.y * A.x - B.x * A.y) {}
 };
 
 template <typename T> Point<T> operator^(Line<T> s, Line<T> t) {
@@ -141,11 +135,10 @@ template <typename T> Point<T> operator^(Line<T> s, Line<T> t) {
 			   "%sx + %sy + %s = 0 and %sx + %sy + %s = 0, are "
 			   "parallel or equal",
 			   s.a.real, s.b.real, s.c.real, t.a.real, t.b.real, t.c.real,
-			   s.a.data().data(), s.b.data().data(), s.c.data().data(),
-			   t.a.data().data(), t.b.data().data(), t.c.data().data());
-	Point<T> cur(
-		Fraction<T>((s.b * t.c - s.c * t.b) / (s.a * t.b - s.b * t.a)),
-		Fraction<T>((s.a * t.c - s.c * t.a) / (s.b * t.a - s.a * t.b)));
+			   s.a.data().data(), s.b.data().data(), s.c.data().data(), t.a.data().data(),
+			   t.b.data().data(), t.c.data().data());
+	Point<T> cur(Fraction<T>((s.b * t.c - s.c * t.b) / (s.a * t.b - s.b * t.a)),
+				 Fraction<T>((s.a * t.c - s.c * t.a) / (s.b * t.a - s.a * t.b)));
 	return cur;
 }
 
@@ -166,7 +159,7 @@ int main(int argc, char *argv[]) {
 	d = inf.readInt(1, Inf, "d");
 
 	int n;
-	n = ouf.readInt(1, 3000, "n");
+	n = ouf.readInt(1, 1'800, "n");
 	std::vector<P> draw;
 	for (int i = 0; i < n; ++i) {
 		int op;
@@ -192,8 +185,7 @@ int main(int argc, char *argv[]) {
 					   "not in the square area, which is from (0, 0) to "
 					   "(%lld, %lld)",
 					   i + 1, draw.back().x.real, draw.back().y.real,
-					   draw.back().x.data().data(), draw.back().y.data().data(),
-					   p, p);
+					   draw.back().x.data().data(), draw.back().y.data().data(), p, p);
 		}
 	}
 
@@ -205,19 +197,17 @@ int main(int argc, char *argv[]) {
 			  "to the "
 			  "target point",
 			  n,
-			  (int)(std::find(draw.begin(), draw.end(), final_point) -
-					draw.begin() + 1),
-			  final_point.x.real, final_point.y.real,
-			  final_point.x.data().data(), final_point.y.data().data());
+			  (int)(std::find(draw.begin(), draw.end(), final_point) - draw.begin() + 1),
+			  final_point.x.real, final_point.y.real, final_point.x.data().data(),
+			  final_point.y.data().data());
 	} else {
 		quitf(_wa,
 			  "the point A_%d is (%.8lf, %.8lf), or (%s, %s), "
 			  "is not equal "
 			  "to the "
 			  "target point (%.8lf, %.8lf), or (%s, %s)",
-			  n, draw.back().x.real, draw.back().y.real,
-			  draw.back().x.data().data(), draw.back().y.data().data(),
-			  final_point.x.real, final_point.y.real,
+			  n, draw.back().x.real, draw.back().y.real, draw.back().x.data().data(),
+			  draw.back().y.data().data(), final_point.x.real, final_point.y.real,
 			  final_point.x.data().data(), final_point.y.data().data());
 	}
 
