@@ -6,5 +6,5 @@ if a > b:
     a, b = b, a
 if c > d:
     c, d = d, c
-p = max(b, d) * 2
+p = (max(b, d) + 1) // 2 + 1
 print(p, a, b, c, d)

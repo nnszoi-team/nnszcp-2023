@@ -984,7 +984,7 @@ But we'll get there 故事延绵亘久
 设 $t = \max(b, d)$。
 
 0. （10 分）$1 \le t \le {10}^3$，$p \ge {10}^7$；
-1. （13 分）$1 \le t \le {10}^6$，$p \ge t$；
-2. （21 分）$1 \le t \le {10}^7$，$p \ge \lceil t \rceil + 1$；
+1. （13 分）$1 \le t \le {10}^6$，$p \ge t + 1$；
+2. （21 分）$1 \le t \le {10}^7$，$p \ge \lceil \frac{t}{2} \rceil + 1$；
 3. （25 分）$1 \le t \le {10}^7$，$p \ge \lceil \sqrt t \rceil + 2$；
 4. （31 分）$1 \le t \le {10}^7$，$p \ge 2$。

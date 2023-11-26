@@ -6,5 +6,5 @@ if a > b:
     a, b = b, a
 if c > d:
     c, d = d, c
-p = int((max(b, d) + 20) ** 0.5 + 1)
+p = 2
 print(p, a, b, c, d)
