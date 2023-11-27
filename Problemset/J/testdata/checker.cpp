@@ -1,216 +1,282 @@
 #include "testlib.h"
+
+#include <cassert>
+#include <cmath>
+
 #include <iostream>
 #include <vector>
 
-template <typename T> std::string to_string(T data) {
-	std::string cur;
-	if (data == 0) cur += "0";
-	while (data) {
-		cur += (char)((data % 10) + '0');
-		data /= 10;
-	}
-	std::reverse(cur.begin(), cur.end());
-	return cur;
-}
+template <typename T, T _modulo> class ModInt {
+  private:
+	T _data;
 
-template <typename T> T gcd(const T a, const T b) { return b ? gcd(b, a % b) : a; }
-template <typename T> T lcm(const T a, const T b) { return a / gcd(a, b) * b; }
-template <typename T> class Fraction {
-  protected:
-	void simplify() {
-		if (this->up * this->down < 0) {
-			this->sign = -1;
-		} else if (this->up == 0 || this->down == 0) {
-			this->sign = 0;
+  public:
+	inline void fix() {
+		if (_data < 0) _data += _modulo;
+		if (_data >= _modulo) _data -= _modulo;
+	}
+	ModInt(T _data = 0) : _data(_data % _modulo) {}
+	T data() const { return _data; }
+	T modulo() const { return _modulo; }
+	operator bool() const { return _data != 0; }
+	operator T() const { return _data; }
+
+	template <typename S> friend ModInt operator^(ModInt lhs, S rhs) {
+		ModInt res(1);
+		for (; rhs; rhs /= 2, lhs *= lhs)
+			if (rhs % 2) res *= lhs;
+		return res;
+	}
+	template <typename S> ModInt &operator^=(S exp) {
+		ModInt res = *this ^ exp;
+		return *this = res, *this;
+	}
+
+	ModInt operator~() {
+		assert(_data != 0);
+		return *this ^ (_modulo - 2);
+	}
+	ModInt &operator*=(ModInt rhs) {
+		return _data = 1ll * _data * rhs._data % _modulo, *this;
+	}
+	ModInt &operator+=(ModInt rhs) { return _data += rhs.data(), fix(), *this; }
+	ModInt &operator-=(ModInt rhs) { return _data -= rhs.data(), fix(), *this; }
+	ModInt &operator/=(ModInt rhs) { return *this *= ~rhs, *this; }
+	friend ModInt operator*(ModInt lhs, ModInt rhs) {
+		ModInt res = lhs;
+		res *= rhs;
+		return res;
+	}
+	friend ModInt operator+(ModInt lhs, ModInt rhs) {
+		ModInt res = lhs;
+		res += rhs;
+		return res;
+	}
+	friend ModInt operator-(ModInt lhs, ModInt rhs) {
+		ModInt res = lhs;
+		res -= rhs;
+		return res;
+	}
+	friend ModInt operator/(ModInt lhs, ModInt rhs) {
+		ModInt res = lhs;
+		res /= rhs;
+		return res;
+	}
+	template <typename S> ModInt &operator*=(S rhs) {
+		return _data *= ModInt(T(rhs)), *this;
+	}
+	template <typename S> ModInt &operator+=(S rhs) {
+		return _data += ModInt(T(rhs)), *this;
+	}
+	template <typename S> ModInt &operator-=(S rhs) {
+		return _data -= ModInt(T(rhs)), *this;
+	}
+	template <typename S> ModInt &operator/=(S rhs) {
+		return *this /= ModInt(T(rhs)), *this;
+	}
+	template <typename S> friend ModInt operator*(ModInt lhs, S rhs) {
+		return lhs * ModInt(T(rhs));
+	}
+	template <typename S> friend ModInt operator+(ModInt lhs, S rhs) {
+		return lhs + ModInt(T(rhs));
+	}
+	template <typename S> friend ModInt operator-(ModInt lhs, S rhs) {
+		return lhs - ModInt(T(rhs));
+	}
+	template <typename S> friend ModInt operator/(ModInt lhs, S rhs) {
+		return lhs / ModInt(T(rhs));
+	}
+	friend std::istream &operator>>(std::istream &is, ModInt &s) {
+		return is >> s._data, s.fix(), is;
+	}
+	friend std::ostream &operator<<(std::ostream &os, const ModInt &x) {
+		return os << x.data();
+	}
+	friend bool operator==(ModInt lhs, ModInt rhs) { return lhs.data() == rhs.data(); }
+	friend bool operator!=(ModInt lhs, ModInt rhs) { return lhs.data() != rhs.data(); }
+};
+
+const int LIMIT_OF_N = 1500;
+const int INF = 10'000'000;
+
+const char ACCEPTED_MSG[] = "wonderful answer";
+const char WRONG_ANSWER_MSG[] = "where is the target huh";
+
+const char ZERO_VECTOR_MSG[] = "oops zero vector found";
+const char PARRELLEL_LINES_MSG[] = "oops parrellel lines do not intersect";
+const char OUT_OF_RANGE_MSG[] = "oops point is out of range";
+
+std::vector<std::pair<bool, std::vector<int>>> readAnswerSequence(const int &p) {
+	int n = ouf.readInt(1, LIMIT_OF_N, "n");
+	std::vector<std::pair<bool, std::vector<int>>> sequence(n);
+	for (int i = 0; i < n; ++i) {
+		int op = ouf.readInt(1, 2, "op");
+		if (op == 1) {
+			int x = ouf.readInt(0, p, "x");
+			int y = ouf.readInt(0, p, "y");
+			std::vector<int> argument = {x, y};
+			sequence[i] = {false, argument};
 		} else {
-			this->sign = 1;
+			int s = ouf.readInt(1, i, "s");
+			int t = ouf.readInt(1, i, "t");
+			int u = ouf.readInt(1, i, "u");
+			int v = ouf.readInt(1, i, "v");
+			--s, --t, --u, --v;
+			ouf.quitif(s == t, _wa, ZERO_VECTOR_MSG);
+			ouf.quitif(u == v, _wa, ZERO_VECTOR_MSG);
+			std::vector<int> argument = {s, t, u, v};
+			sequence[i] = {true, argument};
 		}
-
-		if (this->up < 0) {
-			this->up = -this->up;
-		}
-		if (this->down < 0) {
-			this->down = -this->down;
-		}
-
-		T g = gcd(this->up, this->down);
-		this->up /= g, this->down /= g;
-		this->real = (double)this->up / this->down * sign;
 	}
-
-  public:
-	int sign;
-	T up, down;
-	double real;
-	Fraction() : up(0), down(1), real(0) { simplify(); }
-	Fraction(const T up, const T down) : up(up), down(down), real((double)up / down) {
-		simplify();
-	}
-
-	std::string data() {
-		std::string _sign;
-		if (sign == 1)
-			_sign += "+";
-		else if (sign == -1)
-			_sign += "-";
-		auto _up = to_string(up);
-		_up += "/";
-		auto _down = to_string(down);
-		_sign += _up;
-		_sign += _down;
-		return _sign;
-	}
-
-	double value() const { return this->real; }
-
-	friend std::ostream &operator<<(std::ostream &os, Fraction f) {
-		os << f.data();
-		return os;
-	}
-
-	friend bool operator<(Fraction a, Fraction b) {
-		return a.sign * a.up * b.down < b.sign * b.up * a.down;
-	}
-	friend bool operator>(Fraction a, Fraction b) {
-		return a.up * b.down > b.up * a.down;
-	}
-	friend bool operator==(Fraction a, Fraction b) { return !(a < b || a > b); }
-	friend bool operator<=(Fraction a, Fraction b) { return a < b || a == b; }
-	friend bool operator>=(Fraction a, Fraction b) { return a > b || a == b; }
-	friend bool operator!=(Fraction a, Fraction b) { return !(a == b); }
-	friend Fraction operator+(const Fraction &a, const Fraction &b) {
-		T l = lcm(a.down, b.down);
-		Fraction res(a.up * (l / a.down) * a.sign + b.up * (l / b.down) * b.sign, l);
-		return res;
-	}
-	Fraction &operator+=(const Fraction &other) {
-		*this = *this + other;
-		return *this;
-	}
-	friend Fraction operator-(const Fraction &a, const Fraction &b) {
-		T l = lcm(a.down, b.down);
-		Fraction res(a.up * (l / a.down) * a.sign - b.up * (l / b.down) * b.sign, l);
-		return res;
-	}
-	Fraction &operator-=(const Fraction &other) {
-		*this = *this - other;
-		return *this;
-	}
-	friend Fraction operator*(const Fraction &a, const Fraction &b) {
-		return Fraction(a.up * b.up * a.sign * b.sign, a.down * b.down);
-	}
-	Fraction &operator*=(const Fraction &other) {
-		*this = (*this) * other;
-		return *this;
-	}
-	Fraction inv() const { return Fraction(this->down * this->sign, this->up); }
-	friend Fraction inv(const Fraction &f) { return f.inv(); }
-	friend Fraction operator/(const Fraction &a, const Fraction &b) {
-		return a * b.inv();
-	}
-	Fraction &operator/=(const Fraction &other) {
-		*this = (*this) / other;
-		return *this;
-	}
-};
-
-template <typename T> class Point {
-  public:
-	Fraction<T> x, y;
-	Point(Fraction<T> x, Fraction<T> y) : x(x), y(y) {}
-};
-template <typename T> bool operator==(Point<T> A, Point<T> B) {
-	return A.x == B.x && A.y == B.y;
-}
-template <typename T> class Line {
-  public:
-	Fraction<T> a, b, c;
-	Line(Point<T> A, Point<T> B) : a(A.y - B.y), b(B.x - A.x), c(B.y * A.x - B.x * A.y) {}
-};
-
-template <typename T> Point<T> operator^(Line<T> s, Line<T> t) {
-	ouf.quitif(s.a * t.b - s.b * t.a == Fraction<T>(0, 1), _wa,
-			   "the two lines %.8lfx + %.8lfy + %.8lf = 0 and %.8lfx + %.8lfy "
-			   "+ %.8lf = 0 or "
-			   "%sx + %sy + %s = 0 and %sx + %sy + %s = 0, are "
-			   "parallel or equal",
-			   s.a.real, s.b.real, s.c.real, t.a.real, t.b.real, t.c.real,
-			   s.a.data().data(), s.b.data().data(), s.c.data().data(), t.a.data().data(),
-			   t.b.data().data(), t.c.data().data());
-	Point<T> cur(Fraction<T>((s.b * t.c - s.c * t.b) / (s.a * t.b - s.b * t.a)),
-				 Fraction<T>((s.a * t.c - s.c * t.a) / (s.b * t.a - s.a * t.b)));
-	return cur;
+	return sequence;
 }
 
 using i64 = long long;
-using i128 = __int128_t;
-using F = Fraction<i128>;
-using P = Point<i128>;
-using L = Line<i128>;
-const i64 Inf = 1'000'000'000;
+
+template <typename T> struct Point {
+	T x, y;
+	Point(const T x = T(), const T y = T()) : x(x), y(y) {}
+	friend std::ostream &operator<<(std::ostream &out, const Point &P) {
+		out << "(" << P.x << ", " << P.y << ")";
+		return out;
+	}
+};
+
+template <typename T> struct Vector {
+  public:
+	T x, y;
+	Vector(const T x = T(), const T y = T()) : x(x), y(y) {}
+	friend std::ostream &operator<<(std::ostream &out, const Vector &P) {
+		out << "(" << P.x << ", " << P.y << ")";
+		return out;
+	}
+};
+
+template <typename T> Vector<T> operator-(const Point<T> &A, const Point<T> &B) {
+	return Vector<T>(A.x - B.x, A.y - B.y);
+}
+template <typename T> Point<T> operator+(const Point<T> &A, const Vector<T> &v) {
+	return Point<T>(A.x + v.x, A.y + v.y);
+}
+template <typename T> Vector<T> operator*(const Vector<T> &v, const T &k) {
+	return Vector<T>(v.x * k, v.y * k);
+}
+template <typename T> bool operator==(const Point<T> &A, const Point<T> &B) {
+	return A.x == B.x && A.y == B.y;
+}
+template <typename T> bool operator==(const Vector<T> &A, const Vector<T> &B) {
+	return A.x == B.x && A.y == B.y;
+}
+
+template <typename T> class Line {
+  public:
+	Point<T> point;
+	Vector<T> vector;
+	Line(const Point<T> &point = Point<T>(), const Vector<T> &vector = Vector<T>())
+		: point(point), vector(vector) {}
+	Line(const Point<T> &A = Point<T>(), const Point<T> &B = Point<T>()) {
+		ouf.quitif(A == B, _wa, ZERO_VECTOR_MSG);
+		point = A, vector = B - A;
+	}
+};
+template <typename T> bool isZero(const Vector<T> &v) {
+	return v.x == T(0) && v.y == T(0);
+}
+template <typename T> bool isParrellel(const Vector<T> &m, const Vector<T> &n) {
+	ouf.quitif(isZero(m) || isZero(n), _wa, ZERO_VECTOR_MSG);
+	if ((m.x == T(0) && n.x == T(0)) || (m.y == T(0) && n.y == T(0))) return true;
+	if (m.x == T(0) || n.x == T(0) || m.y == T(0) || n.y == T(0)) return false;
+	return m.x / m.y == n.x / n.y;
+}
+
+template <typename T> Point<T> operator^(const Line<T> &m, const Line<T> &n) {
+	ouf.quitif(isParrellel(m.vector, n.vector), _wa, PARRELLEL_LINES_MSG);
+	Point<T> A = m.point, B = n.point;
+	Vector<T> a = m.vector, b = n.vector;
+	T temp = ((B.x - A.x) * b.y - (B.y - A.y) * b.x) / (a.x * b.y - a.y * b.x);
+	return A + a * temp;
+}
+
+template <typename T> bool isValid(const Point<T> &P, const int &p) {
+	return ((std::isnormal(P.x) || P.x == T(0)) && (std::isnormal(P.y) || P.y == T(0))) &&
+		   (P.x <= T(p) && P.x >= T(0)) && (P.y <= T(p) && P.y >= T(0));
+}
+
+template <typename T>
+bool checkDouble(const std::vector<std::pair<bool, std::vector<int>>> &sequence,
+				 const int &p, const int &a, const int &b, const int &c, const int &d) {
+	std::vector<Point<T>> list;
+	for (auto [option, argument] : sequence) {
+		if (option == false) {
+			list.emplace_back(argument[0], argument[1]);
+		} else {
+			Line<T> f(list[argument[0]], list[argument[1]]);
+			Line<T> g(list[argument[2]], list[argument[3]]);
+			list.push_back(f ^ g);
+		}
+		ouf.quitif(isValid(list.back(), p) == false, _wa, OUT_OF_RANGE_MSG);
+	}
+	return true;
+}
+
+template <typename T>
+bool checkModulo(const std::vector<std::pair<bool, std::vector<int>>> &sequence,
+				 const int &p, const int &a, const int &b, const int &c, const int &d) {
+	std::vector<Point<T>> list;
+	for (auto [option, argument] : sequence) {
+		if (option == false) {
+			list.emplace_back(argument[0], argument[1]);
+		} else {
+			Line<T> f(list[argument[0]], list[argument[1]]);
+			Line<T> g(list[argument[2]], list[argument[3]]);
+			list.push_back(f ^ g);
+		}
+	}
+	T x = (T)a / (T)b;
+	T y = (T)c / (T)d;
+	Point<T> F(x, y);
+	return std::find(list.begin(), list.end(), F) != list.end();
+}
 
 int main(int argc, char *argv[]) {
 	registerTestlibCmd(argc, argv);
-	i64 p, a, b, c, d;
-	p = inf.readInt(2, Inf, "p");
-	a = inf.readInt(0, Inf, "a");
-	b = inf.readInt(1, Inf, "b");
-	c = inf.readInt(0, Inf, "c");
-	d = inf.readInt(1, Inf, "d");
 
-	int n;
-	n = ouf.readInt(1, 1800, "n");
-	std::vector<P> draw;
-	for (int i = 0; i < n; ++i) {
-		int op;
-		op = ouf.readInt(1, 2, "op");
-		if (op == 1) {
-			i64 x, y;
-			x = ouf.readInt(0, p, "x");
-			y = ouf.readInt(0, p, "y");
-			draw.emplace_back(F(x, 1), F(y, 1));
-		} else {
-			int s, t, u, v;
-			s = ouf.readInt(1, i, "s") - 1;
-			t = ouf.readInt(1, i, "t") - 1;
-			u = ouf.readInt(1, i, "u") - 1;
-			v = ouf.readInt(1, i, "v") - 1;
-			L f(draw[s], draw[t]);
-			L g(draw[u], draw[v]);
-			draw.emplace_back(f ^ g);
-			ouf.quitif(!(draw.back().x >= F(0, 1) && draw.back().x <= F(p, 1) &&
-						 draw.back().y >= F(0, 1) && draw.back().y <= F(p, 1)),
-					   _wa,
-					   "the point A_%d (%.8lf, %.8lf), or (%s, %s), is "
-					   "not in the square area, which is from (0, 0) to "
-					   "(%lld, %lld)",
-					   i + 1, draw.back().x.real, draw.back().y.real,
-					   draw.back().x.data().data(), draw.back().y.data().data(), p, p);
-		}
-	}
+	int p = inf.readInt(2, INF, "p");
+	int a = inf.readInt(1, INF, "a");
+	int b = inf.readInt(a, INF, "b");
+	int c = inf.readInt(1, INF, "c");
+	int d = inf.readInt(c, INF, "d");
 
-	P final_point(F(a, b), F(c, d));
-	if (std::find(draw.begin(), draw.end(), final_point) != draw.end()) {
-		quitf(_ok,
-			  "the length of A is %d, the point A_%d is (%.8lf, %.8lf), or "
-			  "(%s, %s), is equal "
-			  "to the "
-			  "target point",
-			  n,
-			  (int)(std::find(draw.begin(), draw.end(), final_point) - draw.begin() + 1),
-			  final_point.x.real, final_point.y.real, final_point.x.data().data(),
-			  final_point.y.data().data());
+	auto sequence = readAnswerSequence(p);
+
+	bool ok = checkDouble<long double>(sequence, p, a, b, c, d);
+
+	ok &= checkModulo<ModInt<int, 13'533'511>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 19'260'817>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 27'644'437>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 57'885'161>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 86'538'889>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 111'181'111>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 305'175'781>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 370'248'451>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 479'001'599>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 998'244'353>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 998'244'853>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'007>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'009>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'021>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'321>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'663>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'801>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'861>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'871>>(sequence, p, a, b, c, d);
+	ok &= checkModulo<ModInt<int, 1'000'000'993>>(sequence, p, a, b, c, d);
+
+	if (ok) {
+		quitf(_ok, ACCEPTED_MSG);
 	} else {
-		quitf(_wa,
-			  "the point A_%d is (%.8lf, %.8lf), or (%s, %s), "
-			  "is not equal "
-			  "to the "
-			  "target point (%.8lf, %.8lf), or (%s, %s)",
-			  n, draw.back().x.real, draw.back().y.real, draw.back().x.data().data(),
-			  draw.back().y.data().data(), final_point.x.real, final_point.y.real,
-			  final_point.x.data().data(), final_point.y.data().data());
+		quitf(_wa, WRONG_ANSWER_MSG);
 	}
 
-	quitf(_fail, "checker error");
 	return 0;
 }
