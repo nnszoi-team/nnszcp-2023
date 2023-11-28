@@ -1,0 +1,240 @@
+01_0_small_01.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 20
+    subtaskId: 0
+
+02_0_small_02.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 20
+    subtaskId: 0
+
+03_0_increasing_distinct_small_03.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 20
+    subtaskId: 0
+
+04_0_decreasing_distinct_small_04.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 20
+    subtaskId: 0
+
+05_1_spec_01.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+06_1_spec_02.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+07_1_spec_03.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+08_1_spec_04.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+09_1_increasing_distinct_spec_05.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+10_1_increasing_distinct_spec_06.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+11_1_increasing_distinct_spec_07.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+12_1_decreasing_distinct_spec_08.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+13_1_decreasing_distinct_spec_09.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 30
+    subtaskId: 1
+
+14_2_random_01.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+15_2_random_02.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+16_2_random_03.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+17_2_random_04.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+18_2_random_05.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+19_2_random_06.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+20_2_random_07.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+21_2_increasing_08.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+22_2_increasing_09.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+23_2_increasing_10.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+24_2_increasing_11.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+25_2_increasing_12.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+26_2_decreasing_18.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+27_2_decreasing_19.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+28_2_decreasing_20.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+29_2_decreasing_21.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+30_2_decreasing_22.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+31_2_decreasing_distinct_18.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+32_2_decreasing_distinct_19.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+33_2_decreasing_distinct_20.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+34_2_decreasing_distinct_21.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+35_2_decreasing_distinct_22.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+36_2_increasing_distinct_23.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+37_2_increasing_distinct_24.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+38_2_increasing_distinct_25.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+39_2_increasing_distinct_26.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+40_2_increasing_distinct_27.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
