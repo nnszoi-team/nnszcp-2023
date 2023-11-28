@@ -7,4 +7,4 @@
 ![game_sample](https://pic.imgdb.cn/item/65603203c458853aef9e50ad.png)
 ![school_icon](https://pic.imgdb.cn/item/65603202c458853aef9e4fef.jpg)
 ![mathematics](https://pic.imgdb.cn/item/65603202c458853aef9e4f2e.png)
-![coloratura](https://pic.imgdb.cn/item/65603202c458853aef9e4f2e.png)
+![coloratura](https://pic.imgdb.cn/item/6565f365c458853aef82033d.jpg)
