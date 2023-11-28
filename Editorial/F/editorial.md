@@ -1,4 +1,4 @@
-![](https://cdn.luogu.com.cn/upload/image_hosting/26bfcuab.png)
+![](https://pic.imgdb.cn/item/65603202c458853aef9e4f2e.png)
 
 设 $ \mathrm{OP} = a, \mathrm{AP} = b = k - a $，则 $ \mathrm{BP} = ab, \mathrm{CP} = 1 $。
 
