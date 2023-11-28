@@ -1,0 +1,120 @@
+001_000_small.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 0
+
+002_000_small.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 0
+
+003_001_increasing.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 1
+
+004_001_increasing.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 1
+
+005_001_increasing.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 1
+
+006_001_increasing.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 1
+
+007_001_increasing.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 1
+
+008_001_increasing.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 25
+    subtaskId: 1
+
+009_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+010_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+011_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+012_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+013_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+014_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+015_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+016_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+017_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+018_002_random.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+019_002_hack.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
+020_002_hack.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 50
+    subtaskId: 2
+
