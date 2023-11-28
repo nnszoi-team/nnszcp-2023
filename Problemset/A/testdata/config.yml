@@ -1,0 +1,60 @@
+1_0_less_than_three.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 45
+    subtaskId: 0
+
+2_0_less_than_three.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 45
+    subtaskId: 0
+
+3_0_less_than_three.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 45
+    subtaskId: 0
+
+4_1_equal_four.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 5
+    subtaskId: 1
+
+5_1_equal_four.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 5
+    subtaskId: 1
+
+6_2_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 50
+    subtaskId: 2
+
+7_2_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 50
+    subtaskId: 2
+
+8_2_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 50
+    subtaskId: 2
+
+9_2_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 50
+    subtaskId: 2
+
+10_2_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 50
+    subtaskId: 2
+
