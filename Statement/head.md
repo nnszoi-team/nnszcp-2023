@@ -1,8 +1,9 @@
 <img src="./assets/head.png" style="zoom:33%;" />
 
-<p class = "title"> 南宁市第三中学 2023 年科技节程序设计竞赛 </p>
+<p class = "title"> 南宁三中青山校区第 13 届科技文化节 </p>
+<p class = "title"> 程序设计竞赛 </p>
 <p class = "semititle"> NNSZCP-2023 </p>
-<p class = "time"> 比赛时间：2023 年 12 月 10 日 8:30 ～ 11:30 </p>
+<p class = "time"> 比赛时间：2023 年 12 月 10 日 8:30 ～ 12:00 </p>
 
 <img src="./assets/nnsz_icon.png" alt="nnsz_icon" style="zoom:40%;" />
 
