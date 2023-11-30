@@ -1,0 +1,600 @@
+"01_0_no_query_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 2" 
+"    subtaskId: 0" 
+"" 
+"02_1_brute_force_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 13" 
+"    subtaskId: 1" 
+"" 
+"03_1_brute_force_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 13" 
+"    subtaskId: 1" 
+"" 
+"04_1_brute_force_03.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 13" 
+"    subtaskId: 1" 
+"" 
+"05_1_brute_force_04.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 13" 
+"    subtaskId: 1" 
+"" 
+"06_2_only_two_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 17" 
+"    subtaskId: 2" 
+"" 
+"07_2_only_two_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 17" 
+"    subtaskId: 2" 
+"" 
+"08_2_only_two_03.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 17" 
+"    subtaskId: 2" 
+"" 
+"09_2_only_two_04.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 17" 
+"    subtaskId: 2" 
+"" 
+"10_2_only_two_05.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 17" 
+"    subtaskId: 2" 
+"" 
+"11_3_except_two_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"12_3_except_two_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"13_3_except_two_03.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"14_3_except_two_04.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"15_3_except_two_05.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"16_3_except_two_06.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"17_3_except_two_07.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"18_3_except_two_08.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"19_3_except_two_09.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"20_3_except_two_10.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 27" 
+"    subtaskId: 3" 
+"" 
+"21_4_big_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"22_4_big_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"23_4_big_03.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"24_4_big_04.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"25_4_big_05.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"26_4_big_06.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"27_4_big_07.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"28_4_big_08.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"29_4_big_09.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"30_4_big_10.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"31_4_big_11.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"32_4_big_12.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"33_4_big_13.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"34_4_big_14.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"35_4_big_15.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"36_4_small_range_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"37_4_small_range_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"38_4_big_range_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"39_4_big_range_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"40_4_square_root_range_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"41_4_square_root_range_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"42_4_huge_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"43_4_huge_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"44_4_huge_03.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"45_4_square_root_range_huge_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"46_4_square_root_range_huge_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"47_4_small_range_huge_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"48_4_small_range_huge_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"49_4_big_range_huge_01.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+"50_4_big_range_huge_02.in:" 
+"    timeLimit: 2000" 
+"    memoryLimit: 262144" 
+"    score: 41" 
+"    subtaskId: 4" 
+"" 
+01_0_no_query_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 2 
+    subtaskId: 0 
+ECHO 处于打开状态。
+02_1_brute_force_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 13 
+    subtaskId: 1 
+ECHO 处于打开状态。
+03_1_brute_force_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 13 
+    subtaskId: 1 
+ECHO 处于打开状态。
+04_1_brute_force_03.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 13 
+    subtaskId: 1 
+ECHO 处于打开状态。
+05_1_brute_force_04.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 13 
+    subtaskId: 1 
+ECHO 处于打开状态。
+06_2_only_two_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 17 
+    subtaskId: 2 
+ECHO 处于打开状态。
+07_2_only_two_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 17 
+    subtaskId: 2 
+ECHO 处于打开状态。
+08_2_only_two_03.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 17 
+    subtaskId: 2 
+ECHO 处于打开状态。
+09_2_only_two_04.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 17 
+    subtaskId: 2 
+ECHO 处于打开状态。
+10_2_only_two_05.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 17 
+    subtaskId: 2 
+ECHO 处于打开状态。
+11_3_except_two_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+12_3_except_two_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+13_3_except_two_03.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+14_3_except_two_04.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+15_3_except_two_05.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+16_3_except_two_06.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+17_3_except_two_07.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+18_3_except_two_08.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+19_3_except_two_09.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+20_3_except_two_10.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 27 
+    subtaskId: 3 
+ECHO 处于打开状态。
+21_4_big_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+22_4_big_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+23_4_big_03.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+24_4_big_04.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+25_4_big_05.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+26_4_big_06.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+27_4_big_07.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+28_4_big_08.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+29_4_big_09.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+30_4_big_10.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+31_4_big_11.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+32_4_big_12.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+33_4_big_13.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+34_4_big_14.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+35_4_big_15.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+36_4_small_range_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+37_4_small_range_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+38_4_big_range_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+39_4_big_range_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+40_4_square_root_range_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+41_4_square_root_range_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+42_4_huge_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+43_4_huge_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+44_4_huge_03.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+45_4_square_root_range_huge_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+46_4_square_root_range_huge_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+47_4_small_range_huge_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+48_4_small_range_huge_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+49_4_big_range_huge_01.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
+50_4_big_range_huge_02.in: 
+    timeLimit: 2000 
+    memoryLimit: 262144 
+    score: 41 
+    subtaskId: 4 
+ECHO 处于打开状态。
