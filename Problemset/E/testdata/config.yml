@@ -34,117 +34,117 @@
     score: 15
     subtaskId: 1
 
-007_001_n_less_than_one_hundred.in:
+007_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-008_001_n_less_than_one_hundred.in:
+008_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-009_001_n_less_than_one_hundred.in:
+009_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-010_001_n_less_than_one_hundred.in:
+010_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-011_001_n_less_than_one_hundred.in:
+011_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-012_001_n_less_than_one_hundred.in:
+012_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-013_001_n_less_than_one_hundred.in:
+013_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-014_001_n_less_than_one_hundred.in:
+014_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-015_001_n_less_than_one_hundred.in:
+015_002_n_less_than_one_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 25
-    subtaskId: 1
+    subtaskId: 2
 
-016_002_n_less_than_five_hundred.in:
+016_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-017_002_n_less_than_five_hundred.in:
+017_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-018_002_n_less_than_five_hundred.in:
+018_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-019_002_n_less_than_five_hundred.in:
+019_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-020_002_n_less_than_five_hundred.in:
+020_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-021_002_n_less_than_five_hundred.in:
+021_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-022_002_n_less_than_five_hundred.in:
+022_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-023_002_n_less_than_five_hundred.in:
+023_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-024_002_n_less_than_five_hundred.in:
+024_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 
-025_002_n_less_than_five_hundred.in:
+025_003_n_less_than_five_hundred.in:
     timeLimit: 1000
     memoryLimit: 131072
     score: 50
-    subtaskId: 2
+    subtaskId: 3
 

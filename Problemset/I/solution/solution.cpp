@@ -4,17 +4,17 @@
 #include <vector>
 
 class Spfa {
-private:
+  private:
 	int n;
 	std::vector<std::vector<std::pair<int, int>>> ed;
 
-public:
+  public:
 	std::vector<int> dis;
 
-private:
+  private:
 	std::vector<bool> vis;
 
-public:
+  public:
 	void spfa(int s) {
 		dis[s] = 0, vis[s] = true;
 		std::queue<int> q;
@@ -36,12 +36,12 @@ public:
 };
 
 class Twosat {
-private:
+  private:
 	int count, color_count, n;
 	std::stack<int> stack;
 	std::vector<bool> vis;
 
-public:
+  public:
 	std::vector<int> id, low, color;
 	std::vector<std::vector<int>> ed;
 
@@ -76,14 +76,7 @@ public:
 	void add_edge(int u, int v) { ed[u].push_back(v), ed[v].push_back(u); }
 
 	Twosat(int n)
-		: count(0),
-		  color_count(0),
-		  n(n),
-		  vis(n),
-		  id(n),
-		  low(n),
-		  color(n),
-		  ed(n) {}
+		: count(0), color_count(0), n(n), vis(n), id(n), low(n), color(n), ed(n) {}
 };
 
 int main() {
@@ -108,11 +101,14 @@ int main() {
 
 	for (int i = 1; i <= n; ++i)
 		G.add_edge(i - 1, i, 1), G.add_edge(i, i - 1, 0);
-	for (auto [l, r] : cst[0]) G.add_edge(r, l - 1, -2);
-	for (auto [l, r] : cst[1]) G.add_edge(r, l - 1, 0), G.add_edge(l - 1, r, 0);
+	for (auto [l, r] : cst[0])
+		G.add_edge(r, l - 1, -2);
+	for (auto [l, r] : cst[1])
+		G.add_edge(r, l - 1, 0), G.add_edge(l - 1, r, 0);
 	for (auto [l, r] : cst[2])
 		G.add_edge(l - 1, r, 1), G.add_edge(r, l - 1, -1);
-	for (auto [l, r] : cst[3]) G.add_edge(r, l - 1, 0), G.add_edge(l - 1, r, 0);
+	for (auto [l, r] : cst[3])
+		G.add_edge(r, l - 1, 0), G.add_edge(l - 1, r, 0);
 
 	G.spfa(0);
 
@@ -142,10 +138,11 @@ int main() {
 		}
 	}
 
-	for (int i = 1; i <= n; ++i) std::cout << answer[i] << " \n"[i == n];
+	for (int i = 1; i <= n; ++i)
+		std::cout << answer[i] << " \n"[i == n];
 
-	std::cerr << "solution used time "
-			  << (double)(clock() - begin) / CLOCKS_PER_SEC << " ms" << '\n';
+	std::cerr << "solution used time " << (double)(clock() - begin) / CLOCKS_PER_SEC
+			  << " ms" << '\n';
 
 	return 0;
 }

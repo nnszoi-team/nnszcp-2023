@@ -22,9 +22,9 @@ for i in range(1, 3):
 for i in range(3, 7):
     gen("subtask1.py", 1, i, "n_less_than_five", 15)
 for i in range(7, 16):
-    gen("subtask2.py", 1, i, "n_less_than_one_hundred", 25)
+    gen("subtask2.py", 2, i, "n_less_than_one_hundred", 25)
 for i in range(16, 26):
-    gen("subtask3.py", 2, i, "n_less_than_five_hundred", 50)
+    gen("subtask3.py", 3, i, "n_less_than_five_hundred", 50)
 
 for test in testList:
     print(f"{test[0]}.in:")
