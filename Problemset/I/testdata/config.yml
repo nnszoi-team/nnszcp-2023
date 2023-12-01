@@ -106,105 +106,105 @@
     score: 27
     subtaskId: 2
 
-019_003_middle.in:
+019_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-020_003_middle.in:
+020_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-021_003_middle.in:
+021_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-022_003_middle.in:
+022_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-023_003_middle.in:
+023_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-024_003_middle.in:
+024_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-025_003_middle.in:
+025_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-026_003_middle.in:
+026_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-027_003_middle.in:
+027_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-028_003_middle.in:
+028_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-029_003_middle.in:
+029_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 20
+    score: 48
     subtaskId: 3
 
-030_004_rand.in:
+030_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 28
-    subtaskId: 4
+    score: 48
+    subtaskId: 3
 
-031_004_rand.in:
+031_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 28
-    subtaskId: 4
+    score: 48
+    subtaskId: 3
 
-032_004_rand.in:
+032_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 28
-    subtaskId: 4
+    score: 48
+    subtaskId: 3
 
-033_004_rand.in:
+033_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 28
-    subtaskId: 4
+    score: 48
+    subtaskId: 3
 
-034_004_rand.in:
+034_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 28
-    subtaskId: 4
+    score: 48
+    subtaskId: 3
 
-035_004_rand.in:
+035_003_big.in:
     timeLimit: 2000
     memoryLimit: 524288
-    score: 28
-    subtaskId: 4
+    score: 48
+    subtaskId: 3
 

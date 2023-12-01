@@ -1,7 +1,7 @@
 import random
 import sys
 
-argv = sys.argv[1:]
+argv = sys.argv[1:6]
 
 n, q, w, z, o = [int(i) for i in argv]
 
@@ -33,6 +33,8 @@ for i in range(q):
         else:
             cv = 1
     c.append([cl, cr, cv])
+
+random.shuffle(c)
 
 print(n, q)
 for i in c:

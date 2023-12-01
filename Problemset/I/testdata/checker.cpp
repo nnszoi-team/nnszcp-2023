@@ -1,11 +1,11 @@
-#include "testlib.h"
 #include <iostream>
 #include <vector>
 
+#include "testlib.h"
+
 std::vector<int> readAnswer(InStream &in, const int n) {
 	std::vector<int> a(n);
-	for (auto &i : a)
-		i = in.readInt(-1, 2);
+	for (auto &i : a) i = in.readInt(-1, 1'000'000'000) % 3;
 	return a;
 }
 
@@ -50,20 +50,23 @@ int main(int argc, char *argv[]) {
 		int l, r, v, c;
 		l = inf.readInt(1, n);
 		r = inf.readInt(1, n);
-		ouf.quitif(l > r, _fail, "the %d-th constraint has an invalid range (%d, %d)",
-				   i + 1, l, r);
+		ouf.quitif(l > r, _fail,
+				   "the %d-th constraint has an invalid range (%d, %d)", i + 1,
+				   l, r);
 
 		v = inf.readInt(0, 2);
 
 		--l;
 		c = mul(l, r);
 		ouf.quitif(c != v, _wa,
-				   "the %d-th constraint (%d, %d, %d) is not satisfied, but found v = %d",
+				   "the %d-th constraint (%d, %d, %d) is not satisfied, but "
+				   "found v = %d",
 				   i + 1, l + 1, r, v, c);
 	}
 
-	ouf.quitif(jexist, _fail,
-			   "expected no solution but participant's program just presented one");
+	ouf.quitif(
+		jexist, _fail,
+		"expected no solution but participant's program just presented one");
 
 	ouf.quitf(_ok, "accepted");
 
