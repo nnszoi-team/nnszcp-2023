@@ -50,31 +50,33 @@ int main() {
 
 	auto color = [](const std::vector<std::vector<int>> &ed) {
 		int n = ed.size();
-		std::vector<int> visit(n), color(n, -1), id(n), low(n), stack;
-		int count = 0, scc = 0;
-		auto dfs = [&](auto self, const int x) -> void {
-			id[x] = low[x] = count++;
-			visit[x] = 1, stack.push_back(x);
+		std::vector<int> visit(n), color(n, -1), finish(n), stack;
+		int time = 0, scc = 0;
+		auto dfs1 = [&](auto self, int x) -> void {
+			visit[x] = 1;
 			for (const auto &i : ed[x])
-				if (visit[i] == 0)
-					self(self, i), low[x] = std::min(low[x], low[i]);
-				else if (visit[i] == 1)
-					low[x] = std::min(low[x], id[i]);
-
-			if (low[x] == id[x]) {
-				while (stack.back() != x) {
-					color[stack.back()] = scc;
-					visit[stack.back()] = 2;
-					stack.pop_back();
-				}
-				color[x] = scc;
-				visit[x] = 2;
-				stack.pop_back();
-				++scc;
-			}
+				if (visit[i] == 0) self(self, i);
+			finish[x] = ++time;
+			stack.push_back(x);
 		};
 		for (int i = 0; i < n; ++i)
-			if (visit[i] != 2) dfs(dfs, i);
+			if (visit[i] == 0) dfs1(dfs1, i);
+		std::vector<std::vector<int>> red(n);
+		for (int i = 0; i < n; ++i)
+			for (const auto &j : ed[i]) red[j].push_back(i);
+		auto dfs2 = [&](auto self, int x) -> void {
+			color[x] = scc;
+			for (const auto &i : red[x])
+				if (color[i] == -1) self(self, i);
+		};
+		while (!stack.empty()) {
+			int x = stack.back();
+			stack.pop_back();
+			if (color[x] == -1) {
+				dfs2(dfs2, x);
+				++scc;
+			}
+		}
 		return color;
 	}(ed);
 

@@ -46,7 +46,6 @@ def color(ed):
     order = []
     scc = 0
 
-    # First pass: DFS to determine the order of traversal
     for i in range(n):
         if visit[i] == 0:
             stack.append(i)
@@ -61,7 +60,6 @@ def color(ed):
                     stack.pop()
                     order.append(x)
 
-    # Second pass: DFS to assign colors
     visit = [0] * n
     for i in reversed(order):
         if visit[i] == 0:
