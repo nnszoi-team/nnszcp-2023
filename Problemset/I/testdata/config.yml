@@ -1,180 +1,210 @@
 001_000_empty.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 2
     subtaskId: 0
 
 002_001_small.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 23
     subtaskId: 1
 
 003_001_small.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 23
     subtaskId: 1
 
 004_001_small.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 23
     subtaskId: 1
 
 005_001_small.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 23
     subtaskId: 1
 
-006_002_gauss.in:
+006_001_small.in:
     timeLimit: 2000
-    memoryLimit: 262144
-    score: 27
-    subtaskId: 2
+    memoryLimit: 524288
+    score: 23
+    subtaskId: 1
 
-007_002_gauss.in:
+007_001_small.in:
     timeLimit: 2000
-    memoryLimit: 262144
-    score: 27
-    subtaskId: 2
+    memoryLimit: 524288
+    score: 23
+    subtaskId: 1
 
 008_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 27
     subtaskId: 2
 
 009_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 27
     subtaskId: 2
 
 010_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 27
     subtaskId: 2
 
 011_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 27
     subtaskId: 2
 
 012_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 27
     subtaskId: 2
 
 013_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 27
     subtaskId: 2
 
-014_003_without_optimize.in:
+014_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
+    score: 27
+    subtaskId: 2
+
+015_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 27
+    subtaskId: 2
+
+016_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 27
+    subtaskId: 2
+
+017_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 27
+    subtaskId: 2
+
+018_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 27
+    subtaskId: 2
+
+019_003_middle.in:
+    timeLimit: 2000
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-015_003_without_optimize.in:
+020_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-016_003_without_optimize.in:
+021_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-017_003_without_optimize.in:
+022_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-018_003_without_optimize.in:
+023_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-019_003_without_optimize.in:
+024_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-020_003_without_optimize.in:
+025_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-021_003_without_optimize.in:
+026_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
     score: 20
     subtaskId: 3
 
-022_004_rand.in:
+027_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
+    memoryLimit: 524288
+    score: 20
+    subtaskId: 3
 
-023_004_rand.in:
+028_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
+    memoryLimit: 524288
+    score: 20
+    subtaskId: 3
 
-024_004_rand.in:
+029_003_middle.in:
     timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
-
-025_004_rand.in:
-    timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
-
-026_004_rand.in:
-    timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
-
-027_004_rand.in:
-    timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
-
-028_004_rand.in:
-    timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
-
-029_004_rand.in:
-    timeLimit: 2000
-    memoryLimit: 262144
-    score: 28
-    subtaskId: 4
+    memoryLimit: 524288
+    score: 20
+    subtaskId: 3
 
 030_004_rand.in:
     timeLimit: 2000
-    memoryLimit: 262144
+    memoryLimit: 524288
+    score: 28
+    subtaskId: 4
+
+031_004_rand.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 28
+    subtaskId: 4
+
+032_004_rand.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 28
+    subtaskId: 4
+
+033_004_rand.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 28
+    subtaskId: 4
+
+034_004_rand.in:
+    timeLimit: 2000
+    memoryLimit: 524288
+    score: 28
+    subtaskId: 4
+
+035_004_rand.in:
+    timeLimit: 2000
+    memoryLimit: 524288
     score: 28
     subtaskId: 4
 
