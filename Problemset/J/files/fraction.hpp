@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstring>
+#include <algorithm>
 
 template <typename T> std::string to_string(T data) {
 	std::string cur;
