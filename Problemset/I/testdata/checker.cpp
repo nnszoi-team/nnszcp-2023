@@ -1,81 +1,71 @@
-#include <string>
-
 #include "testlib.h"
+#include <iostream>
+#include <vector>
 
-using namespace std;
+std::vector<int> readAnswer(InStream &in, const int n) {
+	std::vector<int> a(n);
+	for (auto &i : a)
+		i = in.readInt(-1, 2);
+	return a;
+}
 
-const int N = 20000, Q = 20000;
-
-int main(int argc, char* argv[]) {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-
-	clock_t begin = clock();
+int main(int argc, char *argv[]) {
 	registerTestlibCmd(argc, argv);
 
-	int n = inf.readInt(1, N, "n"), q = inf.readInt(0, Q, "q");
+	int n = inf.readInt(1, 500'000);
+	int q = inf.readInt(0, 500'000);
 
-	std::vector<int> a(n + 1);
-	for (int i = 1; i <= n; ++i) {
-		int x = ouf.readInt(1, 3, "a_i");
-		a[i] = x;
+	auto jans = readAnswer(ans, n);
+	auto pans = readAnswer(ouf, n);
+
+	auto jexist = [](const std::vector<int> &answer) {
+		for (const auto i : answer)
+			if (i != -1) return false;
+		return true;
+	}(jans);
+
+	auto pexist = [](const std::vector<int> &answer) {
+		for (const auto i : answer)
+			if (i != -1) return false;
+		return true;
+	}(pans);
+
+	quitif(jexist && pexist, _ok, "no solution");
+
+	std::vector<int> prefix_zero(n + 1), prefix_two(n + 1);
+	for (int i = 0; i < n; ++i) {
+		prefix_two[i + 1] = prefix_two[i] + (pans[i] == 2);
+		prefix_zero[i + 1] = prefix_zero[i] + (pans[i] == 0);
 	}
 
-	int cnt[n + 1][4];
-	memset(cnt, 0, sizeof(cnt));
-	for (int i = 1; i <= n; ++i) {
-		cnt[i][0] = cnt[i - 1][0];
-		cnt[i][1] = cnt[i - 1][1];
-		cnt[i][2] = cnt[i - 1][2];
-		cnt[i][3] = cnt[i - 1][3];
-		++cnt[i][a[i]];
+	auto mul = [&prefix_two, &prefix_zero](const int l, const int r) {
+		if (prefix_zero[r] - prefix_zero[l]) return 0;
+		if ((prefix_two[r] - prefix_two[l]) % 2 == 1)
+			return 2;
+		else
+			return 1;
+	};
+
+	for (int i = 0; i < q; ++i) {
+		int l, r, v, c;
+		l = inf.readInt(1, n);
+		r = inf.readInt(1, n);
+		ouf.quitif(l > r, _fail, "the %d-th constraint has an invalid range (%d, %d)",
+				   i + 1, l, r);
+
+		v = inf.readInt(0, 2);
+
+		--l;
+		c = mul(l, r);
+		ouf.quitif(c != v, _wa,
+				   "the %d-th constraint (%d, %d, %d) is not satisfied, but found v = %d",
+				   i + 1, l + 1, r, v, c);
 	}
 
-	for (int i = 1; i <= q; ++i) {
-		int l = inf.readInt(1, n, "l_i");
-		int r = inf.readInt(1, n, "r_i");
-		int v = inf.readInt(0, 3, "v_i");
-		if (l > r)
-			quitf(_fail,
-				  "constraint %d : l_%d = %d should not be greater than l_%d = "
-				  "%d",
-				  i, i, l, i, r);
+	ouf.quitif(jexist, _fail,
+			   "expected no solution but participant's program just presented one");
 
-		int res[] = {cnt[r][0] - cnt[l - 1][0], cnt[r][1] - cnt[l - 1][1],
-					 cnt[r][2] - cnt[l - 1][2], cnt[r][3] - cnt[l - 1][3]};
-
-		switch (v) {
-			case 0: {
-				if (res[2] < 2)
-					quitf(_wa, "constraint %d : v_%d = %d is not satisfied", i,
-						  i, v);
-				break;
-			}
-			case 1: {
-				if (res[2] != 0 || res[3] % 2 != 0)
-					quitf(_wa, "constraint %d : v_%d = %d is not satisfied", i,
-						  i, v);
-				break;
-			}
-			case 2: {
-				if (res[2] != 1)
-					quitf(_wa, "constraint %d : v_%d = %d is not satisfied", i,
-						  i, v);
-				break;
-			}
-			case 3: {
-				if (res[2] != 0 || res[3] % 2 != 1)
-					quitf(_wa, "constraint %d : v_%d = %d is not satisfied", i,
-						  i, v);
-				break;
-			}
-		}
-	}
-
-	quitf(_ok,
-		  "solution correct : n = %d, q = "
-		  "%d\nchecker used time = %lf ms",
-		  n, q, (double)(clock() - begin) / CLOCKS_PER_SEC);
+	ouf.quitf(_ok, "accepted");
 
 	return 0;
 }

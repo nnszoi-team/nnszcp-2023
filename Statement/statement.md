@@ -778,39 +778,14 @@ YES
 
 # Problem I. 花腔星云
 
-*时间限制：2 秒；空间限制：256 MiB。*
+*时间限制：2 秒；空间限制：512 MiB。*
 
-<img src="./assets/coloratura.jpg" alt="coloratura" style="zoom: 25%;" />
+构造序列 $a_i$ 使得其满足下面的条件，或判断无解：
 
-And up there in the heavens 高高在上 于天堂之中
+* $0 \le a_i \le 10^9$；
+* 对每个 $1 \le j \le q$，$\left( \prod_{i = l_j}^{r_j} a_i \right) \bmod 3 = v_j$。
 
-Galileo and those pining for the moon 伽利略和前人们伫立于此
-
-Know it's a slow burn 深知过程必然缓慢
-
-Through Pioneer and Helix 掠过先驱者号与螺旋星云
-
-Oumuamua, Heliopause, and Neptune 奥陌陌，日球层顶与海王星
-
-We're a slow-burning tune 韵律缓慢燃烧
-
-But we'll get there 故事延绵亘久
-
-—— Coloratura 花腔星云，Coldplay
-
----
-
-小 L 透过望远镜看到了一片花腔星云。
-
-在这个宇宙一共有 $3$ 种行星，其种类编号分别为 $1, 2, 3$，而这片星云有 $n$ 颗行星，第 $i$ 颗行星的种类编号为 $a_i$。
-
-为了采集数据，小 L 从 $q$ 种观察角度观察了这片星云。第 $i$ 种观察角度及结果用一个三元组 $\left(l_i, r_i, v_i\right)$ 表示，代表第 $l_i$ 颗至第 $r_i$ 颗行星的种类编号的乘积除以 $4$ 的余数为 $v_i$，即：
-$$
-\left(\prod_{j=l_i}^{r_i} a_j\right) \bmod 4 = v_i
-$$
-现在小 L 将他的记录数据告诉了你，你能不能猜出星云中的每颗行星可能的种类呢？
-
-小 L 观察得很认真，所以记录一定没有出错，也就是说存在一种每颗行星种类的情况，满足小 L 的所有观察得到的结果。
+保证 $1 \le n, q \le 3 \times 10^5$，$1 \le l_i, r_i \le n$，$0 \le v_i \le 2$。
 
 ## 输入格式
 
