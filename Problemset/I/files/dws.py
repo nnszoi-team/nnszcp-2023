@@ -1,9 +1,9 @@
 import random
 import sys
 
-argv = sys.argv[1:6]
+argv = sys.argv[1:7]
 
-n, q, w, z, o = [int(i) for i in argv]
+n, q, wl, wr, z, o = [int(i) for i in argv]
 
 a = [int(0) for _ in range(z)] + [int(1) for _ in range(o)] + [int(2) for _ in range(n - o - z)]
 random.shuffle(a)
@@ -23,7 +23,7 @@ for i in range(n):
 c = []
 
 for i in range(q - 1):
-    cw = random.randint(1, w)
+    cw = random.randint(wl, wr)
     cl = random.randint(1, n - cw + 1)
     cr = cl + cw - 1
     cv = 0

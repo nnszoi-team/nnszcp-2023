@@ -1,210 +1,270 @@
 001_000_empty.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 2
     subtaskId: 0
 
 002_001_small.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 23
     subtaskId: 1
 
 003_001_small.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 23
     subtaskId: 1
 
 004_001_small.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 23
     subtaskId: 1
 
 005_001_small.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 23
     subtaskId: 1
 
 006_001_small.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 23
     subtaskId: 1
 
-007_001_small.in:
+007_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 23
-    subtaskId: 1
+    memoryLimit: 262144
+    score: 27
+    subtaskId: 2
 
 008_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 009_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 010_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 011_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 012_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 013_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 014_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 015_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 016_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 017_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
 018_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
+    memoryLimit: 262144
     score: 27
     subtaskId: 2
 
-019_003_big.in:
+019_002_gauss.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 27
+    subtaskId: 2
+
+020_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 27
+    subtaskId: 2
+
+021_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 27
+    subtaskId: 2
+
+022_002_gauss.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 27
+    subtaskId: 2
+
+023_003_single.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-020_003_big.in:
+024_003_single.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-021_003_big.in:
+025_003_single.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-022_003_big.in:
+026_003_single.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-023_003_big.in:
+027_003_single.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-024_003_big.in:
+028_003_single.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-025_003_big.in:
+029_003_single.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
+    memoryLimit: 262144
+    score: 16
     subtaskId: 3
 
-026_003_big.in:
+030_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-027_003_big.in:
+031_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-028_003_big.in:
+032_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-029_003_big.in:
+033_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-030_003_big.in:
+034_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-031_003_big.in:
+035_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-032_003_big.in:
+036_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-033_003_big.in:
+037_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-034_003_big.in:
+038_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
-035_003_big.in:
+039_004_big.in:
     timeLimit: 2000
-    memoryLimit: 524288
-    score: 48
-    subtaskId: 3
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
+
+040_004_big.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
+
+041_004_big.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
+
+042_004_big.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
+
+043_004_big.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
+
+044_004_big.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
+
+045_004_big.in:
+    timeLimit: 2000
+    memoryLimit: 262144
+    score: 32
+    subtaskId: 4
 
