@@ -1,151 +1,108 @@
+#include <iomanip>
 #include <iostream>
-#include <queue>
-#include <stack>
+#include <tuple>
 #include <vector>
 
-class Spfa {
-private:
-	int n;
-	std::vector<std::vector<std::pair<int, int>>> ed;
+int main() {
+	std::cin.tie(nullptr)->std::ios::sync_with_stdio(false);
 
-public:
-	std::vector<int> dis;
+	clock_t begin = clock();
 
-private:
-	std::vector<bool> vis;
+	int n, q;
+	std::cin >> n >> q;
+	std::vector<int> answer(n);
+	std::vector<std::tuple<int, int, int>> constraint(q);
 
-public:
-	void spfa(int s) {
-		dis[s] = 0, vis[s] = true;
-		std::queue<int> q;
-		q.push(s);
-		while (!q.empty()) {
-			int x = q.front();
-			q.pop(), vis[x] = false;
-			for (auto [i, w] : ed[x])
-				if (dis[i] > dis[x] + w) {
-					dis[i] = dis[x] + w;
-					if (vis[i] == false) q.push(i), vis[i] = true;
-				}
-		}
-	}
+	for (auto &[l, r, v] : constraint) std::cin >> l >> r >> v, --l;
 
-	void add_edge(int u, int v, int w) { ed[u].push_back({v, w}); }
-
-	Spfa(int n) : n(n), ed(n + 1), dis(n + 1, 0x3f3f3f3f), vis(n + 1, false) {}
-};
-
-class Twosat {
-private:
-	int count, color_count, n;
-	std::stack<int> stack;
-	std::vector<bool> vis;
-
-public:
-	std::vector<int> id, low, color;
-	std::vector<std::vector<int>> ed;
-
-	void tarjan(int x) {
-		stack.push(x);
-		vis[x] = true;
-		id[x] = low[x] = ++count;
-		for (auto i : ed[x]) {
-			if (!id[i]) {
-				tarjan(i);
-				low[x] = std::min(low[x], low[i]);
-			} else if (vis[i])
-				low[x] = std::min(low[x], id[i]);
-		}
-		if (id[x] == low[x]) {
-			++color_count;
-			while (true) {
-				int top = stack.top();
-				vis[top] = false;
-				stack.pop();
-				color[top] = color_count;
-				if (top == x) break;
+	std::vector<std::vector<int>> ed(2 * n + 2);
+	std::vector<int> mark(n + 1);
+	for (auto [l, r, v] : constraint) {
+		switch (v) {
+			case 1: {
+				ed[2 * r].push_back(2 * l);
+				ed[2 * l].push_back(2 * r);
+				ed[2 * r + 1].push_back(2 * l + 1);
+				ed[2 * l + 1].push_back(2 * r + 1);
+				++mark[l], --mark[r];
+				break;
+			}
+			case 2: {
+				ed[2 * r].push_back(2 * l + 1);
+				ed[2 * l].push_back(2 * r + 1);
+				ed[2 * r + 1].push_back(2 * l);
+				ed[2 * l + 1].push_back(2 * r);
+				++mark[l], --mark[r];
+				break;
 			}
 		}
 	}
 
-	void twosat() {
+	bool ok = true;
+
+	for (int i = 0; i < n; ++i) mark[i + 1] += mark[i];
+	mark.insert(mark.begin(), 0), mark.pop_back();
+	for (auto &i : mark) i = (bool)i;
+	for (int i = 0; i < n; ++i) mark[i + 1] += mark[i];
+
+	for (auto [l, r, v] : constraint)
+		if (v == 0 && mark[r] - mark[l] == r - l) ok = false;
+
+	auto color = [](const std::vector<std::vector<int>> &ed) {
+		int n = ed.size();
+		std::vector<int> visit(n), color(n, -1), id(n), low(n), stack;
+		int count = 0, scc = 0;
+		auto dfs = [&](auto self, const int x) -> void {
+			id[x] = low[x] = count++;
+			visit[x] = 1, stack.push_back(x);
+			for (const auto &i : ed[x])
+				if (visit[i] == 0)
+					self(self, i), low[x] = std::min(low[x], low[i]);
+				else if (visit[i] == 1)
+					low[x] = std::min(low[x], id[i]);
+
+			if (low[x] == id[x]) {
+				while (stack.back() != x) {
+					color[stack.back()] = scc;
+					visit[stack.back()] = 2;
+					stack.pop_back();
+				}
+				color[x] = scc;
+				visit[x] = 2;
+				stack.pop_back();
+				++scc;
+			}
+		};
 		for (int i = 0; i < n; ++i)
-			if (id[i] == 0) tarjan(i);
+			if (visit[i] != 2) dfs(dfs, i);
+		return color;
+	}(ed);
+
+	if ([](const std::vector<int> &color, const int n) {
+			for (int i = 0; i <= n; ++i)
+				if (color[2 * i] == color[2 * i + 1]) return true;
+			return false;
+		}(color, n)) {
+		ok = false;
 	}
 
-	void add_edge(int u, int v) { ed[u].push_back(v), ed[v].push_back(u); }
-
-	Twosat(int n)
-		: count(0),
-		  color_count(0),
-		  n(n),
-		  vis(n),
-		  id(n),
-		  low(n),
-		  color(n),
-		  ed(n) {}
-};
-
-int main() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-
-	clock_t begin = clock();
-	int n, q;
-	std::cin >> n >> q;
-	std::cerr << "input n = " << n << ' ' << "q = " << q << '\n';
-
-	std::vector<int> answer(n + 1, 1);
-	std::vector<std::pair<int, int>> cst[4];
-
-	for (int i = 1; i <= q; ++i) {
-		int l, r, v;
-		std::cin >> l >> r >> v;
-		cst[v].push_back({l, r});
-	}
-
-	Spfa G(n);
-
-	for (int i = 1; i <= n; ++i)
-		G.add_edge(i - 1, i, 1), G.add_edge(i, i - 1, 0);
-	for (auto [l, r] : cst[0]) G.add_edge(r, l - 1, -2);
-	for (auto [l, r] : cst[1]) G.add_edge(r, l - 1, 0), G.add_edge(l - 1, r, 0);
-	for (auto [l, r] : cst[2])
-		G.add_edge(l - 1, r, 1), G.add_edge(r, l - 1, -1);
-	for (auto [l, r] : cst[3]) G.add_edge(r, l - 1, 0), G.add_edge(l - 1, r, 0);
-
-	G.spfa(0);
-
-	for (int i = 1; i <= n; ++i) {
-		int diff = G.dis[i] - G.dis[i - 1];
-		if (diff == 1) answer[i] = 2;
-	}
-
-	Twosat H(2 * (n + 1));
-
-	for (auto [l, r] : cst[1])
-		H.add_edge(2 * (l - 1), 2 * r), H.add_edge(2 * (l - 1) + 1, 2 * r + 1);
-
-	for (auto [l, r] : cst[3])
-		H.add_edge(2 * (l - 1) + 1, 2 * r), H.add_edge(2 * (l - 1), 2 * r + 1);
-
-	H.twosat();
-
-	for (int i = 2; i <= 2 * n; i += 2) {
-		if (answer[i / 2] == 2) continue;
-		bool f1 = H.color[i] < H.color[i + 1];
-		bool f2 = H.color[i - 2] < H.color[i - 1];
-		if (f1 == f2) {
-			answer[i / 2] = 1;
-		} else {
-			answer[i / 2] = 3;
+	[&answer, &mark, n](const std::vector<int> &color) {
+		for (int i = 0; i < n; ++i) {
+			if (mark[i + 1] - mark[i] == 0) continue;
+			bool f = color[2 * i] < color[2 * i + 1];
+			bool g = color[2 * i + 2] < color[2 * i + 3];
+			if (f != g)
+				answer[i] = 2;
+			else
+				answer[i] = 1;
 		}
-	}
+	}(color);
 
-	for (int i = 1; i <= n; ++i) std::cout << answer[i] << " \n"[i == n];
+	if (ok == false) answer = std::vector<int>(n, -1);
 
-	std::cerr << "solution used time "
-			  << (double)(clock() - begin) / CLOCKS_PER_SEC << " ms" << '\n';
+	for (int i = 0; i < n; ++i) std::cout << answer[i] << " \n"[i == n - 1];
+
+	std::cerr << 1.0 * (clock() - begin) / CLOCKS_PER_SEC << '\n';
 
 	return 0;
 }
