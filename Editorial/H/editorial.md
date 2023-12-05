@@ -171,16 +171,23 @@ print(res)
 
 设 $ g\left(u\right) $ 为以 $ u $ 为根节点时，删去整棵树的方案数。
 
+答案即为 $ \sum_{u = 1}^n g\left(u\right) $。
+
 不难得出：
 
 $$
 \begin{aligned}
   	g\left(v\right) &= f\left(v\right) \times \frac{g\left(u\right)}{f\left(v\right) \times \begin{pmatrix} n - 1 \\ n - \operatorname{size}\left(v\right) - 1 \\ \end{pmatrix}} \times \begin{pmatrix} n - 1 \\ \operatorname{size}\left(v\right) - 1 \\ \end{pmatrix} \\
-    	 			&= \frac{g\left(u\right) \times \begin{pmatrix} n - 1 \\ \operatorname{size}\left(v\right) - 1 \\ \end{pmatrix}}{\begin{pmatrix} n - 1 \\ n - \operatorname{size}\left(v\right) - 1 \\ \end{pmatrix}}
+    	 			&= \frac{g\left(u\right) \times \begin{pmatrix} n - 1 \\ \operatorname{size}\left(v\right) - 1 \\ \end{pmatrix}}{\begin{pmatrix} n - 1 \\ n - \operatorname{size}\left(v\right) - 1 \\ \end{pmatrix}} \\
+                    &= \frac{g\left(u\right) \times \operatorname{size}\left(v\right)}{n - \operatorname{size}\left(v\right)}
 \end{aligned}
 $$
 
-上述更新过程的时间复杂度同样是 $ \mathcal{O} \left(n\right) $ 的（将做除法（求逆元）的时间复杂度视为常数），故程序的总时间复杂度为 $ \mathcal{O} \left(n\right) $。
+其中 $ \operatorname{size}\left(v\right) \in [1, n - 1], n - \operatorname{size}\left(v\right) \in [1, n - 1] $。故我们只需在 $ \mathcal{O}\left(n\right) $ 的时间内递推求出 $ 1, 2, \dots, n $ 的逆元，上述转移就是 $ \mathcal{O}\left(1\right) $ 的。
+
+上述转移同样进行 $ n - 1 $ 次，故整个程序的时间复杂度为 $ \mathcal{O}\left(n\right) $。
+
+当然在转移的过程中直接求出逆元，带上一个 $ \log_2 998244353 $ 的常数也可以通过。
 
 完整代码如下：
 
@@ -191,14 +198,13 @@ $$
 const int mod = 998244353;
 
 std::vector<std::vector<int>> graph;
-std::vector<int> fact, fact_inv, dp, size;
+std::vector<int> inv, fact, fact_inv, dp, size;
 
 void solve_1(const int cur, const int fa);
 void solve_2(const int cur, const int fa);
 
 int binpow(int a, int n);
-int inv(const int a);
-void get_fact(const int n);
+void prework(const int n);
 int C(const int n, const int m);
 
 int main() {
@@ -213,8 +219,8 @@ int main() {
         graph[v].push_back(u);
     }
 
-    fact = fact_inv = std::vector<int>(n + 1);
-    get_fact(n);
+    inv = fact = fact_inv = std::vector<int>(n + 1);
+    prework(n);
     
     dp = size = std::vector<int>(n);
     solve_1(0, -1); solve_2(0, -1);
@@ -243,7 +249,7 @@ void solve_2(const int cur, const int fa) {
     for (const int to : graph[cur]) {
         if (to == fa) continue;
 
-        dp[to] = (long long)dp[cur] * C(size[0] - 1, size[to] - 1) % mod * inv(C(size[0] - 1, size[0] - size[to] - 1)) % mod;
+        dp[to] = (long long)dp[cur] * size[to] % mod * inv[size[0] - size[to]] % mod;
         solve_2(to, cur);
     }
 }
@@ -256,16 +262,16 @@ int binpow(int a, int n) {
     return res;
 }
 
-int inv(const int a) {
-    return binpow(a, mod - 2);
-}
+void prework(const int n) {
+    inv[1] = 1;
+    for (int i = 2; i <= n; ++i) 
+        inv[i] = (long long)(mod - mod / i) * inv[mod % i] % mod;
 
-void get_fact(const int n) {
     fact[0] = fact_inv[0] = 1;
     for (int i = 1; i <= n; ++i)
         fact[i] = (long long)fact[i - 1] * i % mod;
     
-    fact_inv[n] = inv(fact[n]);
+    fact_inv[n] = binpow(fact[n], mod - 2);
     for (int i = n - 1; i; --i)
         fact_inv[i] = (long long)fact_inv[i + 1] * (i + 1) % mod;
 }
@@ -280,18 +286,18 @@ Python 中实现递归算法时，每一帧栈帧的占用空间较大，容易�
 因此下面的 Python 标程将递归实现改为非递归实现。
 
 ```python
-global MOD, graph, fact, fact_inv, fa, order, size, dp
-
-def inv(a: int) -> int:
-    return pow(a, MOD - 2, MOD)
+global MOD, graph, inv, fact, fact_inv, fa, order, size, dp
 
 def get_fact(n: int) -> None:
+    inv[1] = 1
+    for i in range(2, n + 1):
+        inv[i] = (MOD - MOD // i) * inv[MOD % i] % MOD
 
     fact[0] = 1
     for i in range(1, n + 1):
         fact[i] = fact[i - 1] * i % MOD
     
-    fact_inv[n] = inv(fact[n])
+    fact_inv[n] = pow(fact[n], MOD - 2, MOD)
     for i in range(n - 1, -1, -1):
         fact_inv[i] = fact_inv[i + 1] * (i + 1) % MOD
 
@@ -318,19 +324,21 @@ def solve_2() -> None:
         for v in graph[u]:
             if v == fa[u]:
                 continue
-            dp[v] = dp[u] * C(size[0] - 1, size[v] - 1) * inv(C(size[0] - 1, size[0] - size[v] - 1)) % MOD
+            dp[v] = dp[u] * size[v] * inv[size[0] - size[v]] % MOD
 
 
 if __name__ == "__main__":
     
     MOD = 998244353
     n = int(input())
-    fact = [0] * (n + 1); fact_inv = [0] * (n + 1)
+    inv = [0] * (n + 1)
+    fact = [0] * (n + 1)
+    fact_inv = [0] * (n + 1)
     get_fact(n)
 
-    graph = [ [] for i in range(n) ]
+    graph = [[] for _ in range(n)]
     for i in range(n - 1):
-        u, v = [ int(i) for i in input().split() ]
+        u, v = [int(i) for i in input().split()]
         u -= 1; v -= 1
         graph[u].append(v)
         graph[v].append(u)
