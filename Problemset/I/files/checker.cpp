@@ -30,7 +30,12 @@ int main(int argc, char *argv[]) {
 		return true;
 	}(pans);
 
+	quitif(*std::min_element(pans.begin(), pans.end()) == -1 &&
+			   *std::max_element(pans.begin(), pans.end()) != -1,
+		   _wa, "strange output format");
 	quitif(jexist && pexist, _ok, "no solution");
+	quitif(pexist && (!jexist), _wa,
+		   "solution exists but the participant's code shows no sulution");
 
 	std::vector<int> prefix_zero(n + 1), prefix_two(n + 1);
 	for (int i = 0; i < n; ++i) {

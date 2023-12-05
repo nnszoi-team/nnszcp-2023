@@ -6,8 +6,6 @@
 int main() {
 	std::cin.tie(nullptr)->std::ios::sync_with_stdio(false);
 
-	clock_t begin = clock();
-
 	int n, q;
 	std::cin >> n >> q;
 	std::vector<int> answer(n);
@@ -101,8 +99,6 @@ int main() {
 	if (ok == false) answer = std::vector<int>(n, -1);
 
 	for (int i = 0; i < n; ++i) std::cout << answer[i] << " \n"[i == n - 1];
-
-	std::cerr << 1.0 * (clock() - begin) / CLOCKS_PER_SEC << '\n';
 
 	return 0;
 }
