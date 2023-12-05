@@ -8,3 +8,5 @@
 ![school_icon](https://pic.imgdb.cn/item/65603202c458853aef9e4fef.jpg)
 ![mathematics](https://pic.imgdb.cn/item/65603202c458853aef9e4f2e.png)
 ![coloratura](https://pic.imgdb.cn/item/6565f365c458853aef82033d.jpg)
+![new_head](https://pic.imgdb.cn/item/656f0408c458853aefbdec79.png)
+![flower](https://pic.imgdb.cn/item/656f043bc458853aefbe892e.jpg)
