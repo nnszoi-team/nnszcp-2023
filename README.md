@@ -1,4 +1,4 @@
-![head](https://pic.imgdb.cn/item/656f0661c458853aefc63b81.jpg)
+![head](./Statement/assets/new_head.svg)
 
 ### 注意事项 $\textbf{/ Notice}$
 
