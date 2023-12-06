@@ -456,3 +456,7 @@ if __name__ == "__main__":
 
     print(f"YES\n{res}")
 ```
+
+## 彩蛋
+
+题目成型后，笔者偶然发现了[这篇论文](https://arxiv.org/pdf/2110.01111.pdf)，论文将该排序算法命名为 $ \texttt{ICan'tBelieveItCanSort} $，并证明了这个~~有趣而没用的~~算法的正确性，还探讨了该排序算法与其他常见 $ \mathcal{O}\left(n^2\right) $ 排序算法的联系与区别。在这里分享给大家，希望对大家有帮助。
