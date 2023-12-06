@@ -1,4 +1,4 @@
-![head](./Statement/assets/new_head.svg)
+![head](./Statement/assets/new_head.jpg)
 
 ### 注意事项 $\textbf{/ Notice}$
 
