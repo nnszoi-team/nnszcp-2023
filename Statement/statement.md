@@ -858,7 +858,7 @@ YES
 * $1 \le n \le 3 \times {10}^5$；
 * $0 \le q \le 3 \times {10}^5$；
 * $1 \le l_i \le r_i \le n$；
-* $0 \le v_i < 4$；
+* $0 \le v_i \le 2$；
 * 所有输入数据均为整数。
 
 ## 子任务
