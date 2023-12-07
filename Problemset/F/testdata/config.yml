@@ -1,11 +1,119 @@
-01_0_spec_b_01.in:
-    timeLimit: 2000
+001_000_exactly_m.in:
+    timeLimit: 1000
     memoryLimit: 131072
     score: 20
     subtaskId: 0
 
-02_1_random_01.in:
-    timeLimit: 2000
+002_000_exactly_m.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 20
+    subtaskId: 0
+
+003_000_exactly_m.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 20
+    subtaskId: 0
+
+004_000_exactly_m.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 20
+    subtaskId: 0
+
+005_000_exactly_m.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 20
+    subtaskId: 0
+
+006_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+007_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+008_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+009_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+010_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+011_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+012_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+013_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+014_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+015_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+016_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+017_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+018_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+019_001_max_random.in:
+    timeLimit: 1000
+    memoryLimit: 131072
+    score: 80
+    subtaskId: 1
+
+020_001_max_random.in:
+    timeLimit: 1000
     memoryLimit: 131072
     score: 80
     subtaskId: 1

@@ -1,20 +1,36 @@
 #include <iostream>
-#include <cmath>
-
-void solve() {
-    
-    double a, b; std::cin >> a >> b;
-    
-    double k = a / b;
-    double ans = std::max(pow(k, 2) + 1, pow(pow(k, 2) * 0.25 + 1, 2));
-
-    std::cout << std::fixed << ans << '\n';
-}
+#include <vector>
+#include <tuple>
+#include <algorithm>
 
 int main() {
-    
-    int T; std::cin >> T;
-    while (T--) solve();
+	
+	std::vector<int> l(7);
+	for (int i = 0; i < 7; ++i)
+		std::cin >> l[i];
+	
+	int n, m; std::cin >> n >> m;
+	std::vector<std::tuple<int, int, int>> a(n);
+	for (int i = 0; i < n; ++i) {
+		int s = 0;
+		for (int j = 0; j < 7; ++j) {
+			int v;
+			std::cin >> v;
 
-    return 0;
+			s += v;
+			if (j == 6 || v < l[j])
+				continue;
+			
+			++std::get<1>(a[i]);
+			std::get<2>(a[i]) |= 1 << (5 - j);
+		}
+		std::get<0>(a[i]) = s >= l[6];
+	}
+	
+	std::sort(a.begin(), a.end(), std::greater<std::tuple<int, int, int>>());
+	while (m < n && a[m] == a[m - 1]) ++m;
+	
+	std::cout << m << std::endl;
+	
+	return 0;
 }
