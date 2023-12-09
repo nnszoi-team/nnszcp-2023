@@ -1,17 +1,17 @@
 #set text(
-  font: ("New Computer Modern", "Noto Serif CJK SC"),
+  font: ("New Computer Modern", "SimSun"),
   size: 12pt
 )
 
 #show heading.where(level: 1): it => text(
-  font: ("New Computer Modern", "Noto Sans CJK SC"), 
+  font: ("New Computer Modern", "SimHei"), 
   size: 20pt,
   weight: "bold",
   it.body
 )
 
 #show heading.where(level: 2): it => text(
-  font: ("New Computer Modern", "Noto Sans CJK SC"), 
+  font: ("New Computer Modern", "SimHei"), 
   size: 16pt,
   weight: "semibold",
   it.body + [
@@ -20,7 +20,7 @@
 )
 
 #show heading.where(level: 3): it => text(
-  font: ("New Computer Modern", "Noto Sans CJK SC"), 
+  font: ("New Computer Modern", "SimHei"), 
   size: 14pt,
   weight: "medium",
   it.body + [
@@ -50,9 +50,9 @@
  leading: 0.6em
 )
 
-#show strong: set text(font: ("New Computer Modern", "Noto Sans CJK SC"), weight: "extralight")
+#show strong: set text(font: ("New Computer Modern", "SimHei"), weight: "extralight")
 
-#image("head2.svg")
+#image("./assets/new_head.svg")
 
 #align(center, text(18pt)[
   *南宁三中青山校区第 13 届科技文化节程序设计竞赛*
@@ -69,7 +69,7 @@
 \
 
 #align(center, [
-  #image("nnsz_icon.jpg", width: 33%)
+  #image("./assets/nnsz_icon.jpg", width: 33%)
 ])
 
 \
@@ -233,7 +233,7 @@ NO
 ```
 
 == 提示 <提示>
-==== 样例 1 解释 <样例-1-解释>
+=== 样例 1 解释 <样例-1-解释>
 在小 P 眼里，这个反应的活化能为 $max brace.l 1 comma 4 comma 6 comma 10 comma 12 brace.r eq 12$。
 
 在小 Q 眼里，这个反应的活化能为 $max brace.l 4 minus 1 comma 6 minus 4 comma 10 minus 6 comma 12 minus 10 brace.r eq 4$。
@@ -258,7 +258,7 @@ NO
 = Problem C. 暮光闪闪 <problem-c.-暮光闪闪>
 
 #figure(
-  image("twilight.jpg", width: 33%)
+  image("./assets/twilight.jpg", width: 33%)
 )
 
 小马利亚要建造一批新的建筑，公主暮光闪闪一共计划了 $n$ 栋建筑物，每一栋建筑物的高度为 $h_i$。现在，作为该工程的领导者，云宝希望城市的规划能够为天马们提供一些便利。
@@ -298,7 +298,7 @@ NO
 ```
 
 == 提示 <提示-1>
-==== 样例 1 解释 <样例-1-解释-1>
+=== 样例 1 解释 <样例-1-解释-1>
 对于 $s_1 = 1$ 的天马，它最多可以在建筑 $1$ 与建筑 $2$、建筑 $2$ 与建筑 $3$ 之间穿梭。
 
 对于 $s_2 = 2 $ 的天马，它最多可以在建筑 $1$ 与建筑 $2$、建筑 $1$ 与建筑 $3$、建筑 $2$ 与建筑 $3$ 之间穿梭。
@@ -325,7 +325,7 @@ NO
 = Problem D. 初生几何 <problem-d.-初生几何>
 
 #figure(
-  image("mathematics.png", width: 75%) 
+  image("./assets/mathematics.png", width: 75%) 
 )
 
 如图，在平面直角坐标系中，抛物线 $y = x(k - x)$ 与直线 $y = -1$ 相交。抛物线与 $x$ 轴的另一个交点为 $upright(A)$。设#strong[线段] $upright(O A)$ 上存在一动点 $upright(P)$，过点 $upright(P)$ 作 $y$ 轴的平行线交抛物线于点 $upright(B)$，交直线 $y eq minus 1$ 于点 $upright(C)$。试求 $upright(O B)^2 plus upright(A C)^2$ 的最大值。
@@ -385,18 +385,18 @@ NO
 = Problem E. 填数游戏 <problem-e.-填数游戏>
 
 #figure(
-  image("game.jpg", width: 66%) 
+  image("./assets/game.jpg", width: 66%) 
 )
 
 二等咒器技官威廉坐在房间的书桌前，天蓝色中夹杂些许红色的长发，面带微笑的妖精少女珂朵莉侍立在旁。烛火轻轻摇曳，若明若暗的光轻轻落在珂朵莉忽明忽暗的脸颊上。珂朵莉明显有一点点紧张，她无处安放的双手有些不安的藏在背后，纠缠在一起，眼神时不时的装作不经意的模样瞟向窗外。
 
 这几天珂朵莉一直闷闷不乐，威廉很担忧，于是他突发奇想。
 
-"让我们来玩一个游戏吧！"
+“让我们来玩一个游戏吧！”
 
 珂朵莉首先说出一个正整数 $k$。
 
-"那就 $68$ 吧，"珂朵莉随即说，"毕竟这里是 $68$ 号岛。"
+“那就 $68$ 吧，”珂朵莉随即说，“毕竟这里是 $68$ 号岛。”
 
 接着威廉画出了一个 $5 times 5$ 的矩阵。
 
@@ -405,10 +405,10 @@ NO
 经过珂朵莉的验证，发现不管怎么选，最后把画上圈的数加起来，它肯定等于 $68$ 。
 
 #figure(
-  image("game_sample.png", width: 90%) 
+  image("./assets/game_sample.png", width: 90%) 
 )
 
-珂朵莉一脸惊讶地问威廉是怎么做到的，可威廉却偏偏卖关子："明天再告诉你。"
+珂朵莉一脸惊讶地问威廉是怎么做到的，可威廉却偏偏卖关子：“明天再告诉你。”
 
 好奇心胜的珂朵莉完全等不住，于是找到了聪明的你，希望你能复现这个游戏，并跟她一起研究其中的奥秘。
 
@@ -672,7 +672,7 @@ int main() {
 
 形式化地说：给定正整数 $n$ 与一个长度为 $n$ 的序列 $a$，如果题目背景中的程序可以将序列 $a$ 排序为#strong[严格不下降]序列，则输出 `YES`，并输出程序中 `std::swap(a[i], a[j]);` 这一条语句的运行次数，否则输出 `NO`。
 
-定义一个长度为 $n$ 的序列 $t$ 是#strong[严格不下降]序列，当且仅当对所有 $1 lt.eq i lt.eq j lt.eq n$，都满足 $t_i lt.eq t_j$，也就是说这个序列中不存在逆序对。
+定义一个长度为 $n$ 的序列 $t$ 是#strong[严格不下降]序列，当且仅当对所有 $0 lt.eq i lt.eq j lt.eq n - 1$，都满足 $t_i lt.eq t_j$，也就是说这个序列中不存在逆序对。
 
 == 输入格式 <输入格式-6>
 每个测试点的输入数据包括两行，第一行包含一个正整数 $n$，第二行包含 $n$ 个由空格隔开的正整数 $a_0, a_1, dots, a_(n-1)$。
@@ -715,7 +715,7 @@ YES
 = Problem H. 购买车券 <problem-h.-购买车券>
 
 #figure(
-  image("sparkarte.jpg", width: 66%) 
+  image("./assets/sparkarte.jpg", width: 66%) 
 )
 
 力量来自欢乐是 1930 年代德国的一个旅游公司，他们在本土推出了一款汽车，由费迪南德·保时捷一手设计，其宗旨是让每一个德国人民都用得上一辆汽车。为了促进德国人民购买力量来自欢乐牌汽车，德国政府推出了一种购车券：每一张券的价值是 5 帝国马克，购买的人可以通过类似集邮的方式，当其所拥有的券价值总和和一辆车同价（990 帝国马克）时，就能够兑换一辆力量来自欢乐牌汽车。然而，和梅福券一样，随着 1939 年战争的爆发，大部分的购车券都成为了空头支票，被政府用作了扩军的资本。
@@ -816,7 +816,7 @@ YES
 === 样例 1 解释 <样例-1-解释-4>
 
 #figure(
-  image("sparkarte_sample.png", width: 66%) 
+  image("./assets/sparkarte_sample.png", width: 66%) 
 )
 
 小 K 可以先购买 $3$ 号购车券，此时对于 $1$ 号购车券，他只剩一张关联的购车券还未拥有（$2$ 号购车券），因此他能够购买 $1$ 号购车券。总共的购买顺序为 $lr((3 comma 1 comma 2))$。类似的，他也能以 $lr((2 comma 1 comma 3))$，$lr((2 comma 3 comma 1))$，$lr((3 comma 2 comma 1))$ 的顺序购买，一共 $4$ 种购买方式。
@@ -843,7 +843,7 @@ YES
 #pagebreak()
 
 = Problem I. 花卉培育 <problem-i.-花卉培育>#figure(
-  image("flower.jpg", width: 66%) 
+  image("./assets/flower.jpg", width: 66%) 
 )
 
 小 S 是一个可爱的女孩子，她一直梦想着拥有一座美丽的花园，喜欢五颜六色的花。
@@ -932,7 +932,7 @@ YES
 = Problem J. 繁星满天 <problem-j.-繁星满天>
 
 #figure(
-  image("starry.jpg", width: 85%) 
+  image("./assets/starry.jpg", width: 85%) 
 )
 
 小 E 躺在草地上抬头看天空，想要看星星。天空可以视为一个位于第一象限、边界的一部分在 $x comma y$ 轴正半轴上的正方形网格，大小是 $p times p$。
