@@ -8,19 +8,18 @@
 
 ### 信息 $\textbf{/ Information}$
 
-| Problem | Idea | Solution |
-| :----------: | :----------: | :----------: |
-| A | [GeT_LeFt](https://www.luogu.com.cn/user/807091) | [GeT_LeFt](https://www.luogu.com.cn/user/807091) |
-| B | [彭俊皓123](https://www.luogu.com.cn/user/353893) | [彭俊皓123](https://www.luogu.com.cn/user/353893) |
-| C | [stupid_collie](https://www.luogu.com.cn/user/540287) | [stupid_collie](https://www.luogu.com.cn/user/540287) |
-| D | [GeT_LeFt](https://www.luogu.com.cn/user/807091) | [GeT_LeFt](https://www.luogu.com.cn/user/807091) |
-| E | [西瓜nd](https://www.luogu.com.cn/user/464081) | [西瓜nd](https://www.luogu.com.cn/user/464081) |
-| F | [LengthCheng](https://www.luogu.com.cn/user/796913) | [LengthCheng](https://www.luogu.com.cn/user/796913) |
-| G | [GeT_LeFt](https://www.luogu.com.cn/user/807091) | [GeT_LeFt](https://www.luogu.com.cn/user/807091) |
-| H | [stupid_collie](https://www.luogu.com.cn/user/540287) | [stupid_collie](https://www.luogu.com.cn/user/540287) |
-| I | [escapist404](https://www.luogu.com.cn/user/284754) | [escapist404](https://www.luogu.com.cn/user/284754) |
-| J | [escapist404](https://www.luogu.com.cn/user/284754) | [escapist404](https://www.luogu.com.cn/user/284754) |
-
+| Problem | Idea/Solution |
+| :----------: | :----------: |
+| A | [GeT_LeFt](https://www.luogu.com.cn/user/807091) |
+| B | [彭俊皓123](https://www.luogu.com.cn/user/353893) |
+| C | [stupid_collie](https://www.luogu.com.cn/user/540287) |
+| D | [LengthCheng](https://www.luogu.com.cn/user/796913) |
+| E | [西瓜nd](https://www.luogu.com.cn/user/464081) |
+| F | [GeT_LeFt](https://www.luogu.com.cn/user/807091) |
+| G | [GeT_LeFt](https://www.luogu.com.cn/user/807091) |
+| H | [stupid_collie](https://www.luogu.com.cn/user/540287) |
+| I | [escapist404](https://www.luogu.com.cn/user/284754) |
+| J | [escapist404](https://www.luogu.com.cn/user/284754) |
 
 ### 鸣谢 $\textbf{/ Thanks}$
 
