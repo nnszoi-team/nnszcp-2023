@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int k=200005;
+int a[k];
+int main(){
+	int n;
+	scanf("%d",&n);
+	for(int i=1;i<=n;++i){
+		scanf("%d",&a[i]);
+	}
+	ans=(n*(n+1))/2;
+	printf("%d",ans);
+	return 0;
+}

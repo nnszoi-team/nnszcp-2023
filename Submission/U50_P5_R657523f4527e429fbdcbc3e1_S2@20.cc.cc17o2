@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+	int s1,s2,s3,s4,s5,s6,s7;
+	int sum;
+	int sb;
+}a[100001];
+int main(){
+	cin>>a[0].s1>>a[0].s2>>a[0].s3>>a[0].s4>>a[0].s5>>a[0].s6>>a[0].sum;
+	int n,m;
+	cin>>n>>m;
+	for(int i=1;i<=n;i++){
+		a[i].sb=0;
+		cin>>a[i].s1>>a[i].s2>>a[i].s3>>a[i].s4>>a[i].s5>>a[i].s6>>a[i].s7;
+		a[i].sum=a[i].s1+a[i].s2+a[i].s3+a[i].s4+a[i].s5+a[i].s6+a[i].s7;
+	}
+	cout<<m;
+	return 0;
+}

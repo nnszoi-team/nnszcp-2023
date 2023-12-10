@@ -1,0 +1,94 @@
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <vector>
+
+using namespace std;
+
+const int N = 1e5 + 10;
+
+struct Node
+{
+    int id, a, b, c, d, e, f, g;
+    int da, db, dc, dd, de, df, dg;
+    int k, z, t;
+}s[N];
+
+int pd(int c, int l)
+{
+    if (c >= l) return 1;
+    else return 0;
+}
+
+bool cmp(Node &x, Node &y)
+{
+    if (x.dg == y.dg)
+    {
+        if (x.z == y.z)
+        {
+            if (x.da == y.da)
+            {
+                if (x.db == y.db)
+                {
+                    if (x.dc == y.dc)
+                    {
+                        if (x.dd == y.dd)
+                        {
+                            if (x.df == y.df)
+                            {
+                                if (x.de == y.de)
+                                {
+                                    if (x.id < y.id) x.t = 1;
+                                    else y.t = 1;
+                                    return x.id < y.id;
+                                }
+                                return x.de > y.de;
+                            }
+                            return x.df > y.df;
+                        }
+                        return x.dd > y.dd;
+                    }
+                    return x.dc > y.dc;
+                }
+                return x.db > y.db;
+            }
+            return x.da > y.da;
+        }
+        return x.z > y.z;
+    }
+    return x.dg > y.dg;
+}
+int main()
+{
+    ios::sync_with_stdio(0);
+    int la, lb, lc, ld, le, lf, lg;
+    cin >> la >> lb >> lc >> ld >> le >> lf >> lg;
+    int n, m;
+    cin >> n >> m;
+    for (int i = 1; i <= n; i ++ )
+    {
+        cin >> s[i].a >> s[i].b >> s[i].c >> s[i].d >> s[i].e >> s[i].f >> s[i].g;
+        s[i].id = i;
+        for (int j = 1; j <= 7; j ++ )
+        {
+            if (j == 1) s[i].da = pd(s[i].a, la), s[i].z += s[i].da;
+            else if (j == 2) s[i].db = pd(s[i].b, lb), s[i].z += s[i].db;
+            else if (j == 3) s[i].dc = pd(s[i].c, lc), s[i].z += s[i].dc;
+            else if (j == 4) s[i].dd = pd(s[i].d, ld), s[i].z += s[i].dd;
+            else if (j == 5) s[i].de = pd(s[i].e, le), s[i].z += s[i].de;
+            else if (j == 6) s[i].df = pd(s[i].f, lf), s[i].z += s[i].df;
+            else if (j == 7)
+            {
+                s[i].k += s[i].a + s[i].b + s[i].c + s[i].d + s[i].e + s[i].f + s[i].g;
+                s[i].dg = pd(s[i].k, lg);
+                s[i].z += s[i].dg;
+            }
+        }
+    }
+
+    sort(s + 1, s + n + 1, cmp);
+    int res = m;
+    while (s[res].t) res ++;
+    cout << res << endl;
+    return 0;
+}

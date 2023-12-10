@@ -1,0 +1,156 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fre(x) freopen(#x".in","r",stdin);freopen(#x".out","w",stdout)
+#define ck(x) printf("check %lld\n",x);fflush(stdout);
+#define die(x) puts(x);return ;
+#define int long long
+#define double long double
+#define inf 0x3fffffffffffffff
+inline int read()
+{
+	int x=0,f=1;char ch=getchar();
+	while(!isdigit(ch)){if(ch=='-')f=-1;ch=getchar();}
+	while(isdigit(ch)){x=x*10+ch-48;ch=getchar();}
+	return f==1?x:-x;
+}
+inline void write(int x)
+{
+    if(x<0) putchar('-'),x=-x;
+    if(x>9) write(x/10);
+    putchar(x%10+'0');
+}
+const int modp = 998244353;
+
+template<const int T>
+struct ModInt {
+    const static int mod = T;
+    int x;
+    ModInt(int x = 0) : x(x % mod) {}
+    int val() { return x; }
+    ModInt operator + (const ModInt &a) const { int x0 = x + a.x; return ModInt(x0 < mod ? x0 : x0 - mod); }
+    ModInt operator - (const ModInt &a) const { int x0 = x - a.x; return ModInt(x0 < 0 ? x0 + mod : x0); }
+    ModInt operator * (const ModInt &a) const { return ModInt(1LL * x * a.x % mod); }
+    ModInt operator / (const ModInt &a) const { return *this * a.inv(); }
+    bool operator == (const ModInt &a) const { return x == a.x; };
+    bool operator != (const ModInt &a) const { return x != a.x; };
+    void operator += (const ModInt &a) { x += a.x; if (x >= mod) x -= mod; }
+    void operator -= (const ModInt &a) { x -= a.x; if (x < 0) x += mod; }
+    void operator *= (const ModInt &a) { x = 1LL * x * a.x % mod; }
+    void operator /= (const ModInt &a) { *this = *this / a; }
+    friend ModInt operator + (int y, const ModInt &a){ int x0 = y + a.x; return ModInt(x0 < mod ? x0 : x0 - mod); }
+    friend ModInt operator - (int y, const ModInt &a){ int x0 = y - a.x; return ModInt(x0 < 0 ? x0 + mod : x0); }
+    friend ModInt operator * (int y, const ModInt &a){ return ModInt(1LL * y * a.x % mod);}
+    friend ModInt operator / (int y, const ModInt &a){ return ModInt(y) / a;}
+    friend ostream &operator<<(ostream &os, const ModInt &a) { return os << a.x;}
+    friend istream &operator>>(istream &is, ModInt &t){return is >> t.x;}
+
+    ModInt pow(int64_t n) const {
+        ModInt res(1), mul(x);
+        while(n){
+            if (n & 1) res *= mul;
+            mul *= mul;
+            n >>= 1;
+        }
+        return res;
+    }
+    
+    ModInt inv() const {
+        int a = x, b = mod, u = 1, v = 0;
+        while (b) {
+            int t = a / b;
+            a -= t * b; swap(a, b);
+            u -= t * v; swap(u, v);
+        }
+        if (u < 0) u += mod;
+        return u;
+    }
+    
+};
+using mint = ModInt<modp>;
+
+inline mint qpow(mint k,int n) {
+	mint s=1;
+	for(;n;n>>=1,k=k*k) if(n&1) s=s*k;
+	return s;
+}
+
+struct math {
+	int size=0;
+	vector<mint> frac;
+	vector<mint> inv;
+	math() {}
+	math(int n) {
+		init(n);
+	}
+	void init(int n) {
+		frac.resize(n+2);
+		inv.resize(n+2);
+		frac[0]=1;
+		for(int i=size+1;i<=n;++i) {
+			frac[i]=frac[i-1]*i;
+		}
+		inv[n]=qpow(frac[n],modp-2);
+		for(int i=n;i>=size+1;--i) {
+			inv[i-1]=inv[i]*i;
+		}
+		size=n;
+	}
+	mint C(int n,int m) {
+		if(n<m || m<0) return 0;
+		if(n>size) init(n);
+		return frac[n]*inv[m]*inv[n-m];
+	}
+}binom;
+
+mint C(int n,int m) {
+	return binom.C(n,m); 
+}
+mint C(mint n,mint m) {
+	return binom.C(n.val(),m.val()); 
+}
+
+void solve()
+{
+	int n=read();
+	vector<vector<int>> adj(n+1);
+	for(int i=1;i<n;++i) {
+		int x=read(),y=read();
+		adj[x].push_back(y);
+		adj[y].push_back(x);
+	}
+	vector<mint> sz(n+1),dp(n+1);
+	auto dfs1 = [&](auto self,int x,int fath) -> void {
+		sz[x]=1;
+		dp[x]=1;
+		for(auto y:adj[x]) {
+			if(y!=fath) {
+				self(self,y,x);
+				dp[x]=dp[x]*dp[y]*C(sz[x]+sz[y]-1,sz[y]);
+				sz[x]+=sz[y];
+			}
+		}
+	};
+	dfs1(dfs1,1,0);
+	auto dfs2 = [&](auto self,int x,int fath) -> void {
+		for(auto y:adj[x]) {
+			if(y!=fath) {
+				dp[y]=dp[x]*C(sz[1]-1,sz[y]-1)/C(sz[1]-1,sz[1]-sz[y]-1);
+				self(self,y,x);
+			}
+		}
+	};
+	dfs2(dfs2,1,0);
+	printf("%lld\n",accumulate(dp.begin(),dp.end(),(mint)0));
+}
+
+
+signed main()
+{
+	//fre(test);
+	int T=1;
+	while(T--) {
+		solve();
+		//fflush(stdout);
+	}
+	return 0;
+}

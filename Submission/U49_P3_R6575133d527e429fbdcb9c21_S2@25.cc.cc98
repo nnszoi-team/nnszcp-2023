@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[300002],b[300002],d[300002];
+int c[2];
+int main(){
+	int n,m;
+	cin>>n>>m;
+	a[0]=m;
+	c[1]=0;
+	c[2]=0;
+	if(a[0]>=c[1]){
+			c[1]=a[0];
+		}
+	for(int i=1;i<=n;i++){
+		scanf("%d",&a[i]);
+		b[i]=a[i]-a[i-1];
+	 if(a[i]>=c[1]){
+			c[1]=a[i];
+		}
+		if(b[i]>=c[2]){
+			c[2]=b[i];
+		}
+	}
+	cout<<c[1]<<endl<<c[2];
+	return 0;
+}

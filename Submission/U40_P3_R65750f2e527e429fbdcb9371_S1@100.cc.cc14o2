@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int K=300005;
+int energy[K],std2[K];
+int main(){
+	int n;
+	scanf("%d",&n);
+	n+=1;
+	for(int i=1;i<=n;++i){
+		scanf("%d",&energy[i]);
+		if(i==1) continue;
+		std2[i]=energy[i]-energy[i-1];
+	}
+//	for(int i=1;i<=n;++i){
+//		printf("%lld ",std2[i]);
+//	}
+	int max1=-10000009;
+	int max2=-10000009;
+	for(int i=1;i<=n;++i){
+		if(energy[i]>max1){
+			max1=energy[i];
+		}
+		if(std2[i]>max2){
+			max2=std2[i];
+		}
+	}
+	printf("%d\n%d",max1,max2);
+	return 0;
+}

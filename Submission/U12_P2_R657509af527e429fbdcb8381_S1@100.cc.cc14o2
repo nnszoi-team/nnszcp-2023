@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+#define rint register int
+using namespace std;
+
+bool f=0;
+string a;
+
+int main(){
+	cin>>a;
+	
+	for(rint i=0;i<=int(a.length())-4;i++)
+		if(a[i]=='n' && a[i+1]=='n' && a[i+2]=='s' && a[i+3]=='z')
+			f = 1;
+	
+	if(f) printf("YES");
+	else printf("NO");
+	return 0;
+}

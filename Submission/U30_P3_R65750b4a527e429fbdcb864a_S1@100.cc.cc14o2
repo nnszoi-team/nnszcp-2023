@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 3e5 + 10, INF = 0x3f3f3f3f;
+int n, a[N];
+int main() {
+	cin >> n;
+	int mx1 = -INF, mx2 = -INF;
+	for (int i = 1; i <= n + 1; i++) {
+		cin >> a[i];
+		mx1 = max(mx1, a[i]);
+	}
+	for (int i = 1; i <= n; i++) {
+		mx2 = max(mx2, a[i+1] - a[i]);
+	}
+	cout << mx1 << endl << mx2;
+	
+	return 0;
+}

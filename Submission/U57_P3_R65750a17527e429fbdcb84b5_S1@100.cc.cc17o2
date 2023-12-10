@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fre(x) freopen(#x".in","r",stdin);freopen(#x".out","w",stdout)
+#define ck(x) printf("check %lld\n",x);fflush(stdout);
+#define die(x) puts(x);return ;
+#define int long long
+#define double long double
+#define inf 0x3fffffffffffffff
+inline int read()
+{
+	int x=0,f=1;char ch=getchar();
+	while(!isdigit(ch)){if(ch=='-')f=-1;ch=getchar();}
+	while(isdigit(ch)){x=x*10+ch-48;ch=getchar();}
+	return f==1?x:-x;
+}
+inline void write(int x)
+{
+    if(x<0) putchar('-'),x=-x;
+    if(x>9) write(x/10);
+    putchar(x%10+'0');
+}
+const int modp = 998244353;
+
+
+void solve()
+{
+	int n=read();
+	vector<int> a(n+1);
+	for(int i=0;i<=n;++i) {
+		a[i]=read();
+	}
+	int res1=*max_element(a.begin(),a.end());
+	int res2=-inf;
+	for(int i=0;i<n;++i) {
+		res2=max(res2,a[i+1]-a[i]);
+	}
+	printf("%lld\n%lld\n",res1,res2);
+}
+
+
+signed main()
+{
+	//fre(test);
+	int T=1;
+	while(T--) {
+		solve();
+		//fflush(stdout);
+	}
+	return 0;
+}

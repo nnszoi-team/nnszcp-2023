@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int n,m;
+	cin>>n>>m;
+	int a[n+2],b;
+	for(int i = 1;i <= n;i++){
+		cin>>a[i];
+	}
+	
+	for(int i = 1;i <= m;i++){
+		cin>>b;
+		int c = 0;
+	    for(int j = 1;j < n;j++){
+		    for(int k = j+1;k <= n;k++){
+			    if(a[j] > a[k]){
+			    	if(b >= a[j]-a[k]) c++;
+				}else if(b >= a[k]-a[j]) c++;
+		    }
+	    }
+	    
+	    cout<<c<<endl;
+	}
+	
+	return 0;
+}

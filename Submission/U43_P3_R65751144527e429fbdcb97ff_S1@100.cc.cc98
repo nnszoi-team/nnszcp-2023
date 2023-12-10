@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long a[300005];
+long long n;
+int main(){
+	cin>>n;
+	for(long long i=1;i<=n+1;i++){
+		cin>>a[i];
+	}
+	long long ans=-10000000;
+	for(long long i=1;i<=n+1;i++) ans=max(ans,a[i]);
+	cout<<ans<<endl;
+	long long cnt=-10000000;
+	for(long long i=1;i<=n;i++){
+		cnt=max(cnt,a[i+1]-a[i]);
+	}
+	cout<<cnt;
+	return 0;
+}

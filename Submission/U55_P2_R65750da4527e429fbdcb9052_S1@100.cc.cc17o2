@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const ll N=4e5+50,M=2e6+50;
+ll T,m,n,a[N];
+string s,t;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+    //freopen("a.in","r",stdin);
+    //freopen("a.out","w",stdout);
+    cin>>s;
+    for(int i=0;i<s.size();++i){
+        if(i+3>=s.size())break;
+        if(s[i]=='n' and s[i+1]=='n' and s[i+2]=='s' and s[i+3]=='z'){
+            cout<<"YES\n";
+            return 0;
+        }
+    }
+    cout<<"NO\n";
+    return 0;
+}

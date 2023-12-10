@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[300010],f[300010];
+int main()
+{
+	int n,p=-9999999,q=-9999999;
+	cin>>n;
+	for(int i=1;i<=n+1;i++)
+		cin>>a[i];
+	for(int i=1;i<=n+1;i++)
+	{
+		if(a[i]>p)
+			p=a[i];
+		if(i!=n+1)
+			f[i]=a[i+1]-a[i];
+	}
+	for(int i=1;i<=n;i++)
+	{
+		if(f[i]>q)
+		{
+			q=f[i];
+		}
+	}
+	cout<<p<<endl<<q;
+	return 0;
+}

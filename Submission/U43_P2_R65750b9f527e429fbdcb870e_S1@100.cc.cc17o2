@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+char s[7]="nnsz",c[107];
+int main()
+{
+	cin>>c;
+	long long len=strlen(c);
+	if(len<=3)
+	{
+		cout<<"NO";
+		return 0;
+	}
+	for(long long i=0;i+3<len;i++)
+	{
+		if(c[i]==s[0]&&c[i+1]==s[1]&&c[i+2]==s[2]&&c[i+3]==s[3])
+		{
+			cout<<"YES";
+			return 0;
+		}
+	}
+	cout<<"NO";
+	return 0;
+}

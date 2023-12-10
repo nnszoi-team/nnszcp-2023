@@ -1,0 +1,104 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+	int a,b,c,d,e,f,g,s;
+	int aa,bb,cc,dd,ee,ff,gg;
+};
+node xs[18];
+int la,lb,lc,ld,le,lf,lg,n,m,rs=0;
+bool cmp(node x,node y){
+	if(x.s!=y.s){
+		return x.s<y.s;
+	}
+	else if(x.aa>y.aa){
+		return x.aa<y.aa;
+	}
+	else if(x.bb>y.bb){
+		return x.bb<y.bb;
+	}
+	else if(x.cc>y.cc){
+		return x.cc<y.cc;
+	}
+	else if(x.dd>y.dd){
+		return x.dd<y.dd;
+	}
+	else if(x.ee>y.ee){
+		return x.ee<y.ee;
+	}
+	else if(x.ff>y.ff){
+		return x.ff<y.ff;
+	}
+	else if(x.gg>y.gg){
+		return x.gg<y.gg;
+	}
+}
+int main(){
+	scanf("%d%d%d%d%d%d%d%d%d",&la,&lb,&lc,&ld,&le,&lf,&lg,&n,&m); 
+	for(int i=1;i<=n;i++){
+		scanf("%d%d%d%d%d%d%d",&xs[i].a,&xs[i].b,&xs[i].c,&xs[i].d,&xs[i].e,&xs[i].f,&xs[i].g);
+		if(xs[i].a>=la){
+			xs[i].s++;
+			xs[i].aa=1;
+		}
+		if(xs[i].b>=lb){
+			xs[i].s++;
+			xs[i].bb=1;
+		}
+		if(xs[i].c>=lc){
+			xs[i].s++;
+			xs[i].cc=1;
+		}
+		}if(xs[i].d>=ld){
+			xs[i].s++;
+			xs[i].dd=1;
+		}
+		if(xs[i].e>=le){
+			xs[i].s++;
+			xs[i].ee=1;
+		}
+		if(xs[i].f>=lf){
+			xs[i].s++;
+			xs[i].ff=1;
+		}
+		if(xs[i].g>=lg){
+			xs[i].s++;
+			xs[i].gg=1;
+		}
+	}
+	sort(xs+1,xs+n+1,cmp);
+	for(int i=n;i>=1;i--){
+		if(rs<=m){
+			rs++;
+			last=i;
+		}
+		else{
+			if(xs[i].s==xs[last].s){
+				if(xs[i].aa==xs[last].aa){
+					if(xs[i].bb==xs[last].bb){
+						if(xs[i].cc==xs[last].cc){
+							if(xs[i].dd==xs[last].dd){
+								if(xs[i].ee==xs[last].ee){
+									if(xs[i].ff==xs[last].ff){
+										if(xs[i].gg==xs[last].gg){
+											rs++;
+										}
+										else break;
+									}
+									else break;
+								}
+								else break;
+							}
+							else break;
+						}
+						else break;
+					}
+					else break;
+				}
+				else break;
+			}
+			else break;
+		}
+	}
+	cout<<rs;
+	return 0;
+}

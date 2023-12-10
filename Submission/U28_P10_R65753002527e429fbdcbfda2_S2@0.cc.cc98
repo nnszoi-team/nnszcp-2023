@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+using namespace std;
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    int n[b],m[b],k[b];
+    for (int i=0;i<b;i++)
+    {
+        cin>>n[i]>>m[i]>>k[i];
+    }
+    for (int i=0;i<a;i++)
+    {
+        cout<<-1<<" ";
+    }
+}

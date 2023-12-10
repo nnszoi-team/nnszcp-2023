@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+int h[2005];
+int s[1000005];
+int main()
+{
+	int n,m;
+	cin>>n>>m;
+	for(int i=1;i<=n;i++)
+		cin>>h[i];
+	for(int i=1;i<=m;i++)
+		cin>>s[i];
+	
+}

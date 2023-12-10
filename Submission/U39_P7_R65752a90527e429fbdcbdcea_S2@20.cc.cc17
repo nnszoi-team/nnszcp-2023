@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+const ld cha=0.00000414;
+ld cal(ld k,ld val){
+	ld res=val*val+val*(k-val)*val*(k-val)+1.0+(k-val)*(k-val);
+	return res;
+}
+int main(){
+	int t;
+	cin>>t;
+	ll a,b;
+	while(t--){
+		scanf("%lld%lld",&a,&b);
+		ld k=1.00000*a/b,sfl=k/3.0,sfr=2.0*k/3.0,l=0,r=k;
+		while(r-l>cha){
+			sfl=l+(r-l)/3,sfr=l+2*(r-l)/3;
+			//cout<<sfl <<' '<<sfr<<endl;
+			ld rsl=cal(k,sfl),rsr=cal(k,sfr);
+			if(rsl<rsr){
+				l=sfl;
+				
+			}
+			else {
+				
+				r=sfr;
+			}
+			
+			
+		}
+		ld val=(l+r)/2;
+		//cout<<val<<' ';
+		ld res=val*val+val*(k-val)*val*(k-val)+1.0+(k-val)*(k-val);
+		cout<<res<<'\n';
+		
+	}
+}

@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+typedef long long ll;
+typedef long double ld;
+using namespace std;
+const int N=100010,M=1000010,INF=0x3f3f3f3f;
+inline int max(int x,int y){return x>y?x:y;}
+inline int min(int x,int y){return x<y?x:y;}
+inline void swap(int &x,int &y){x^=y^=x^=y;}
+int n;
+char s[N];
+int main(){
+	scanf("%s",s+1);
+	n=strlen(s+1);
+	for(int i=1;i+3<=n;i++)
+		if(s[i]=='n'&&s[i+1]=='n'&&s[i+2]=='s'&&s[i+3]=='z'){
+			puts("YES");return 0;
+		}
+	puts("NO");
+	return 0;
+}

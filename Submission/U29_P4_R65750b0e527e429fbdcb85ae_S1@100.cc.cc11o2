@@ -1,0 +1,22 @@
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+int n,m,c[4000003],k[2003],i,j,s,h;
+int main()
+{
+	scanf("%d%d",&n,&m);
+	for(i=0;i<n;i++)
+		scanf("%d",&k[i]);
+	for(i=0;i<n;i++)
+		for(j=i+1;j<n;j++)
+			c[s++]=abs(k[i]-k[j]);
+	sort(c,c+s);
+	c[s]=2e9;
+	for(i=0;i<m;i++)
+	{
+		scanf("%d",&h);
+		j=upper_bound(c,c+s+1,h)-c;
+		printf("%d\n",j);
+	}
+	return 0;
+}

@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+typedef long long ll;
+typedef long double ld;
+using namespace std;
+const ll N=200010,M=2000010,INF=0x3f3f3f3f;
+inline ll max(ll x,ll y){return x>y?x:y;}
+inline ll min(ll x,ll y){return x<y?x:y;}
+inline void swap(ll &x,ll &y){x^=y^=x^=y;}
+ll n,cnt,a[N],b[N],c[N];
+ll ans;
+void add(ll x,ll y){
+	for(;x<=n;x+=x&-x)c[x]+=y; 
+}
+ll ask(ll x){
+	ll res=0;
+	for(;x;x-=x&-x)res+=c[x];
+	return res;
+}
+int main(){
+	scanf("%lld",&n);
+	for(ll i=1;i<=n;i++)
+		scanf("%lld",&a[i]),b[++cnt]=a[i];;
+	sort(b+1,b+cnt+1);
+	cnt=unique(b+1,b+cnt+1)-b-1;
+	for(ll i=1;i<=n;i++)
+		a[i]=lower_bound(b+1,b+cnt+1,a[i])-b;
+	for(ll i=2;i<=n;i++)
+		if(a[1]<a[i])swap(a[1],a[i]),++ans;
+	add(a[1],1);
+	for(ll i=2;i<=n;i++){
+		ll val=ask(a[i])-ask(a[i]-1);
+		if(!val)add(a[i],1);
+		ans+=ask(n)-ask(a[i]);
+	}
+	printf("YES\n%lld\n",ans);
+	return 0;
+}

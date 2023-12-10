@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+double a[100007],b[100007];
+double k;
+//A(k,0),P(m,0),C(m,-1),B(m,m(k-m))
+using namespace std;
+double f(double x){
+	return (1+x*x)*((k-x)*(k-x)+1);
+}
+int main(){
+	int t;cin>>t;
+	for(int i=1;i<=t;i++){
+		scanf("%lf %lf",&a[i],&b[i]);
+		k=a[i]/b[i];
+		printf("%lf\n",f(k/2));
+	}
+	return 0;
+}

@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+typedef long long ll;
+#define P pair<ll,ll>
+using namespace std;
+ll h[2005],num[100005],rank[100005],tmp[100005],ans[100005];P s[100005];
+ll n,m;
+int main(){
+	scanf("%lld%lld",&n,&m);
+	for(int i = 1;i <= n;i ++){
+		scanf("%lld",&h[i]);
+	}
+	for(int i = 1;i <= m;i ++){
+		scanf("%lld",&s[i].first);
+		s[i].second = i;
+	}
+	sort(s+1,s+1+m);
+	for(int i = 1;i <= m;i ++){
+		num[i] = s[i].first;
+		rank[i] = s[i].second;
+	}
+	for(int i = 1;i < n;i ++){
+		for(int j = i+1;j <= n;j ++){
+			tmp[lower_bound(num+1,num+1+m,abs(h[i]-h[j]))-num] += 1;
+		}
+	}
+//	for(int i = 1;i <= m;i ++){
+//		printf("%lld ",tmp[i]);
+//	}printf("\n");
+	for(int i = 1;i <= m;i ++){
+		tmp[i] += tmp[i-1];
+	}
+	for(int i = 1;i <= m;i ++){
+		ans[rank[i]] = tmp[i];
+	}
+	for(int i = 1;i <= m;i ++)printf("%lld\n",ans[i]);
+	return 0;
+}

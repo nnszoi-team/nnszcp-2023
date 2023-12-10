@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int t;
+int main(){
+	cin>>t;
+	for(int i=1;i<=t;i++){
+		int a,b;
+		cin>>a>>b;
+		double k=1.0*a/b;
+		double ans=0;
+		for(double i=0;i<k;i+=0.01){
+			ans=max(ans,i*i+(k-i)*(k-i)+1+(i*(k-i))*(i*(k-i))); 
+		}
+		printf("%.12lf\n",ans);
+	}
+	return 0;
+}

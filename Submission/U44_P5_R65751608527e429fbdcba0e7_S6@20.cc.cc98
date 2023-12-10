@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct infor{
+	int yu,shu,ying,wu,hua,zs,ti,tot;
+	bool lvt,lv1,lv2,lv3,lv4,lv5,lv6;
+};
+int n,m;
+bool cmp(infor x,infor y){
+	if(x.lvt!=y.lvt) return x.lvt>y.lvt;
+	if(x.lv1!=y.lv1) return x.lv1>y.lv1;
+	if(x.lv2!=y.lv2) return x.lv2>y.lv2;
+	if(x.lv3!=y.lv3) return x.lv3>y.lv3;
+	if(x.lv4!=y.lv4) return x.lv4>y.lv4;
+	if(x.lv5!=y.lv5) return x.lv5>y.lv5;
+	if(x.lv6!=y.lv6) return x.lv6>y.lv6;
+}
+int main(){
+	infor sta,u[11];
+	cin>>sta.yu>>sta.shu>>sta.ying>>sta.wu>>sta.hua>>sta.zs>>sta.tot;
+	cin>>n>>m;
+	for(int i=1;i<=n;i++){
+		scanf("%d%d%d%d%d%d%d",&u[i].yu,&u[i].shu,&u[i].ying,&u[i].wu,&u[i].hua,&u[i].zs,&u[i].ti);
+		u[i].tot=u[i].yu+u[i].shu+u[i].ying+u[i].wu+u[i].hua+u[i].zs+u[i].ti;
+		if(u[i].tot>=sta.tot) u[i].lvt=1;
+		else if(u[i].tot<sta.tot) u[i].lvt=0;
+		if(u[i].yu>sta.yu) u[i].lv1=1;
+		else if(u[i].yu<sta.yu) u[i].lv1=0;
+		if(u[i].shu>=sta.shu) u[i].lv2=1;
+		else if(u[i].shu<sta.shu) u[i].lv2=0;
+		if(u[i].ying>=sta.ying) u[i].lv3=1;
+		else if(u[i].ying<sta.ying) u[i].lv3=0;
+		if(u[i].wu>=sta.wu) u[i].lv4=1;
+		else if(u[i].wu<sta.wu) u[i].lv4=0;
+		if(u[i].hua>=sta.hua) u[i].lv5=1;
+		else if(u[i].hua<sta.hua) u[i].lv5=0;
+		if(u[i].zs>=sta.zs) u[i].lv6=1;
+		else if(u[i].zs<sta.zs) u[i].lv6=0;
+	} 
+		sort(u+1,u+n+1,cmp);
+		cout<<m;
+	return 0;
+}

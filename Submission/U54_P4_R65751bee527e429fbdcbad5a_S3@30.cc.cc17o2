@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N = 500007;
+
+int n,m,q[2000000];
+ll h[2007],s,ans,pt,l,r;
+
+int main(){
+	ios::sync_with_stdio(false),cin.tie(0),cout.tie(0);
+	cin>>n>>m;
+	cin>>h[0];
+	for(int i=1;i<n;i++){
+		cin>>h[i];
+		for(int k=0;k<i;k++){
+			q[pt++]=abs(h[k]-h[i]);
+			
+		}
+	}
+	sort(q,q+pt);
+	for(int i=0;i<m;i++){
+		cin>>s;
+		if(q[0]==q[pt-1]&&s>=q[0]){
+			ans=pt;
+			cout<<ans<<endl;
+			continue;
+		}
+		int k=(s>r)?l:0;
+		ans = (s>r)?ans:0;
+		for(;k<pt;k++){
+			if(s>=q[k])ans++;
+			else break;
+		}
+		cout<<ans<<endl;
+		r=s;
+		l=k;
+	}
+	return 0;
+}

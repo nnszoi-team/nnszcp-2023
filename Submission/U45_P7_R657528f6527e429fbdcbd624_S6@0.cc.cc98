@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>         //F
+using namespace std;
+int a[10007],b[10007],p[10007],k[10007];
+int main(){
+	int t;
+	cin>>t;
+	for(int i=1;i<=t;i++){
+		cin>>a[i]>>b[i];
+		k[i]=a[i]/b[i];
+		p[i]=a[i]/(b[i]*2);
+	}
+	for(int i=1;i<=t;i++){
+		cout<<p[i]*p[i]+p[i]*(k[i]*p[i]-p[i]*p[i]);
+	}
+	return 0;
+}

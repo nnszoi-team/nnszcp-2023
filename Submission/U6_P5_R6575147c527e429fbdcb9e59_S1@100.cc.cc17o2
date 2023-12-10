@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=1e5+10;
+
+struct Stu{
+    bool A[10];
+    int cnt=0;
+    bool flag;
+}t[N];
+int n,m,lim[10];
+
+bool operator<(const Stu&a,const Stu&b){
+    if(a.flag!=b.flag)return a.flag<b.flag;
+    if(a.cnt!=b.cnt)return a.cnt>b.cnt;
+    for(int i=1;i<=6;i++)
+        if(a.A[i]!=b.A[i])return a.A[i]<b.A[i];
+    return 0;
+}
+
+bool check(const Stu&a,const Stu&b){
+    if(a.flag!=b.flag)return 0;
+    if(a.cnt!=b.cnt)return 0;
+    for(int i=1;i<=6;i++)
+        if(a.A[i]!=b.A[i])return 0;
+    return 1;
+}
+
+int main(){
+    for(int i=1;i<=7;i++)scanf("%d",&lim[i]);
+    scanf("%d%d",&n,&m);
+    for(int i=1;i<=n;i++){
+        int a[10],sum=0;
+        for(int j=1;j<=6;j++){
+            scanf("%d",&a[j]);
+            sum+=a[j];
+            if(a[j]<lim[j])t[i].A[j]=1;
+            else t[i].A[j]=0,t[i].cnt++;
+        }
+        int tmp;
+        scanf("%d",&tmp);
+        sum+=tmp;
+        if(sum>=lim[7])t[i].flag=0;
+        else t[i].flag=1;
+    }
+    sort(t+1,t+n+1);
+    /*for(int i=1;i<=n;i++){
+        printf("%d %d\n",t[i].flag,t[i].cnt);
+        for(int j=1;j<=6;j++)printf("%d ",t[i].A[j]);
+        puts("");
+    }*/
+    auto last=t[m];
+    int ans=0;
+    for(int i=1;i<=n;i++){
+        if(t[i]<last||check(last,t[i]))ans++;
+    }
+    printf("%d\n",ans);
+    return 0;
+}

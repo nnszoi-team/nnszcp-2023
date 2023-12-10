@@ -1,0 +1,89 @@
+#include <bits/stdc++.h>
+using namespace std;
+int n , m , ans;
+int la , lb , lc , ld , le , lf , ls , p = 0;
+struct node{
+	int a , b , c , d , e , f , g , zf;
+	int sum;
+	char aa ,bb , cc , dd , ee , ff , zz;
+}s[100010];
+bool cmp(node a , node b){
+	if(a.zz == b.zz){
+		if(a.sum == b.sum){
+			if(a.aa == b.aa){
+				if(a.bb == b.bb ){
+					if(a.cc == b.cc){
+						if(a.dd == b.dd){
+							if(a.ee == b.ee){
+								if(a.ff == b.ff){
+									p++;
+									return false;
+								}else{
+									return a.ff > b.ff;
+								}
+							}else{
+								return a.ee > b.ee;
+							}
+						}else{
+							return a.dd > b.dd;
+						}
+					}else{
+						return a.cc > b.cc;
+					}
+				}else{
+					return a.bb > b.bb;
+				}
+			}else{
+				return a.aa > b.aa;
+			}
+		}else{
+			return a.sum > b.sum;
+		}
+	}else{
+		return a.zz > b.zz;
+	}
+}
+int main(){
+	scanf("%d%d%d%d%d%d%d" , &la , &lb , &lc,  &ld , &le , &lf , &ls);
+	scanf("%d%d" , &n , &m);
+	for(int i = 1 ; i <= n ; i++){
+		scanf("%d%d%d%d%d%d%d" , &s[i].a  , &s[i].b  , &s[i].c  , &s[i].d , &s[i].e , &s[i].f  , &s[i].g );
+		s[i].zf = s[i].a+s[i].b+s[i].c+s[i].d+s[i].e+s[i].f+s[i].g;
+		if(s[i].zf >= ls) s[i].zz='B';
+		else s[i].zz = 'A';
+		
+		if(s[i].a >= la) s[i].aa = 'Z' , s[i].sum++;
+		else s[i].aa = 'A';
+		 
+		if(s[i].b >= lb) s[i].bb = 'Z' , s[i].sum++;
+		else s[i].bb = 'A';
+		
+		if(s[i].c >= lc) s[i].cc = 'Z' , s[i].sum++;
+		else s[i].cc = 'A';
+		
+		if(s[i].d >= ld) s[i].dd = 'Z' , s[i].sum++;
+		else s[i].dd = 'A';
+		
+		if(s[i].e >= le) s[i].ee = 'Z' , s[i].sum++;
+		else s[i].ee = 'A';
+		
+		if(s[i].f >= lf) s[i].ff = 'Z' , s[i].sum++;
+		else s[i].ff = 'A';
+	}
+	sort(s + 1 , s + n + 1 , cmp);
+	ans+=m;
+	for(int i=m+1;i<=n;i++){
+		node a=s[m],b=s[i];
+		if(a.zz == b.zz)
+			if(a.sum == b.sum)
+				if(a.aa == b.aa)
+					if(a.bb == b.bb )
+						if(a.cc == b.cc)
+							if(a.dd == b.dd)
+								if(a.ee == b.ee)
+									if(a.ff == b.ff)
+										ans++;
+	}
+	printf("%d",ans);
+	return 0;
+}

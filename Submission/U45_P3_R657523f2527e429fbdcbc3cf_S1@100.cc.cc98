@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long n, a[10000000]={0}, b[10000000]={0};
+int main()
+{
+	cin>>n;
+	cin>>a[0];
+	for(int i=1; i<=n; i++)
+	{
+		cin>>a[i];
+		b[i] = a[i] - a[i-1];
+	}
+	cout<<*max_element(a, a+n+1)<<endl<<*max_element(b, b+n+1);
+	
+	return 0;
+}

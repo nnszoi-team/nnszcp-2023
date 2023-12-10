@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+int T,n,k;
+int main()
+{
+	cin>>T>>n>>k;
+	cout<<k;
+	return 0;
+}

@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define N 100000
+int n, m, h[N], s[N], H[N], posH=1;
+void getH(int posh)
+{
+	for(int i=1; i<posh; i++)			
+		H[posH++] = abs(h[i] - h[posh]);
+}
+void cinn()
+{
+	cin>>n>>m;
+	posH=1;
+	cin>>h[1];
+	for(int i=2; i<=n; i++)
+	{
+		scanf("%d", &h[i]);
+		getH(i);						//求出每两栋楼间高度差 
+	}
+	for(int i=1; i<=m; i++)
+		scanf("%d", &s[i]);
+}
+int Find(int x)
+{
+	for(int i=1; i<posH; i++)
+		if(x < H[i])
+			return i-1;
+	return posH-1;
+}
+int main()
+{
+	cinn();
+	sort(H+1, H+posH);
+	for(int i=1; i<=m; i++)
+		cout<<Find(s[i])<<endl;
+	return 0;
+ }

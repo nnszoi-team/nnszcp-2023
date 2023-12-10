@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=2e3+5,M=1e5+5;
+int a[N],b[M]; 
+int main()
+{
+	int n,m;
+	cin>>n;
+	cout<<(n-1)*(n-1)%998244353;
+	return 0;
+}

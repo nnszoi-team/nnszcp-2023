@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+typedef long long ll;
+typedef long double ld;
+using namespace std;
+const ll N=300010,M=3000010,INF=0x3f3f3f3f3f3f3f3f;
+inline ll max(ll x,ll y){return x>y?x:y;}
+inline ll min(ll x,ll y){return x<y?x:y;}
+inline void swap(ll &x,ll &y){x^=y^=x^=y;}
+ll n,ans1=-INF,ans2=-INF,a[N];
+int main(){
+	scanf("%lld",&n);
+	for(ll i=0;i<=n;i++)
+		scanf("%lld",&a[i]);
+	for(ll i=0;i<=n;i++)
+		ans1=max(ans1,a[i]);
+	for(ll i=0;i<n;i++)
+		ans2=max(ans2,a[i+1]-a[i]);
+	printf("%lld\n%lld\n",ans1,ans2);
+	return 0;
+}

@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long LL;
+struct stu{
+	LL sc[1005], zf;
+	LL aplus, ifap[1005];
+	bool zfaplus;
+	
+}a[100005];
+LL fsx[10005];
+LL n, m;
+LL scor[100005];
+int main(){
+	for (LL i = 1;i <= 7;i++) cin >> fsx[i];
+	cin >> n >> m;
+	for (LL i = 1;i <= n;i++){
+		a[i].zf=a[i].aplus=0;
+		for (LL j = 1;j <= 6;j++){
+			cin >> a[i].sc[j];
+			a[i].zf += a[i].sc[j];
+			if (a[i].sc[j] >= fsx[j]){
+				++a[i].aplus;
+				a[i].ifap[j] = 1;
+			}else{
+				a[i].ifap[j] = 0;
+			}
+		}
+		cin >> a[i].sc[7];
+		a[i].zf += a[i].sc[7];
+		if (a[i].zf >= fsx[7]) a[i].zfaplus = 1;
+		else a[i].zfaplus=0;
+		scor[i]=a[i].zfaplus*100+a[i].aplus;
+	}
+	for(LL i=1;i<=n;i++){
+		for(LL j=1;j<=6;j++)scor[i]=scor[i]*100+a[i].ifap[j];
+	}
+	sort(scor+1,scor+1+n);
+	LL cnt=1;
+	cout<<m;
+	return false;
+}

@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int minN=-2141483647;
+int main(){
+	string a;
+	cin>>a;
+	int nnsznum=0;
+	for(int i=0;i<a.size();i++){
+		if(nnsznum==0&&a[i]=='n') nnsznum++;
+		else if(nnsznum==1&&a[i]=='n') nnsznum++;
+		else if(nnsznum==2&&a[i]=='s') nnsznum++;
+		else if(nnsznum==3&&a[i]=='z'){
+			cout<<"YES";
+			return 0;
+		}
+		else nnsznum=0;
+	}
+	cout<<"NO";
+}

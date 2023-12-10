@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const ll N=4e5+50,M=2e6+45;
+ll n,m;
+ll a,b,c,d,e,f,s;
+struct node{
+    ll a,b,c,d,e,f,g,s;
+    ll dat,num;
+    bool A,B,C,D,E,F,S;
+}st[N];
+bool cmp(node x,node y){
+    if(x.S==y.S){
+        if(x.num==y.num){
+            return x.dat>y.dat;
+        }
+        else return x.num>y.num;
+    }
+    else return x.S>y.S;
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+//    freopen("a.in","r",stdin);
+//    freopen("a.out","w",stdout);
+    cin>>a>>b>>c>>d>>e>>f>>s;
+    cin>>n>>m;
+    for(int i=1;i<=n;++i){
+        cin>>st[i].a>>st[i].b>>st[i].c>>st[i].d>>st[i].e>>st[i].f>>st[i].g;
+        st[i].s=st[i].a+st[i].b+st[i].c+st[i].d+st[i].e+st[i].f+st[i].g;
+        if(st[i].s>=s){
+            st[i].S=1;
+        }
+        if(st[i].a>=a){
+            st[i].A=1;st[i].num++;
+            st[i].dat+=(1<<6);
+        }
+        if(st[i].b>=b){
+            st[i].B=1;st[i].num++;
+            st[i].dat+=(1<<5);
+        }
+        if(st[i].c>=c){
+            st[i].C=1;st[i].num++;
+            st[i].dat+=(1<<4);
+        }
+        if(st[i].d>=d){
+            st[i].D=1;st[i].num++;
+            st[i].dat+=(1<<3);
+        }if(st[i].e>=e){
+            st[i].E=1;st[i].num++;
+            st[i].dat+=(1<<2);
+        }
+        if(st[i].f>=f){
+            st[i].F=1;st[i].num++;
+            st[i].dat+=(1<<1);
+        }
+    }
+    sort(st+1,st+1+n,cmp);
+    /*
+    for(int i=1;i<=n;++i){
+        cout<<i<<" "<<st[i].s<<" "<<st[i].dat<<"\n";
+        cout<<st[i].a<<" "<<st[i].b<<" "<<st[i].c<<" "<<st[i].d<<" "<<st[i].e<<" "<<st[i].f<<"\n";
+    }
+     */
+    ll r=m+1;
+    while(st[m].dat==st[r].dat and r<=n)r++;
+    cout<<r-1<<"\n";
+    return 0;
+}

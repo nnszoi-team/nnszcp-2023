@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int h[105];
+int s[105];
+
+int main()
+{
+    //freopen("in", "r", stdin);
+    //freopen("out", "w", stdout);
+
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i<n; i++)
+    {
+        cin >> h[i]; //height
+    }
+    for(int i = 0; i<m; i++)
+    {
+        cin >> s[i]; //horse
+    }
+
+    sort(h, h+n);
+    for (int k = 0; k < m; k++){
+        int start, ending;
+        int i = 0;
+        int j = n-i-1;
+        while(i <= (n/2)&&j >= (n/2))
+        {
+            start = h[i];
+            ending = h[j];
+            if ((ending-start) > s[k]){
+                if ((h[i+1]-h[i]) > (h[j]-h[j-1])) j--;
+                else i++;
+            }
+            else
+                break;
+        }
+        cout << j-i+1 << endl;
+    }
+   // fclose(stdin);
+    //fclose(stdout);
+}

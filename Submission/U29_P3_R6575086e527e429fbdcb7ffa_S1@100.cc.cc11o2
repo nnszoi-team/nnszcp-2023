@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int n,c,k=-1e9,i,l=-1e9,q=0;
+int main()
+{
+	cin>>n;
+	for(i=0;i<=n;i++)
+	{
+		cin>>c;
+		k=max(k,c);
+		if(i)l=max(l,c-q);
+		q=c;
+	}
+	cout<<k<<"\n"<<l;
+	return 0;
+}

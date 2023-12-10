@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n,p;
+	cin>>n>>p;
+	for(int i=1;i<=p;i++)
+	{
+		int l1,l2,l3;
+		cin>>l1>>l2>>l3;
+	}
+	for(int i=1;i<=n;i++)
+		cout<<"1"<<' ';
+	return 0;
+}

@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const ll N=4e5+50,M=2e6+45,P=3;
+ll n,Q,a[N],l[N],r[N],v[N];
+bool Pd=0;
+void check(){
+    for(int i=1;i<=Q;++i){
+        ll mul=1ll;
+        for(int j=l[i];j<=r[i];++j){
+            mul=(mul*a[j])%P;
+        }
+        if(mul!=v[i])return;
+    }
+    for(int i=1;i<=n;++i)cout<<a[i]<<" ";
+    cout<<"\n";
+    Pd=1;
+    return;
+}
+void dfs(ll len){
+    if(Pd)return;
+    if(len==n+1){
+        check();
+        return;
+    }
+    for(int i=0;i<=5;++i){
+        a[len]=i;
+        dfs(len+1);
+    }
+}
+void solve(){
+    dfs(1);
+    if(!Pd){
+        for(int i=1;i<=n;++i)cout<<"-1 ";
+    }
+}
+map<ll,bool>mp;
+void solve2(){
+    bool ppd=0;
+    for(int i=1;i<=Q;++i){
+        if(mp[l[i]]){
+            ppd=1;
+            break;
+        }
+        mp[l[i]]=1;
+        a[l[i]]=v[i];
+    }
+    if(ppd){
+        for(int i=1;i<=n;++i)cout<<"-1 ";
+        return;
+    }
+    for(int i=1;i<=n;++i)cout<<a[i]<<" ";
+}
+bool pd=0;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+    //freopen("a.in","r",stdin);
+    //freopen("a.out","w",stdout);
+    cin>>n>>Q;
+    for(int i=1;i<=Q;++i){
+        cin>>l[i]>>r[i]>>v[i];
+        if(l[i]!=r[i])pd=1;
+        v[i]%=3;
+    }
+    if(pd)solve();
+    else solve2();
+    return 0;
+}

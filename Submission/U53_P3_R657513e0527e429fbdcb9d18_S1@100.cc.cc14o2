@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n,m,maxnum,maxmid,maxdel=-2147483647,num;
+    cin>>n;
+    for(int i=0;i<=n;i++){
+        cin>>num;
+        if(i==0){
+            m=num;
+            maxnum=num;
+            continue;
+            }
+        maxmid=max(m,num);
+        maxnum=max(maxmid,maxnum);
+        maxdel=max(maxdel,num-m);
+        m=num;
+    }
+    cout<<maxnum<<endl<<maxdel;
+
+
+
+    return 0;
+}

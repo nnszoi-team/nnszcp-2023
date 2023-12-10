@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int T;
+	cin>>T;
+	while(T--){
+		int n,k;
+		cin>>n>>k;
+		int now=(n-1)*n/2*(n+1);
+		if(k<now){
+			cout<<"-1\n";
+			continue;
+		}
+		int ch=k-now;
+		if((n*n-1)+ch>k){
+			cout<<"-1\n";
+			continue;
+		}
+		for(int i=1;i<=n;i++){
+			for(int j=1;j<=n;j++){
+				if(i!=n)cout<<(i-1)*n+j-1<<' ';
+				else cout<<(i-1)*n+j-1+ch<<' ';
+			}
+			cout<<endl;
+		}
+	}
+	
+	return false;
+}

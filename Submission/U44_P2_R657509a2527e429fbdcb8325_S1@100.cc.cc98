@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+string a;
+int main(){
+	cin>>a;
+	int n=a.length();
+	for(int i=0;i<n-3;i++){
+		if(a[i]=='n'&&a[i+1]=='n'&&a[i+2]=='s'&&a[i+3]=='z'){
+			cout<<"YES";
+			return 0;
+		}
+	} 
+	cout<<"NO";
+	return 0;
+}

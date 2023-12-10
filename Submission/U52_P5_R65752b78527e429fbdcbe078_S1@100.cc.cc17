@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,m,l[10],a1,b1,c1,d1,e1,f1,g1,s1;
+struct zk
+{
+	bool a,b,c,d,e,f,s;
+	int nb;
+		
+};
+bool cmp( zk x,zk y)
+{
+	if(x.s!=y.s)return x.s>y.s;
+	else if(x.nb!=y.nb)return x.nb>y.nb;
+	else if(x.a!=y.a)return x.a>y.a;
+	else if(x.b!=y.b)return x.b>y.b;
+	else if(x.c!=y.c)return x.c>y.c;
+	else if(x.d!=y.d)return x.d>y.d;
+	else if(x.e!=y.e)return x.e>y.e;
+	else return x.f>y.f;
+}
+
+zk fs[100005];
+int main()
+{
+	for(int i=1;i<=7;i++)
+	{
+		cin>>l[i];
+	}
+	cin>>n>>m;
+	for(int i=1;i<=n;i++)
+	{
+		scanf("%d%d%d%d%d%d%d",&a1,&b1,&c1,&d1,&e1,&f1,&g1);
+		s1=a1+b1+c1+d1+e1+f1+g1;
+		if(a1>=l[1])
+		{
+			fs[i].a=1;
+			fs[i].nb++;
+		}
+		if(b1>=l[2]){
+			fs[i].b=1;
+			fs[i].nb++;
+		}
+		if(c1>=l[3]){
+			fs[i].c=1;
+			fs[i].nb++;
+		}
+		
+		if(d1>=l[4]){
+			fs[i].d=1;
+			fs[i].nb++;
+		}
+		if(e1>=l[5]){
+			fs[i].e=1;
+			fs[i].nb++;
+		}
+		if(f1>=l[6])
+		{
+			fs[i].f=1;
+			fs[i].nb++;
+		}
+		if(s1>=l[7])
+		{
+			fs[i].s=1;
+			fs[i].nb++;
+		}
+	}
+	sort(fs+1,fs+n+1,cmp);
+	for(int i=m;;i++)
+	{
+		if(fs[i+1].s==fs[i].s &&fs[i+1].nb==fs[i].nb &&fs[i+1].a==fs[i].a &&fs[i+1].b==fs[i].b &&fs[i+1].c==fs[i].c &&fs[i+1].d==fs[i].d &&fs[i+1].e==fs[i].e &&fs[i+1].f==fs[i].f)
+			m++;
+		else{
+			break;
+		}
+	
+	}
+	cout<<m;
+	return 0;
+ }

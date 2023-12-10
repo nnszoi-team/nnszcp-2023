@@ -1,0 +1,198 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const ll N=4e5+50,M=2e6+45;
+ll n,a[N],ans;
+
+ll ch[N][2],val[N],cnt[N],tot,sz[N],fa[N],rt;
+
+void maintain(ll x)
+{
+    sz[x]=sz[ch[x][0]]+sz[ch[x][1]]+cnt[x];
+}
+
+void clear(ll x)
+{
+    ch[x][0]=ch[x][1]=fa[x]=val[x]=sz[x]=cnt[x]=0;
+}
+
+bool get(ll x)
+{
+    return ch[fa[x]][1]==x;
+}
+
+void rotat(ll x)
+{
+    ll y=fa[x],z=fa[y],p=get(x);
+    ch[y][p]=ch[x][p^1];
+    if(ch[x][p^1])fa[ch[x][p^1]]=y;
+    ch[x][p^1]=y;
+    fa[y]=x;fa[x]=z;
+    if(z)ch[z][ch[z][1]==y]=x;
+    maintain(y);maintain(x);
+}
+
+void splay(ll x)
+{
+    for(ll f=fa[x];f=fa[x],f;rotat(x))
+    {
+        if(fa[f])
+        {
+            if(get(x)==get(f))rotat(f);
+            else rotat(x);
+        }
+    }
+    rt=x;
+}
+
+void ins(ll k)
+{
+    if(!rt)
+    {
+        rt=++tot;
+        cnt[tot]++;val[tot]=k;
+        maintain(tot);
+        return;
+    }
+    ll p=rt,f=fa[p];
+    while(1)
+    {
+        if(val[p]==k)
+        {
+            cnt[p]++;
+            maintain(p);maintain(f);
+            splay(p);
+            return;
+        }
+        f=p;p=ch[p][val[p]<k];
+        if(!p)
+        {
+            ++tot;
+            cnt[tot]++;val[tot]=k;
+            fa[tot]=f;ch[f][val[f]<k]=tot;
+            maintain(tot);maintain(f);
+            splay(tot);
+            return;
+        }
+    }
+}
+
+ll rk(ll k)
+{
+    ll p=rt,res=0;
+    while(1)
+    {
+        //cout<<p<<endl;
+        //if(!p)return 0;
+        if(k<val[p])p=ch[p][0];
+        else
+        {
+            res+=sz[ch[p][0]];
+            if(val[p]==k){splay(p);return res+1;}
+            res+=cnt[p];
+            p=ch[p][1];
+        }
+    }
+}
+
+ll kth(ll k)
+{
+    ll p=rt;
+    while(1)
+    {
+        if(ch[p][0] and sz[ch[p][0]]>=k)p=ch[p][0];
+        else
+        {
+            k-=sz[ch[p][0]]+cnt[p];
+            if(k<=0){splay(p);return val[p];}
+            p=ch[p][1];
+        }
+    }
+}
+
+ll pre()
+{
+    ll p=ch[rt][0];
+    if(!p)return p;
+    while(ch[p][1])p=ch[p][1];
+    splay(p);
+    return p;
+}
+
+ll nxt()
+{
+    ll p=ch[rt][1];
+    if(!p)return p;
+    while(ch[p][0])p=ch[p][0];
+    splay(p);
+    return p;
+}
+
+void del(ll k)
+{
+    rk(k);
+    if(cnt[rt]>1)
+    {
+        cnt[rt]--;maintain(rt);return;
+    }
+    else if(!ch[rt][0] and !ch[rt][1])
+    {
+        clear(rt);rt=0;return;
+    }
+    else if(!ch[rt][1])
+    {
+        ll p=ch[rt][0];
+        clear(rt);rt=p;fa[rt]=0;
+        return;
+    }
+    else if(!ch[rt][0])
+    {
+        ll p=ch[rt][1];
+        clear(rt);rt=p;fa[rt]=0;
+        return;
+    }
+    ll p=rt,x=pre();
+    fa[ch[p][1]]=x;
+    ch[x][1]=ch[p][1];
+    clear(p);maintain(rt);
+    return;
+}
+map<ll,bool>mp;
+void solve(){
+    ll maxn;
+    for(int i=2;i<=n;++i){
+        if(a[1]<a[i]){
+            swap(a[i],a[1]);
+            ans++;
+        }
+    }
+    maxn=a[1];
+
+    //for(int i=1;i<=n;++i)cout<<a[i]<<" ";cout<<"\n";
+
+    ins(a[1]);
+    ll num=0;
+    mp[a[1]]=1;num++;
+    for(int i=2;i<=n;++i){
+        if(!mp[a[i]]){
+            ins(a[i]);num++;
+            mp[a[i]]=1;
+        }
+        //cout<<num-rk(a[i])<<"\n";
+        ans+=num-rk(a[i]);
+        //cout<<distance(it,s.end())-1<<"\n";
+    }
+    cout<<"YES\n";
+    cout<<ans<<"\n";
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+    cin>>n;
+    for(int i=1;i<=n;++i){
+        cin>>a[i];
+    }
+    solve();
+    return 0;
+}

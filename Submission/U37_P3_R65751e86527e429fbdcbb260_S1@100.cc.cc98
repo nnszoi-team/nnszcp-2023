@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+	int max1 = INT_MIN,max2 = INT_MIN,n;
+	cin>>n;
+	int b[n+2];
+	
+	for(int i = 1;i <= n+1;i++){
+		cin>>b[i];
+		if(max1 < b[i]) max1 = b[i];
+	}
+	for(int i = 2;i <= n+1;i++) if(max2 < b[i] - b[i-1]) max2 = b[i]-b[i-1];
+	cout<<max1<<endl<<max2;
+	
+	return 0;
+}

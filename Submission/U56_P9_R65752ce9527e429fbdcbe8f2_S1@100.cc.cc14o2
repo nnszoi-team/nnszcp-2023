@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+typedef long long ll;
+typedef long double ld;
+using namespace std;
+const ll N=100010,M=1000010,lpw=998244353;
+inline ll max(ll x,ll y){return x>y?x:y;}
+inline ll min(ll x,ll y){return x<y?x:y;}
+inline void swap(ll &x,ll &y){x^=y^=x^=y;}
+ll head[N],ver[M],Next[M],tot;
+ll n,ans,p[N],f[N],g[N],size[N];
+void add(ll x,ll y){
+	ver[++tot]=y,Next[tot]=head[x],head[x]=tot;
+}
+ll qpow(ll x,ll k){
+	ll res=1;
+	while(k){
+		if(k&1)res=(res*x)%lpw;
+		k>>=1,x=(x*x)%lpw;
+	}
+	return res;
+}
+ll C(ll n,ll k){
+	if(k>n)return 0;
+	return p[n]%lpw*qpow(p[n-k],lpw-2)%lpw*qpow(p[k],lpw-2)%lpw;
+}
+void dfs1(ll x,ll fa){
+	f[x]=size[x]=1;
+	for(ll i=head[x];i;i=Next[i]){
+		ll y=ver[i];
+		if(y==fa)continue;
+		dfs1(y,x);
+		f[x]=f[x]*f[y]%lpw*C(size[x]+size[y]-1,size[y])%lpw;
+		size[x]+=size[y];
+	}
+}
+void dfs2(ll x,ll fa){
+	for(ll i=head[x];i;i=Next[i]){
+		ll y=ver[i];
+		if(y==fa)continue;
+		f[y]=f[x]*C(n-1,size[y]-1)%lpw*qpow(C(n-1,n-size[y]-1)%lpw,lpw-2)%lpw;
+		dfs2(y,x);
+	}
+}
+int main(){
+	scanf("%lld",&n);
+	for(ll i=1;i<n;i++){
+		ll x,y;
+		scanf("%lld%lld",&x,&y);
+		add(x,y),add(y,x);
+	}
+	p[0]=1;g[1]=0;
+	for(ll i=1;i<=n;i++)
+		p[i]=i*p[i-1]%lpw;
+	dfs1(1,0);
+	dfs2(1,0);
+	for(int i=1;i<=n;i++)
+		ans=(ans+f[i])%lpw;
+	printf("%lld\n",ans);
+	return 0;
+}

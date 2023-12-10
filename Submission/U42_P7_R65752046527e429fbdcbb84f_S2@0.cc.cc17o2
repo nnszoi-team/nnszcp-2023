@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int jdz(int lzd){
+	if(lzd<0)return -lzd;
+	return lzd;
+}
+int main()
+{   
+	int y,k,a,b,m,n,p,x,c,d;
+	cin>>d;
+	for(int i=1;i<=d;i++)
+       {cin>>a>>b;
+	    k=a/b;  
+	    c=k/2;
+	    y=c*(k-c);
+	    m=(c*c+y*y);
+	    p=-b+sqrt(k*k)/(-2);
+	    n=((c*c-p*p)+1);
+        x=m+n;}
+	cout<<x;
+	return 0; 
+}  //y=x(k-x);p(a,b) x=-b/2a x=k/2

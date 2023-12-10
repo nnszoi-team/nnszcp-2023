@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[2010];
+int main()
+{
+	int n,m;
+	cin>>n>>m;
+	for(int i=1;i<=n;i++)
+		cin>>a[i];
+	for(int i=1;i<=m;i++)
+	{
+		int t=0,w;
+		cin>>w;
+		for(int i=1;i<=n;i++)
+			for(int j=i+1;j<=n;j++)
+			{
+				int g;
+				if(a[i]>=a[j])
+					g=a[i]-a[j];
+				else
+					g=a[j]-a[i];
+				if(g<=w)
+					t++;
+			}
+		cout<<t<<endl;
+	}
+	return 0;
+}

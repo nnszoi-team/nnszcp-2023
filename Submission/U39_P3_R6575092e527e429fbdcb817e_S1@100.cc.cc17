@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int minN=-2141483647;
+int main(){
+	int n,p=minN,q=minN,a=0,preva=0;
+	cin>>n;
+	cin>>a;
+	for(int i=1;i<=n;i++){
+		preva=a;
+		scanf("%d",&a);
+		int cha=a-preva;
+		p=max(p,max(a,preva));
+		q=max(q,cha);
+	}
+	cout<<p<<'\n'<<q;
+}

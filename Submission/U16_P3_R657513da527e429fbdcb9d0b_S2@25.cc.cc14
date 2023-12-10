@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,a[3*100000+5],sum1,sum2;
+int main()
+{
+	cin>>n;
+	for(int i=1;i<=n+1;i++)
+	{
+		cin>>a[i];
+	}
+	for(int i=1;i<=n+1;i++)
+	{
+		sum1=max(sum1,a[i]);
+	}
+	cout<<sum1<<endl;
+	for(int i=1;i<=n ;i++)
+	{
+		sum2=max(sum2,a[i+1]-a[i]);
+	}
+	cout<<sum2;
+	return 0;
+}

@@ -1,0 +1,86 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N = 10;
+
+int n,m,la,lb,lc,ld,le,lf,ls,a,b,c,d,e,f,g,all,r,ans,tmp;
+struct node{
+	bool all,a,b,c,d,e,f;
+	int r;
+}no[N];
+
+bool cp(node x,node y){
+	if(x.all!=y.all){
+		if(x.all==true){return true;}
+		if(y.all==true){return false;}
+	}
+	if(x.r > y.r){
+		return true;
+	}else if(x.r < y.r){
+		return false;
+	}
+	if(x.a!=y.a){
+		if(x.a==true){return true;}
+		if(y.a==true){return false;}
+	}
+	if(x.b!=y.b){
+		if(x.b==true){return true;}
+		if(y.b==true){return false;}
+	}
+	if(x.c!=y.c){
+		if(x.c==true){return true;}
+		if(y.c==true){return false;}
+	}
+	if(x.d!=y.d){
+		if(x.d==true){return true;}
+		if(y.d==true){return false;}
+	}
+	if(x.e!=y.e){
+		if(x.e==true){return true;}
+		if(y.e==true){return false;}
+	}
+	if(x.f!=y.f){
+		if(x.f==true){return true;}
+		if(y.f==true){return false;}
+	}
+	return false;
+}
+
+int main(){
+	ios::sync_with_stdio(false),cin.tie(0),cout.tie(0);
+	cin>>la>>lb>>lc>>ld>>le>>lf>>ls;
+	cin>>n>>m;
+	for(int i=0;i<n;i++){
+		cin>>a>>b>>c>>d>>e>>f>>g;
+		all=a+b+c+d+e+f+g;
+		no[i].a= a>=la;
+		no[i].b= b>=lb;
+		no[i].c= c>=lc;
+		no[i].d= d>=ld;
+		no[i].e= e>=le;
+		no[i].f= f>=lf;
+		no[i].all= all>=ls;
+		if(a>=la)r++;
+		if(b>=lb)r++;
+		if(c>=lc)r++;
+		if(d>=ld)r++;
+		if(e>=le)r++;
+		if(f>=lf)r++;
+		no[i].r=r;
+	}
+	sort(no,no+n,cp);
+	for(int i=0;i<n;i++){
+		int k=0;
+		ans++;
+		for(k=i+1;k<n;k++){
+			if(no[i].all==no[k].all&&no[i].a==no[k].a&&no[i].b==no[k].b&&no[i].c==no[k].c&&no[i].d==no[k].d&&no[i].e==no[k].e&&no[i].f==no[k].f){
+				tmp++;
+				continue;
+			}else break;
+		}
+		if(ans==m)break;
+		i=k-1;
+	}
+	cout<<ans+tmp<<endl;
+	return 0;
+}

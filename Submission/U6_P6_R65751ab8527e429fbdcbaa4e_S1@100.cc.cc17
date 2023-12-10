@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=510;
+
+int n,k,a[N][N],tot;
+
+void solve(){
+    scanf("%d%d",&n,&k);
+    int lim=k-(n-1+1)*(n-1)/2*n+(n-1)*n/2;
+    tot=0;
+    for(int i=1;i<=n-1;i++){
+        for(int j=1;j<=n;j++)
+            a[i][j]=++tot;
+    }
+    bool flag=1;
+    for(int j=1;j<=n;j++){
+        a[n][j]=lim-(n-j);
+        flag&=(a[n][j]>=n*(n-1));
+    }
+
+    if(flag){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++)printf("%d ",a[i][j]);
+            puts("");
+        }
+    }else puts("-1");
+}
+
+int main(){
+    int T;scanf("%d",&T);
+    while(T--)solve();
+    return 0;
+}

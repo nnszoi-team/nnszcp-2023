@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int t,n,m,k;
+int main(){
+	cin>>t;
+	for(int i=1;i<=t;i++){
+		scanf("%d%d",&n,&m);
+		if(m<(n*n*n-n)/2){
+			cout<<"-1\n";
+			continue;
+		}
+		for(int j=0;j<n-1;j++){
+			for(int o=0;o<n;o++)printf("%d ",j*n+o);
+			cout<<endl;
+		}
+		k=m-(n*n*n-n)/2+n*(n-1);
+		for(int j=0;j<n;j++)printf("%d ",k+j);
+        cout<<endl;
+	}
+	return 0;
+}

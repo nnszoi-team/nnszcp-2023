@@ -1,0 +1,95 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+	int a,b,c,d,e,f,g,s;
+	int zongfen;
+	int a1,b1,c1,d1,e1,f1,g1,s1;
+	bool flag;
+};
+node k[100005];
+int l[10];
+int n,m;
+bool cmp(node x,node y){
+	if(x.s1==y.s1){
+		if(x.zongfen==y.zongfen){
+		    if(x.a1==y.a1){
+		    	if(x.b1==y.b1){
+		    		if(x.c1==y.c1){
+		    			if(x.d1==y.d1){
+		    			    if(x.e1==y.e1){
+		    			    	 return x.f1>y.f1;
+							}	
+							else return x.e1>y.e1;
+						}
+						else return x.d1>y.d1;
+					}
+					else return x.c1>y.c1;
+				}
+				else return x.b1>y.b1;
+			}	
+			else return x.a1>y.a1;
+		}
+		else return x.zongfen>y.zongfen;
+	}
+	else return x.s1>y.s1;
+}
+int main(){
+	for(int i=1;i<=7;i++) cin>>l[i];
+	cin>>n>>m;
+	for(int i=1;i<=n;i++){
+		cin>>k[i].a>>k[i].b>>k[i].c>>k[i].d>>k[i].e>>k[i].f>>k[i].g;
+		k[i].s=k[i].a+k[i].b+k[i].c+k[i].d+k[i].e+k[i].f+k[i].g;
+		if(k[i].a>=l[1]){
+		    k[i].a1=1;k[i].zongfen++;
+		}
+		if(k[i].b>=l[2]){
+		    k[i].b1=1;k[i].zongfen++;
+		}
+		if(k[i].c>=l[3]){
+		    k[i].c1=1;k[i].zongfen++;
+		}
+		if(k[i].d>=l[4]){
+		    k[i].d1=1;k[i].zongfen++;
+		}
+		if(k[i].e>=l[5]){
+		    k[i].e1=1;k[i].zongfen++;
+		}
+		if(k[i].f>=l[6]){
+		    k[i].f1=1;k[i].zongfen++;
+		}
+		if(k[i].s>=l[7]){
+		    k[i].s1=1;k[i].zongfen++;
+		}
+	}
+	sort(k+1,k+1+n,cmp);
+	int ans=m;
+	for(int i=m+1;i<=100000;i++){
+		if(k[i].s1==k[i-1].s1){
+			if(k[i].zongfen==k[i-1].zongfen){
+			    if(k[i].a1==k[i-1].a1){
+			        if(k[i].b1==k[i-1].b1){
+			            if(k[i].c1==k[i-1].c1){
+			                if(k[i].d1==k[i-1].d1){
+			                    if(k[i].e1==k[i-1].e1){
+			                        if(k[i].f1==k[i-1].f1){
+			                            ans++;
+		                            }
+		                            else break;
+		                        }
+		                        else break;
+		                    }
+		                    else break;
+		                }
+		                else break;
+		            }
+		            else break;
+		        }
+		        else break;
+		    }
+		    else break;
+		}
+		else break;
+	}
+	cout<<ans;
+	return 0;
+}

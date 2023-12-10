@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=2e3+10;
+bool cmp(int x,int y){
+    return x>y;
+}
+int h[N];
+int pony;
+int main(){
+    int n,m;
+    cin>>n>>m;
+    for(int i=1;i<=n;i++){
+        scanf("%d",&h[i]);
+    }
+    sort(h+1,h+n+1,cmp);
+    for(int i=1;i<=m;i++){
+        scanf("%d",&pony);
+        int ans=0;
+        for(int j=1;j<=n;j++){
+            int l=1,r=j;
+            int compare=h[j]-pony;
+            while(l<r){
+                int mid=(l+r)/2;
+                if(mid>compare)r=mid-1;
+                else l=mid+1;
+            }
+            ans+=j-r;
+            l=j+1,r=n;
+            compare=h[j]+pony;
+            while(l<r){
+                int mid=(l+r)/2;
+                if(mid>compare)r=mid-1;
+                else l=mid+1;
+            }
+            ans+=r-j;
+        }
+        cout<<ans/2<<endl;
+    }
+    return 0;
+}

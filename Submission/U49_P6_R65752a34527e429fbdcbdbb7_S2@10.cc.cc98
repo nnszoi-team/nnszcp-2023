@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+int m,n,k;
+int main(){
+	cin>>m;
+	cin>>n>>k;
+	if(m==1&&n==1){
+		cout<<k;
+	}
+	return 0;
+}

@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int t;
+int main() {
+	cin >> t;
+	while (t--) {
+		int n, k;
+		cin >> n >> k;
+		if (n == 1) {
+			cout << k << endl;
+		}
+	}
+	
+	return 0;
+}

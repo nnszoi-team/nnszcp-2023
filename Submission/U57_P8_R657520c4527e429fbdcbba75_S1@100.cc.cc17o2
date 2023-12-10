@@ -1,0 +1,111 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fre(x) freopen(#x".in","r",stdin);freopen(#x".out","w",stdout)
+#define ck(x) printf("check %lld\n",x);fflush(stdout);
+#define die(x) puts(x);return ;
+#define int long long
+#define double long double
+#define inf 0x3fffffffffffffff
+inline int read()
+{
+	int x=0,f=1;char ch=getchar();
+	while(!isdigit(ch)){if(ch=='-')f=-1;ch=getchar();}
+	while(isdigit(ch)){x=x*10+ch-48;ch=getchar();}
+	return f==1?x:-x;
+}
+inline void write(int x)
+{
+    if(x<0) putchar('-'),x=-x;
+    if(x>9) write(x/10);
+    putchar(x%10+'0');
+}
+const int modp = 998244353;
+
+struct Fenwick {
+	int n;
+	vector<int> tr;
+	Fenwick() {}
+	Fenwick(int n) {init(n+1);}
+	void init(int n){
+		this->n = n;
+		tr.assign(n+1,0);
+	}
+	void add(int pos,int x){
+		while(pos<=n){
+			tr[pos]+=x;
+			pos+=pos&-pos;
+		}
+	}
+	int sum(int pos){
+		int res=0;
+		while(pos){
+			res+=tr[pos];
+			pos-=pos&-pos;
+		}
+		return res;
+	}
+	int rangeSum(int l,int r){
+		return sum(r)-sum(l-1);
+	}
+	int kth(int k){
+		// tr[x] count the cnt of x
+		int res=0,cnt=0;
+		for(int i=20;i>=0;--i){
+			res+=(1<<i);
+			if(res>n || cnt+tr[res]>=k){
+				res-=(1<<i);
+			} else {
+				cnt+=tr[res];
+			}
+		}
+		return res+1;
+	}
+};
+void solve()
+{
+	int n=read();
+	vector<int> a(n+1),b(n+1);
+	for(int i=1;i<=n;++i) {
+		a[i]=read();
+		b[i]=a[i];
+	}
+	sort(b.begin(),b.end());
+	b.erase(unique(b.begin(),b.end()),b.end());
+	map<int,int> pos;
+	for(int i=1;i<b.size();++i) {
+		pos[b[i]]=i;
+	}
+	int ans=0;
+	for(int i=2;i<=n;++i) {
+		if(a[i]>a[1]) {
+			++ans;
+			swap(a[i],a[1]);
+		}
+	}
+	vector<int> vis(n+1);
+	Fenwick fen(n+1);
+	int tot=0;
+	for(int i=1;i<=n;++i) {
+		ans+=tot-fen.sum(pos[a[i]]);
+		if(!vis[pos[a[i]]]) {
+			vis[pos[a[i]]]=true;
+			tot++;
+			fen.add(pos[a[i]],1);
+		}
+	}
+	puts("YES");
+	printf("%lld\n",ans);
+
+}
+
+
+signed main()
+{
+	//fre(test);
+	int T=1;
+	while(T--) {
+		solve();
+		//fflush(stdout);
+	}
+	return 0;
+}

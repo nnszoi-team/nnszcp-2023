@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const ll N=1e3+50,M=2e6+50;
+ll T,n,k,a[N][N];
+void solve(){
+    ll st=(n-1)*n*n/2+n*(n-1)/2,ed=n*k-(n-1)*n*n/2+n*k-n*(n-1)/2;
+    if( k<st || k>ed){
+        cout<<"-1\n";
+        return;
+    }
+    ll del=k-st;
+    ll p=0;
+    for(int i=1;i<n;++i){
+        for(int j=1;j<=n;++j){
+            cout<<p<<" ";
+            ++p;
+        }
+        cout<<"\n";
+    }
+    p+=del;
+    for(int j=1;j<=n;++j){
+        cout<<p<<" ";
+        ++p;
+    }
+    cout<<"\n";
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+//    freopen("a.in","r",stdin);
+//    freopen("a.out","w",stdout);
+    cin>>T;
+    while(T--)
+    {
+        cin>>n>>k;
+        solve();
+    }
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    int n,sum=0;
+    std::cin >> n;
+    std::vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> a[i];
+    }
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (a[i] < a[j]) {sum++;
+                std::swap(a[i], a[j]);
+            }
+        }
+    }
+
+    std::cout<<"YES"<<std::endl<<sum<<std::endl;
+    return 0;
+}

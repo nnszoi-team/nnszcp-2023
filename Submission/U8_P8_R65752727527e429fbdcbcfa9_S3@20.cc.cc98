@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+	int n,ans=0;
+	std::cin >> n;
+	std::vector<int> a(n);
+	for (int i = 0; i < n; ++i) {
+		std::cin >> a[i];
+		}
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (a[i] < a[j]) {
+				std::swap(a[i], a[j]);
+				ans++;
+				}
+			}
+		}
+	std::cout<<"YES";
+	std::cout<<endl;
+	std::cout<<ans;
+	return 0;
+	}

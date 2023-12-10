@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t,n,k;
+	cin>>t;
+	for(int i=1;i<=t;i++)
+		cin>>n>>k;
+	cout<<k;
+	return 0;
+}

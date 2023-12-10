@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=510;
+const double eps=1e-7;
+
+double a,b,k;
+double f(double x){
+    return x*(k-x);
+}
+
+double solve(double x){
+    return f(x)*f(x)+x*x+(k-x)*(k-x)+1;
+}
+
+void solve(){
+    scanf("%lf%lf",&a,&b);
+    k=a/b;
+    double l=0,r=k;
+    while(abs(r-l)>eps){
+        double lmid=l+(r-l)/3;
+        double rmid=r-(r-l)/3;
+        if(solve(lmid)<solve(rmid))l=lmid;
+        else r=rmid;
+    }
+    printf("%.10lf\n",max({solve(l),solve(0),solve(k)}));
+}
+
+int main(){
+    int T;scanf("%d",&T);
+    while(T--)solve();
+    return 0;
+}

@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+#define rint register int
+using namespace std;
+
+int n,m,as;
+int la,lb,lc,ld,le,lf,ls;
+struct node{
+	int sA;
+	bool Aa,Ab,Ac,Ad,Ae,Af,As;
+}st[100010];
+bool cmp(node x,node y){
+	if(x.As!=y.As) return x.As>y.As;
+	if(x.sA!=y.sA) return x.sA>y.sA;
+	if(x.Aa!=y.Aa) return x.Aa>y.Aa;
+	if(x.Ab!=y.Ab) return x.Ab>y.Ab;
+	if(x.Ac!=y.Ac) return x.Ac>y.Ac;
+	if(x.Ad!=y.Ad) return x.Ad>y.Ad;
+	if(x.Ae!=y.Ae) return x.Ae>y.Ae;
+	if(x.Af!=y.Af) return x.Af>y.Af;
+	return 0;
+}
+//ap = A+ 
+
+int main(){
+	scanf("%d%d%d%d%d%d%d",&la,&lb,&lc,&ld,&le,&lf,&ls);
+	scanf("%d%d",&n,&m);
+	rint a,b,c,d,e,f,g,s;
+	for(rint i=1;i<=n;i++){
+		scanf("%d%d%d%d%d%d%d",&a,&b,&c,&d,&e,&f,&g);
+		s = a+b+c+d+e+f+g;
+		st[i].Aa = (a >= la);st[i].sA += st[i].Aa;
+		st[i].Ab = (b >= lb);st[i].sA += st[i].Ab;
+		st[i].Ac = (c >= lc);st[i].sA += st[i].Ac;
+		st[i].Ad = (d >= ld);st[i].sA += st[i].Ad;
+		st[i].Ae = (e >= le);st[i].sA += st[i].Ae;
+		st[i].Af = (f >= lf);st[i].sA += st[i].Af;
+		st[i].As = (s >= ls);st[i].sA += st[i].As;
+	}
+	
+	sort(st+1,st+n+1,cmp);
+	
+	for(rint i=1;i<=n;i++){
+		if(i<=m) as++;
+		else {
+			if(st[i].As==st[i-1].As && st[i].sA==st[i-1].sA && st[i].Aa==st[i-1].Aa && st[i].Ab==st[i-1].Ab && st[i].Ac==st[i-1].Ac && st[i].Ad==st[i-1].Ad && st[i].Ae==st[i-1].Ae && st[i].Af==st[i-1].Af) as++;
+			else break;
+		}
+	}
+	printf("%d",as);
+	return 0;
+}

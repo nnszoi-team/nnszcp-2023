@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n;int a[100010],mnn,mxx;
+int main(){
+	cin>>n;
+	for(int i=1;i<=n+1;i++){
+		cin>>a[i];
+		mxx=max(mxx,a[i]);
+	}
+	for(int i=1;i<=n;i++){
+		mnn=max(a[i+1]-a[i],mnn);
+	}
+	cout<<mxx<<endl<<mnn;
+}

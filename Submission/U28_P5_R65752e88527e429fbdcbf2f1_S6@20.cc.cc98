@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+using namespace std;
+int main()
+{
+    int a,b,n[8];
+    for (int i=0;i<7;i++)
+    {
+        cin>>n[i];
+    }
+    cin>>a>>b;
+    int sum[a][7];
+    for (int i=0;i<a;i++)
+    {
+        for (int j=0;j<7;j++)
+        {
+            cin>>sum[i][i];
+        }
+    }
+    cout<<b;
+}

@@ -1,0 +1,46 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int T,i;
+long double a,b,k,y;
+long double f(long double p)
+{
+	return (p*p+1)*((p-k)*(p-k)+1);
+}
+int main()
+{
+	long double l,j,s1,s2,Z1,Z2;
+	cin>>T;
+	while(T--)
+	{
+		cin>>a>>b;
+		k=a/b;
+		l=0;
+		j=k;
+		y=f(k);
+		if(k<=1)
+		{
+			cout<<y<<endl;
+			continue;
+		}
+		for(i=0;i<970;i++)
+		{
+			s1=l+(j-l)/3.000;
+			s2=l+(j-l)*2.000/3.000;
+			Z1=f(s1);
+			Z2=f(s2);
+			if(Z1>Z2)
+			{
+				j=s2;
+				y=Z1;
+			}
+			else
+			{
+				l=s1;
+				y=Z2;
+			}
+		}
+		cout<<fixed<<setprecision(17)<<y<<endl;
+	}
+	return 0;
+}

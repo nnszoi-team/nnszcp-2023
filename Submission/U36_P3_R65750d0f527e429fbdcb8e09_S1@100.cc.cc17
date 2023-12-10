@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const ll N=3e5+10,inf=0x3f3f3f3f,mod=1e9+7;
+ll n;
+ll a[N];
+int main()
+{
+	cin>>n;
+	for(ll i=1;i<=n+1;i++)
+		cin>>a[i];
+	ll maxx1=-inf,maxx2=-inf;
+	for(ll i=1;i<=n+1;i++)if(a[i]>maxx1)maxx1=a[i];
+	for(ll i=2;i<=n+1;i++)if(a[i]-a[i-1]>maxx2)maxx2=a[i]-a[i-1];
+	cout<<maxx1<<"\n"<<maxx2<<endl;
+	return 0;
+}

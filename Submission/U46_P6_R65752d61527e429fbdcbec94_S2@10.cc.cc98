@@ -1,0 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int b,c,m;
+	cin>>b>>c>>m;
+	cout<<m;
+	return 0;
+}

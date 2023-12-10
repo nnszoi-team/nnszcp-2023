@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+#define rint register int
+using namespace std;
+
+int n,as;
+int a[2000];
+
+int main() {
+    scanf("%d",&n);
+    for (rint i = 0; i<n;++i)
+        scanf("%d",&a[i]);
+    
+    for (rint i=0; i<n; ++i) {
+        for (rint j=0; j<n; ++j) {
+            if (a[i] < a[j]) {
+                swap(a[i], a[j]);
+                as++;
+            }
+        }
+    }
+	
+	bool f=1;
+	for(rint i=1;i<n;i++)
+		if(a[i]<a[i-1]){
+			f=0;
+			break;
+		}
+	if(f) printf("YES\n%d",as);
+	else printf("NO");
+    return 0;
+}

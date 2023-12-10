@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	string s;
+	getline(cin, s);
+	if(s.find("nnsz") == -1)
+		cout<<"NO";
+	else
+		cout<<"YES";
+	return 0;
+ }

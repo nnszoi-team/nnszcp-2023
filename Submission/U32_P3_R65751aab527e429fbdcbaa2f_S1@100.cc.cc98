@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=3e5+10; 
+int a[N],b[N],n,m,maxn_1=-0x7fffffff,maxn_2=-0x7fffffff,last,now;
+int main()
+{
+	cin>>n;
+	bool c=true;
+	for(int i=1;i<=n+1;i++)
+	{
+		int x;
+		
+		cin>>x;
+		if(x>maxn_1)
+			maxn_1=x;
+		
+		now=x;
+		if(c==true)
+		{	
+			last=now;
+			c=false;
+		}
+		else
+		{
+			if(now-last>maxn_2)
+				maxn_2=now-last;
+		}
+		last=now;		
+	}
+	cout<<maxn_1<<endl<<maxn_2;
+	return 0;
+}

@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int c=0;
+	string a;
+	cin>>a;
+	int b=a.length();
+	if(b<=3) {
+	cout<<"NO";
+	return 0;
+	}
+	if(b==4){
+		if(a[0]=='n'&&a[1]=='n'&&a[2]=='s'&&a[3]=='z') cout<<"YES";
+		else cout<<"NO";
+		return 0;
+	}
+	else for(int i=4;i<b;i++){
+		if(a[i]=='z'){
+			if(a[i-1]=='s'){
+				if(a[i-2]=='n'){
+					if(a[i-3]=='n'){
+						c=1;
+						break;
+					}
+				}
+				else continue;
+			}
+			else continue;
+		}
+	}
+	if(c==1) cout<<"YES";
+	else cout<<"NO";
+	return 0;
+}

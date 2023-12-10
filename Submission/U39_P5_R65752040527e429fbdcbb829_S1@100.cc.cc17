@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const short N=10086;
+int la,lb,lc,ld,le,lf,ltot;
+struct str{
+	short a,b,c,d,e,f,tot,num;
+};str a[114514];
+bool cmp(str a,str b){
+	
+	if(a.tot==b.tot){
+		if(a.num==b.num){
+			if(a.a==b.a){
+				if(a.b==b.b){
+					if(a.c==b.c){
+						if(a.d==b.d){
+							if(a.e==b.e) return a.f>b.f;
+							return a.e>b.e;
+						}
+						return a.d>b.d;
+					}
+					return a.c>b.c;
+				}
+				return a.b>b.b; 
+			}
+			return a.a>b.a;
+		}
+		
+		
+		
+		
+		return a.num>b.num;
+	}
+	return a.tot>b.tot;
+}
+bool equ(str a,str b){
+	if(a.a==b.a&&a.b==b.b&&a.c==b.c&&a.d==b.d&&a.e==b.e&&a.f==b.f&&a.num==b.num&&a.tot==b.tot) return 1;
+	else return 0;
+}
+int main(){
+	cin>>la>>lb>>lc>>ld>>le>>lf>>ltot;
+	int ai,bi,ci,di,ei,fi,gi,n,m;
+	cin>>n>>m;
+	for(int i=1;i<=n;i++){
+		scanf("%d%d%d%d%d%d%d",&ai,&bi,&ci,&di,&ei,&fi,&gi);
+		int tot=ai+bi+ci+di+ei+fi+gi,sum=0;
+		if(tot>=ltot) a[i].tot=N;
+		if(ai>=la) {
+			a[i].a=N;
+			sum++;
+		}
+		if(bi>=lb){
+			a[i].b=N;
+			sum++;
+		}
+		if(ci>=lc){
+			a[i].c=N;
+			sum++;
+		}
+		if(di>=ld){
+			a[i].d=N;
+			sum++;
+		}
+		if(ei>=le){
+			a[i].e=N;
+			sum++;
+		}
+		if(fi>=lf){
+			a[i].f=N;
+			sum++;
+		}
+		a[i].num=sum;
+	}
+	
+	sort(a+1,a+n+1,cmp);
+	while(equ(a[m],a[m+1])) m++;
+	cout<<m;
+}

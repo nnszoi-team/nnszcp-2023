@@ -1,0 +1,67 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+struct I{int C[6],z;}l,p;
+struct I2
+{
+	bool C[6],z;
+	int w=0,H;
+	bool operator<(const I2 &k)const
+	{
+		int j;
+		if(z!=k.z)return z>k.z;
+		if(w!=k.w)return w>k.w;
+		for(j=0;j<6;j++)
+		{
+			if(C[j]==k.C[j])continue;
+			return C[j]>k.C[j];
+		}
+		return 0;
+	}
+	bool operator==(const I2 &k)const
+	{
+		int j;
+		if(z!=k.z)return 0;
+		if(w!=k.w)return 0;
+		for(j=0;j<6;j++)
+			if(C[j]!=k.C[j])
+				return 0;
+		return 1;
+	}
+}x[100003];
+int n,m,i,j,g,q,s;
+int main()
+{
+	for(i=0;i<6;i++)cin>>l.C[i];
+	cin>>l.z>>n>>m;
+	for(i=0;i<n;i++)
+	{
+		x[i].H=i;
+		s=0;
+		for(j=0;j<6;j++)
+		{
+			cin>>p.C[j];
+			s+=p.C[j];
+		}
+		cin>>g;
+		s+=g;
+		x[i].z=(s>=l.z);
+		for(j=0;j<6;j++)
+		{
+			x[i].C[j]=(p.C[j]>=l.C[j]);
+			x[i].w+=(p.C[j]>=l.C[j]);
+		}
+	}
+	sort(x,x+n);
+	i=0;
+	while(i<n)
+	{
+		if(q>=m)break;
+		j=i;
+		while(j<n&&x[i]==x[j])j++;
+		q+=(j-i);
+		i=j;
+	}
+	cout<<q;
+	return 0;
+}

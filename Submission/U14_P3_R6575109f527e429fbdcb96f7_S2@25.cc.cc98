@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[300010],b[300010];
+int main()
+{
+	int n,p,q;
+	cin>>n;
+	for(int i=1;i<=n+1;i++)
+		cin>>a[i];
+	int lz=-100;
+	for(int i=1;i<=n+1;i++)
+		if(lz<a[i])
+			lz=a[i];
+	p=lz;
+	int lz2;
+	for(int i=2;i<=n;i++)
+		b[i]=a[i]-a[i-1];
+	for(int i=2;i<=n+1;i++)
+		if(lz2<b[i])
+			lz2=b[i];
+	q=lz2;
+	cout<<lz<<endl<<lz2;
+	return 0;
+}

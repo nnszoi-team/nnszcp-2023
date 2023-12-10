@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int T;
+	cin>>T;
+	for(int i=0;i<T;i++){
+		int a,b;
+		cin>>a>>b;
+		double k=a*1.0/b,x,y,ans;
+		x=k/2;
+		y=x*(k-x);
+		ans=2*x*x+y*y+1;
+		printf("%0.12lf\n",ans);
+	}
+	return 0;
+}

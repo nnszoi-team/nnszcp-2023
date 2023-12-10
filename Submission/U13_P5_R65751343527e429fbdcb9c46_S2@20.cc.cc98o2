@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int l[9],n,m,as[100010][8];
+
+int main(){
+	for(int i=1;i<=7;i++){
+		cin>>l[i];
+	}
+	cin>>n>>m;
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=7;j++){
+			cin>>as[i][j];
+		}
+		//cin>>as[i].a>>as[i].b>>as[i].c>>as[i].d>>as[i].e>>as[i].f>>as[i].g;
+	}
+	cout<<m;
+	return 0;
+}

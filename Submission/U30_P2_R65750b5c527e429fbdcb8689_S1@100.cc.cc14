@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+string s;
+int main() {
+	cin >> s;
+	int n = s.size();
+	int op = 0;
+	for (int i = 0; i + 3 < n; i++) {
+		if (s[i] == 'n') {
+			if (s[i+1] == 'n' && s[i+2] == 's' && s[i+3] == 'z') {
+				cout << "YES";
+				op = 1;
+				break;
+			}
+		}
+	}
+	if (op == 0) {
+		cout << "NO";
+	}
+	
+	return 0;
+}

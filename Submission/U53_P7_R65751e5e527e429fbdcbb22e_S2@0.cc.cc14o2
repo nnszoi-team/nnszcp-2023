@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+long double f2(long double m, long double k)
+{
+    return 2 * m * m * m - 3 * m * m + k * k *m - k;
+}
+long double f1(long double m, long double k)
+{
+    return (m*m+1)*(m-k+1)*(m-k-1);
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int a, b, k, times=0, resold = -1e9;
+    long double alpha=1e-2, m=0;
+    long double res = -1e10;
+    for (int i = 0; i < n ; i++){
+        cin >> a >> b;
+        k = a/b;
+        while(times < 1e5)
+        {
+            if (abs(res - resold) < 1e-9) break;
+            res = f1(m, k);
+            resold = res;
+            m += (alpha * f2(m,k));
+            times++;
+        }
+        cout << res;
+    }
+}

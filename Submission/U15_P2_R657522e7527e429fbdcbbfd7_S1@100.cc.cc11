@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	string s;
+	int s_find=-1;
+	cin>>s;
+	s_find=s.find("nnsz");
+	if(s_find==-1) cout<<"no";
+	else cout<<"yes";
+	return 0;
+}

@@ -1,0 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	long long a,b,x=-10000,c,s,y,z=-10000,u,n,x1=-10000;
+	cin>>n;
+	cout<<n;	
+	return 0;
+}

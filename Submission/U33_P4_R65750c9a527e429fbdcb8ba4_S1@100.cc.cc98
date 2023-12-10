@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n, m;
+int h[2005], s[100005], cnt, h1[2001000];
+int main(){
+	ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+	cin >> n >>m;
+	for (int i = 1;i <= n;i++){
+		cin >> h[i];
+	}
+	for (int i = 1;i <= n;i++){
+		for (int j = 1;j <i;j++){
+			h1[++cnt] = abs(h[i] - h[j]);
+		}
+	}
+	sort(h1 + 1, h1 + 1 + cnt);
+	for (int i = 1;i <= m;i++){
+		cin >> s[i];
+		int l = 1, r = cnt ;
+		while (l < r){
+			int mid = (l + r) >> 1;
+			if (h1[mid] > s[i]) r = mid - 1;
+			else l = mid + 1; 
+		}
+		if(h1[l]>s[i])cout << l-1 << '\n';
+		else cout<<l<<'\n';
+	}
+	return 0;
+}

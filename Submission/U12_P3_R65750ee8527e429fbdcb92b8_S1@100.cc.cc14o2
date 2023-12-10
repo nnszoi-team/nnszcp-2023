@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+#define rint register int
+using namespace std;
+
+int n,as1=-1e8,as2=-1e8;
+int a[300010];
+
+int main(){
+	scanf("%d",&n);
+	for(rint i=0;i<=n;i++)
+		scanf("%d",&a[i]);
+	
+	for(rint i=0;i<=n;i++)
+		as1 = max(as1,a[i]);
+	for(rint i=0;i<n;i++)
+		as2 = max(as2,a[i+1]-a[i]);
+	
+	printf("%d\n%d",as1,as2);
+	return 0;
+}
